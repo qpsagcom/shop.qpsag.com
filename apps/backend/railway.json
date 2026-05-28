@@ -5,7 +5,7 @@
     "buildCommand": "NODE_ENV=development pnpm install --frozen-lockfile && pnpm backend:build"
   },
   "deploy": {
-    "startCommand": "pnpm backend:deploy",
+    "startCommand": "pnpm backend:railway",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",

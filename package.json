@@ -18,6 +18,7 @@
     "backend:build": "pnpm --filter @dtc/backend build",
     "backend:start": "pnpm --filter @dtc/backend start",
     "backend:deploy": "pnpm --filter @dtc/backend exec medusa db:migrate && pnpm --filter @dtc/backend start",
+    "backend:railway": "pnpm backend:build && pnpm --filter @dtc/backend exec medusa db:migrate && pnpm --filter @dtc/backend start",
 
     "storefront:build": "pnpm --filter @dtc/storefront build",
     "storefront:start": "pnpm --filter @dtc/storefront start"
