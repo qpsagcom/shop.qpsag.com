@@ -1,11 +1,17 @@
+# Railway baut vom Monorepo-Root – dieser Pfad ist relativ zum Root
+# Railway-Service-Einstellungen:
+#   Root Directory: / (leer lassen)
+#   Build Command:  pnpm install && pnpm backend:build
+#   Start Command:  pnpm backend:deploy
+
 [phases.setup]
 nixPkgs = ["nodejs_22"]
 
 [phases.install]
-cmds = ["npm install -g pnpm && pnpm install --frozen-lockfile"]
+cmds = ["npm install -g pnpm@10 && pnpm install --frozen-lockfile"]
 
 [phases.build]
-cmds = ["pnpm build"]
+cmds = ["pnpm backend:build"]
 
 [start]
-cmd = "pnpm start"
+cmd = "pnpm backend:deploy"
