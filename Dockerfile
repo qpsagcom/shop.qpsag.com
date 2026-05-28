@@ -41,6 +41,9 @@ RUN pnpm install --frozen-lockfile
 # Gebaute Artefakte aus Stage 1 übernehmen
 COPY --from=builder /app/apps/backend/.medusa /app/apps/backend/.medusa
 
+# JS-Wrapper für medusa-config (Node kann .ts nicht direkt laden)
+COPY apps/backend/medusa-config.js apps/backend/medusa-config.js
+
 EXPOSE 9000
 
 # Migrations ausführen und Server starten
