@@ -51,6 +51,9 @@ importers:
       '@medusajs/ui':
         specifier: 4.1.13
         version: 4.1.13(@types/react-dom@19.0.5(@types/react@19.0.5))(@types/react@19.0.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      '@swc/core':
+        specifier: ^1.7.28
+        version: 1.15.3(@swc/helpers@0.5.17)
       '@tanstack/react-query':
         specifier: 5.64.2
         version: 5.64.2(react@18.3.1)
@@ -60,6 +63,9 @@ importers:
       react-router-dom:
         specifier: 6.30.3
         version: 6.30.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      vite:
+        specifier: ^5.4.14
+        version: 5.4.21(@types/node@20.19.26)(terser@5.44.1)
       zod:
         specifier: 4.2.0
         version: 4.2.0
@@ -67,9 +73,6 @@ importers:
       '@medusajs/test-utils':
         specifier: 2.15.3
         version: 2.15.3(@medusajs/core-flows@2.15.3(@medusajs/framework@2.15.3(@medusajs/cli@2.15.3(@types/node@20.19.26))(@types/node@20.19.26)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.26)(terser@5.44.1))(zod@4.2.0)))(@medusajs/framework@2.15.3(@medusajs/cli@2.15.3(@types/node@20.19.26))(@types/node@20.19.26)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.26)(terser@5.44.1))(zod@4.2.0))(@medusajs/medusa@2.15.3)
-      '@swc/core':
-        specifier: ^1.7.28
-        version: 1.15.3(@swc/helpers@0.5.17)
       '@swc/jest':
         specifier: ^0.2.36
         version: 0.2.39(@swc/core@1.15.3(@swc/helpers@0.5.17))
@@ -103,9 +106,6 @@ importers:
       typescript:
         specifier: ^5.6.2
         version: 5.9.3
-      vite:
-        specifier: ^5.4.14
-        version: 5.4.21(@types/node@20.19.26)(terser@5.44.1)
       yalc:
         specifier: ^1.0.0-pre.53
         version: 1.0.0-pre.53
