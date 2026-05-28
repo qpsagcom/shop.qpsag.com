@@ -28,7 +28,7 @@ Railway Dashboard → New Service → GitHub Repo → `qpsagcom/shop.qpsag.com`
 - Root Directory: *(leer lassen – Monorepo-Root)*
 
 **Settings → Build:**
-- Build Command: `pnpm install && pnpm backend:build`
+- Build Command: `NODE_ENV=development pnpm install --frozen-lockfile && pnpm backend:build`
 
 **Settings → Deploy:**
 - Start Command: `pnpm backend:deploy`
@@ -50,7 +50,7 @@ Railway Dashboard → New Service → GitHub Repo → `qpsagcom/shop.qpsag.com`
 - Root Directory: *(leer lassen – Monorepo-Root)*
 
 **Settings → Build:**
-- Build Command: `pnpm install && pnpm storefront:build`
+- Build Command: `NODE_ENV=development pnpm install --frozen-lockfile && pnpm storefront:build`
 
 **Settings → Deploy:**
 - Start Command: `pnpm storefront:start`
