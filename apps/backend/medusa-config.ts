@@ -11,6 +11,7 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+      port: parseInt(process.env.PORT || "9000"),
     },
   },
   plugins: [],
@@ -23,7 +24,6 @@ module.exports = defineConfig({
             options: {
               apiKey: process.env.STRIPE_API_KEY,
               webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-              // Automatische Capture nach Bestellung
               capture: true,
             },
           },
