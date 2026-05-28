@@ -7,6 +7,7 @@ import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import { getTranslator } from "@lib/i18n/translations"
 
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
@@ -14,6 +15,8 @@ export default async function Nav() {
     listLocales(),
     getLocale(),
   ])
+
+  const translate = getTranslator(currentLocale)
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
@@ -25,13 +28,14 @@ export default async function Nav() {
             </div>
           </div>
 
+          {/* Logo / Store Name */}
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus hover:text-ui-fg-base font-semibold tracking-tight"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              QPS AG
             </LocalizedClientLink>
           </div>
 
@@ -42,7 +46,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                {translate("nav_account")}
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -52,7 +56,7 @@ export default async function Nav() {
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  {translate("nav_cart")} (0)
                 </LocalizedClientLink>
               }
             >

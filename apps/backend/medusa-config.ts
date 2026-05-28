@@ -11,6 +11,23 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    }
-  }
+    },
+  },
+  plugins: [],
+  modules: [
+    // Stripe Payment Provider
+    ...(process.env.STRIPE_API_KEY
+      ? [
+          {
+            resolve: "@medusajs/payment-stripe",
+            options: {
+              apiKey: process.env.STRIPE_API_KEY,
+              webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+              // Automatische Capture nach Bestellung
+              capture: true,
+            },
+          },
+        ]
+      : []),
+  ],
 })
