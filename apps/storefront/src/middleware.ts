@@ -82,14 +82,17 @@ async function getCountryCode(
     .get("x-vercel-ip-country")
     ?.toLowerCase()
 
-  if (urlCountryCode && regionMap.has(urlCountryCode)) {
+  if (
+    urlCountryCode &&
+    (regionMap.has(urlCountryCode) || urlCountryCode === DEFAULT_REGION)
+  ) {
     countryCode = urlCountryCode
+  } else if (regionMap.has(DEFAULT_REGION)) {
+    countryCode = DEFAULT_REGION
   } else if (cloudflareCountryCode && regionMap.has(cloudflareCountryCode)) {
     countryCode = cloudflareCountryCode
   } else if (vercelCountryCode && regionMap.has(vercelCountryCode)) {
     countryCode = vercelCountryCode
-  } else if (regionMap.has(DEFAULT_REGION)) {
-    countryCode = DEFAULT_REGION
   } else if (regionMap.keys().next().value) {
     countryCode = regionMap.keys().next().value
   }
