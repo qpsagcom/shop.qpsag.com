@@ -1,0 +1,12 @@
+.git
+node_modules
+apps/*/node_modules
+apps/*/.next
+apps/*/.medusa
+apps/*/.cache
+.env
+.env.*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
