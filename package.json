@@ -16,9 +16,9 @@
     "storefront:dev": "turbo dev --filter=@dtc/storefront",
 
     "backend:build": "pnpm --filter @dtc/backend build",
-    "backend:start": "pnpm --filter @dtc/backend start",
-    "backend:deploy": "pnpm --filter @dtc/backend exec medusa db:migrate && pnpm --filter @dtc/backend start",
-    "backend:railway": "pnpm backend:build && pnpm --filter @dtc/backend exec medusa db:migrate && pnpm --filter @dtc/backend start",
+    "backend:start": "cd apps/backend/.medusa/server && npm run start",
+    "backend:deploy": "cd apps/backend/.medusa/server && npm exec medusa db:migrate && npm run start",
+    "backend:railway": "pnpm backend:build && cd apps/backend/.medusa/server && npm install --omit=dev --no-audit --no-fund && npm exec medusa db:migrate && npm run start",
 
     "storefront:build": "pnpm --filter @dtc/storefront build",
     "storefront:start": "pnpm --filter @dtc/storefront start"
