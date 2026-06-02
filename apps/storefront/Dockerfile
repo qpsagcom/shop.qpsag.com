@@ -37,6 +37,5 @@ ENV MEDUSA_CLOUD_S3_PATHNAME=$MEDUSA_CLOUD_S3_PATHNAME
 RUN pnpm storefront:build
 
 ENV NODE_ENV=production
-EXPOSE 8000
 
-CMD ["pnpm", "storefront:start"]
+CMD ["sh", "-c", "pnpm --filter @dtc/storefront start"]
