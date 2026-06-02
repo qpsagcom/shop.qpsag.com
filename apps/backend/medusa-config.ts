@@ -15,15 +15,22 @@ module.exports = defineConfig({
   },
   plugins: [],
   modules: [
-    // Stripe Payment Provider
     ...(process.env.STRIPE_API_KEY
       ? [
           {
-            resolve: "@medusajs/payment-stripe",
+            resolve: "@medusajs/medusa/payment",
             options: {
-              apiKey: process.env.STRIPE_API_KEY,
-              webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-              capture: true,
+              providers: [
+                {
+                  resolve: "@medusajs/medusa/payment-stripe",
+                  id: "stripe",
+                  options: {
+                    apiKey: process.env.STRIPE_API_KEY,
+                    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+                    capture: true,
+                  },
+                },
+              ],
             },
           },
         ]
