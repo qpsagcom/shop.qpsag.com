@@ -40,7 +40,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
               <div className="relative flex h-full">
                 <Popover.Button
                   data-testid="nav-menu-button"
-                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base"
+                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-qps-ink"
                 >
                   Menu
                 </Popover.Button>
@@ -94,7 +94,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                                   <li key={name}>
                                     <LocalizedClientLink
                                       href={href}
-                                      className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                                      className="text-3xl leading-10 transition-colors hover:text-qps-signal"
                                       onClick={close}
                                       data-testid={`${name.toLowerCase()}-link`}
                                     >

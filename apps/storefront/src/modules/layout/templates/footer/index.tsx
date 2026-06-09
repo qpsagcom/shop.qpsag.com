@@ -30,8 +30,8 @@ export default async function Footer() {
               QPS AG
             </LocalizedClientLink>
             <p className="mt-4 text-sm leading-6 text-qps-graphite">
-              Swiss Precision Commerce für ein ruhiges, schnelles und
-              vertrauenswürdiges Einkaufserlebnis.
+              Industrial Robotics, Visual Inspection und Measurement
+              Technology für Pharma, Biotech und Food Tech.
             </p>
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
               shop.qpsag.com

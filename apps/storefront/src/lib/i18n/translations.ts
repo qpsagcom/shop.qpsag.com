@@ -74,9 +74,9 @@ const translations = {
     store_sort_price_desc: "Preis absteigend",
 
     // Hero
-    hero_title: "Präzise Produkte. Ruhig kuratiert.",
-    hero_subtitle: "Ein schneller Schweizer Commerce-Store für ausgewählte Produkte, sichere Zahlungen und klare Kaufentscheidungen.",
-    hero_cta: "Jetzt entdecken",
+    hero_title: "Robotik für regulierte Industrie.",
+    hero_subtitle: "QPS Engineering AG liefert High-Precision Technology Solutions für Pharma, Biotech und Food Tech: Robotics, Visual Inspection, Measurement und GxP-nahe Integration.",
+    hero_cta: "Robotics ansehen",
 
     // Order
     order_confirmed: "Bestellung bestätigt",
@@ -158,9 +158,9 @@ const translations = {
     store_sort_price_desc: "Price: High to Low",
 
     // Hero
-    hero_title: "Precise products. Calmly curated.",
-    hero_subtitle: "A fast Swiss commerce store for selected products, secure payments, and clear buying decisions.",
-    hero_cta: "Shop Now",
+    hero_title: "Robotics for regulated industry.",
+    hero_subtitle: "QPS Engineering AG delivers high-precision technology solutions for pharma, biotech, and food tech: robotics, visual inspection, measurement, and GxP-ready integration.",
+    hero_cta: "Explore Robotics",
 
     // Order
     order_confirmed: "Order Confirmed",

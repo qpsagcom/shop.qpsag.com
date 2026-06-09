@@ -53,7 +53,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             variants={fadeUp}
             className="mb-5 inline-flex rounded-full border border-qps-line bg-qps-surface/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted shadow-sm"
           >
-            Swiss precision storefront
+            QxTec robotics systems
           </m.p>
           <m.div variants={fadeUp}>
             <Heading
@@ -93,9 +93,9 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-12 grid max-w-2xl grid-cols-3 gap-3 text-left"
           >
             {[
-              ["01", "Curated catalog"],
-              ["CH", "CHF checkout"],
-              ["24h", "Launch rhythm"],
+              ["GxP", "Regulated industry"],
+              ["AI", "Vision systems"],
+              ["CH", "Swiss engineering"],
             ].map(([value, label]) => (
               <m.div
                 key={value}
@@ -128,8 +128,8 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
           <div className="absolute inset-0 rounded-[2rem] border border-qps-line bg-[radial-gradient(circle_at_28%_22%,rgb(var(--qps-signal)/0.20),transparent_34%),linear-gradient(145deg,rgb(var(--qps-surface)),rgb(var(--qps-paper)))] p-5 shadow-[0_24px_80px_rgba(17,19,21,0.10)]">
             <div className="flex h-full flex-col justify-between rounded-[1.35rem] border border-qps-line bg-qps-paper/80 p-6 backdrop-blur-sm">
               <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-qps-muted">
-                <span>QPS Launch Board</span>
-                <span>Live</span>
+                <span>Robotics Cell</span>
+                <span>QxTec</span>
               </div>
               <m.div
                 className="mx-auto grid h-64 w-64 place-items-center rounded-full border border-qps-line bg-qps-surface shadow-inner small:h-80 small:w-80"
@@ -143,24 +143,24 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 <div className="relative grid h-48 w-48 place-items-center rounded-full border border-qps-line small:h-60 small:w-60">
                   <div className="absolute inset-6 rounded-full border border-dashed border-qps-steel/60" />
                   <span className="text-6xl font-semibold tracking-[-0.08em] text-qps-ink small:text-8xl">
-                    QPS
+                    RBT
                   </span>
                 </div>
               </m.div>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-large border border-qps-line bg-qps-surface p-4">
                   <p className="text-[11px] uppercase tracking-[0.16em] text-qps-muted">
-                    Storefront
+                    Platform
                   </p>
                   <p className="mt-2 text-lg font-semibold text-qps-ink">
-                    Editorial grid
+                    Robotic systems
                   </p>
                 </div>
                 <div className="rounded-large border border-qps-line bg-qps-ink p-4 text-qps-paper">
                   <p className="text-[11px] uppercase tracking-[0.16em] text-qps-paper/60">
-                    Commerce
+                    Focus
                   </p>
-                  <p className="mt-2 text-lg font-semibold">CHF ready</p>
+                  <p className="mt-2 text-lg font-semibold">Inspection</p>
                 </div>
               </div>
             </div>

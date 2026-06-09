@@ -4,48 +4,33 @@
 
 @layer base {
   :root {
-    --qps-ink: 17 19 21;
-    --qps-graphite: 43 47 51;
-    --qps-muted: 112 118 125;
-    --qps-paper: 250 248 243;
+    --qps-ink: 5 7 10;
+    --qps-graphite: 35 42 50;
+    --qps-muted: 100 111 124;
+    --qps-paper: 252 253 255;
     --qps-surface: 255 255 255;
-    --qps-line: 231 225 216;
-    --qps-steel: 142 153 164;
-    --qps-signal: 196 122 58;
-    --qps-signal-dark: 143 79 33;
-    --qps-success: 47 107 79;
-    --qps-danger: 180 61 50;
+    --qps-line: 226 232 240;
+    --qps-steel: 126 140 156;
+    --qps-signal: 190 105 42;
+    --qps-signal-dark: 126 62 21;
+    --qps-success: 35 119 82;
+    --qps-danger: 185 52 44;
     color-scheme: light;
   }
 
-  [data-qps-theme="graphite"] {
-    --qps-ink: 241 237 229;
-    --qps-graphite: 215 207 194;
-    --qps-muted: 159 150 138;
-    --qps-paper: 17 19 21;
-    --qps-surface: 31 34 37;
-    --qps-line: 66 61 54;
-    --qps-steel: 139 148 154;
-    --qps-signal: 217 143 76;
-    --qps-signal-dark: 238 176 113;
-    --qps-success: 112 174 139;
-    --qps-danger: 226 103 90;
+  [data-qps-theme="dark"] {
+    --qps-ink: 246 248 251;
+    --qps-graphite: 204 212 222;
+    --qps-muted: 133 143 156;
+    --qps-paper: 0 0 0;
+    --qps-surface: 8 9 11;
+    --qps-line: 33 36 42;
+    --qps-steel: 118 132 148;
+    --qps-signal: 238 139 68;
+    --qps-signal-dark: 255 178 106;
+    --qps-success: 96 190 139;
+    --qps-danger: 255 112 97;
     color-scheme: dark;
-  }
-
-  [data-qps-theme="alpine"] {
-    --qps-ink: 18 34 34;
-    --qps-graphite: 38 63 60;
-    --qps-muted: 91 114 109;
-    --qps-paper: 241 247 241;
-    --qps-surface: 252 255 250;
-    --qps-line: 205 220 210;
-    --qps-steel: 99 137 130;
-    --qps-signal: 47 107 79;
-    --qps-signal-dark: 25 75 55;
-    --qps-success: 47 107 79;
-    --qps-danger: 164 63 54;
-    color-scheme: light;
   }
 
   html {
@@ -62,6 +47,30 @@
     transition:
       background-color 220ms ease,
       color 220ms ease;
+  }
+
+  [data-qps-theme="dark"] body {
+    background-image:
+      radial-gradient(circle at top left, rgb(var(--qps-signal) / 0.14), transparent 30rem),
+      radial-gradient(circle at bottom right, rgb(var(--qps-steel) / 0.08), transparent 28rem),
+      linear-gradient(rgb(var(--qps-line) / 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--qps-line) / 0.18) 1px, transparent 1px);
+  }
+
+  [data-qps-theme="dark"] .bg-qps-ink {
+    background-color: rgb(3 4 6 / var(--tw-bg-opacity, 1));
+  }
+
+  [data-qps-theme="dark"] .text-qps-paper {
+    color: rgb(246 248 251 / var(--tw-text-opacity, 1));
+  }
+
+  [data-qps-theme="dark"] .border-qps-paper\/15 {
+    border-color: rgb(246 248 251 / 0.15);
+  }
+
+  [data-qps-theme="dark"] .bg-qps-paper\/8 {
+    background-color: rgb(246 248 251 / 0.08);
   }
 
   ::selection {
