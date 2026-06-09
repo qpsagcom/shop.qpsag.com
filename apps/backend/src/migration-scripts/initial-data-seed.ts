@@ -36,6 +36,18 @@ export default async function initial_data_seed({
 
   const countries = ["gb", "de", "dk", "se", "fr", "es", "it"];
 
+  const { data: existingRegions } = await query.graph({
+    entity: "region",
+    fields: ["id", "name"],
+  });
+
+  if (existingRegions.length > 0) {
+    logger.info(
+      "Store seed data already exists. Skipping initial demo data seed."
+    );
+    return;
+  }
+
   logger.info("Seeding store data...");
   const {
     result: [defaultSalesChannel],
