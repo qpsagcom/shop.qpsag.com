@@ -6,6 +6,7 @@ import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
+import QpsLogo from "@modules/layout/components/qps-logo"
 import SideMenu from "@modules/layout/components/side-menu"
 import { getTranslator } from "@lib/i18n/translations"
 
@@ -30,15 +31,8 @@ export default async function Nav() {
             </div>
           </div>
 
-          {/* Logo / Store Name */}
           <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus font-semibold tracking-tight text-qps-ink transition-colors hover:text-qps-signal"
-              data-testid="nav-store-link"
-            >
-              QPS AG
-            </LocalizedClientLink>
+            <QpsLogo />
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">

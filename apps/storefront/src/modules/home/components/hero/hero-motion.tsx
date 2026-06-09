@@ -22,12 +22,11 @@ const container = {
   },
 }
 
+const heroImageUrl =
+  "https://qpsag.com/wp-content/uploads/2024/09/QPS_Engineering_Fotoshooting_-2-960x718.jpg"
+
 export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()
-
-  const cardReveal = shouldReduceMotion
-    ? { opacity: 1, y: 0, rotate: 0 }
-    : { opacity: 1, y: 0, rotate: 2 }
 
   return (
     <section className="relative overflow-hidden border-b border-qps-line bg-qps-paper">
@@ -120,51 +119,63 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
           transition={{ ...qpsMotion.soft, delay: 0.22 }}
         >
           <m.div
-            className="absolute inset-x-8 top-6 h-[82%] rounded-[2rem] border border-qps-line bg-qps-surface shadow-[0_32px_90px_rgba(17,19,21,0.12)]"
-            initial={shouldReduceMotion ? false : { opacity: 0, rotate: 0 }}
-            animate={cardReveal}
+            className="absolute inset-0 overflow-hidden rounded-[2rem] border border-qps-line bg-qps-surface shadow-[0_28px_90px_rgba(0,0,0,0.14)]"
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ ...qpsMotion.soft, delay: 0.32 }}
-          />
-          <div className="absolute inset-0 rounded-[2rem] border border-qps-line bg-[radial-gradient(circle_at_28%_22%,rgb(var(--qps-signal)/0.20),transparent_34%),linear-gradient(145deg,rgb(var(--qps-surface)),rgb(var(--qps-paper)))] p-5 shadow-[0_24px_80px_rgba(17,19,21,0.10)]">
-            <div className="flex h-full flex-col justify-between rounded-[1.35rem] border border-qps-line bg-qps-paper/80 p-6 backdrop-blur-sm">
-              <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-qps-muted">
-                <span>Robotics Cell</span>
-                <span>QxTec</span>
-              </div>
-              <m.div
-                className="mx-auto grid h-64 w-64 place-items-center rounded-full border border-qps-line bg-qps-surface shadow-inner small:h-80 small:w-80"
-                animate={shouldReduceMotion ? undefined : { y: [0, -8, 0] }}
-                transition={{
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <div className="relative grid h-48 w-48 place-items-center rounded-full border border-qps-line small:h-60 small:w-60">
-                  <div className="absolute inset-6 rounded-full border border-dashed border-qps-steel/60" />
-                  <span className="text-6xl font-semibold tracking-[-0.08em] text-qps-ink small:text-8xl">
-                    RBT
-                  </span>
-                </div>
-              </m.div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-large border border-qps-line bg-qps-surface p-4">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-qps-muted">
-                    Platform
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-qps-ink">
-                    Robotic systems
-                  </p>
-                </div>
-                <div className="rounded-large border border-qps-line bg-qps-ink p-4 text-qps-paper">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-qps-paper/60">
-                    Focus
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">Inspection</p>
-                </div>
-              </div>
+          >
+            <img
+              src={heroImageUrl}
+              alt="QPS Engineering industrial robotics and process technology environment"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(var(--qps-paper)/0.92)_0%,rgb(var(--qps-paper)/0.52)_42%,rgb(0_0_0/0.18)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
+
+            <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface/86 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted backdrop-blur-md">
+              <span>Robotics Cell</span>
+              <span>QxTec</span>
             </div>
-          </div>
+
+            <m.div
+              className="absolute bottom-5 left-5 max-w-[18rem] rounded-[1.35rem] border border-qps-line bg-qps-surface/88 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...qpsMotion.soft, delay: 0.44 }}
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-signal">
+                Industrial Robotics
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
+                High-precision technology solutions
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-qps-graphite">
+                Robotics, inspection and measurement technology for regulated
+                production.
+              </p>
+            </m.div>
+
+            <m.div
+              className="absolute bottom-5 right-5 hidden w-48 rounded-[1.2rem] border border-qps-paper/15 bg-qps-ink/88 p-4 text-qps-paper shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-md xsmall:block"
+              initial={shouldReduceMotion ? false : { opacity: 0, x: 14 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ ...qpsMotion.soft, delay: 0.52 }}
+            >
+              <p className="text-[11px] uppercase tracking-[0.18em] text-qps-paper/55">
+                Focus
+              </p>
+              <p className="mt-2 text-lg font-semibold">Visual Inspection</p>
+              <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-qps-paper/15">
+                <m.div
+                  className="h-full rounded-full bg-qps-signal"
+                  initial={shouldReduceMotion ? false : { scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ ...qpsMotion.soft, delay: 0.7 }}
+                  style={{ transformOrigin: "left" }}
+                />
+              </div>
+            </m.div>
+          </m.div>
         </m.div>
       </div>
     </section>

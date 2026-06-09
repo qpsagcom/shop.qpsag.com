@@ -7,18 +7,39 @@ import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { qpsMotion } from "@modules/common/components/motion"
 import { Text, clx } from "@modules/common/components/ui"
+import QpsLogo from "@modules/layout/components/qps-logo"
 import CountrySelect from "../country-select"
 import LanguageSelect from "../language-select"
 import { Locale } from "@lib/data/locales"
 import { AnimatePresence, useReducedMotion } from "motion/react"
 import * as m from "motion/react-m"
 
-const SideMenuItems = {
-  Home: "/",
-  Store: "/store",
-  Account: "/account",
-  Cart: "/cart",
-}
+const SideMenuItems = [
+  {
+    name: "Home",
+    href: "/",
+    eyebrow: "Overview",
+    description: "QPS Robotics storefront",
+  },
+  {
+    name: "Robotics Store",
+    href: "/store",
+    eyebrow: "Catalog",
+    description: "Systems, inspection and measurement",
+  },
+  {
+    name: "Account",
+    href: "/account",
+    eyebrow: "Procurement",
+    description: "Orders and addresses",
+  },
+  {
+    name: "Cart",
+    href: "/cart",
+    eyebrow: "Checkout",
+    description: "Review selected equipment",
+  },
+] as const
 
 type SideMenuProps = {
   regions: HttpTypes.StoreRegion[] | null
@@ -40,8 +61,9 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
               <div className="relative flex h-full">
                 <Popover.Button
                   data-testid="nav-menu-button"
-                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-qps-ink"
+                  className="relative flex h-full items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-200 ease-out focus:outline-none hover:text-qps-ink"
                 >
+                  <span className="h-1.5 w-1.5 rounded-full bg-qps-signal" />
                   Menu
                 </Popover.Button>
               </div>
@@ -59,7 +81,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       transition={qpsMotion.quick}
                     />
                     <m.div
-                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-ui-fg-on-color backdrop-blur-2xl sm:w-1/3 sm:min-w-min sm:pr-0 2xl:w-1/4"
+                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-qps-paper backdrop-blur-2xl sm:w-[440px] sm:min-w-min sm:pr-0"
                       initial={
                         shouldReduceMotion
                           ? { opacity: 0 }
@@ -76,36 +98,72 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       <PopoverPanel static className="flex h-full flex-col">
                         <div
                           data-testid="nav-menu-popup"
-                          className="flex h-full flex-col justify-between rounded-[1.4rem] border border-qps-paper/10 bg-qps-ink/88 p-6 shadow-[0_32px_90px_rgba(17,19,21,0.32)]"
+                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.4rem] border border-qps-paper/10 bg-[linear-gradient(145deg,rgb(3,4,6),rgb(17,19,23))] p-6 shadow-[0_32px_90px_rgba(0,0,0,0.44)]"
                         >
-                          <div className="flex justify-end" id="xmark">
+                          <div className="pointer-events-none absolute -right-20 top-12 h-56 w-56 rounded-full bg-qps-signal/20 blur-3xl" />
+                          <div className="relative flex items-start justify-between gap-6" id="xmark">
+                            <QpsLogo className="text-qps-paper [&_span:last-child_span:first-child]:text-qps-paper [&_span:last-child_span:last-child]:text-qps-paper/55" />
                             <button
                               data-testid="close-menu-button"
                               onClick={close}
                               className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-qps-paper/15 transition-colors hover:bg-qps-paper/10"
+                              aria-label="Close menu"
                             >
                               <XMark />
                             </button>
                           </div>
-                          <ul className="flex flex-col gap-6 items-start justify-start">
-                            {Object.entries(SideMenuItems).map(
-                              ([name, href]) => {
-                                return (
-                                  <li key={name}>
-                                    <LocalizedClientLink
-                                      href={href}
-                                      className="text-3xl leading-10 transition-colors hover:text-qps-signal"
-                                      onClick={close}
-                                      data-testid={`${name.toLowerCase()}-link`}
-                                    >
-                                      {name}
-                                    </LocalizedClientLink>
-                                  </li>
-                                )
-                              }
-                            )}
+                          <ul className="relative mt-12 flex flex-col gap-3">
+                            {SideMenuItems.map((item, index) => (
+                              <m.li
+                                key={item.name}
+                                initial={
+                                  shouldReduceMotion
+                                    ? { opacity: 0 }
+                                    : { opacity: 0, x: -10 }
+                                }
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  ...qpsMotion.quick,
+                                  delay: 0.05 + index * 0.04,
+                                }}
+                              >
+                                <LocalizedClientLink
+                                  href={item.href}
+                                  className="group block rounded-[1.1rem] border border-qps-paper/10 bg-qps-paper/[0.04] p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
+                                  onClick={close}
+                                  data-testid={`${item.name.toLowerCase().replace(/\s+/g, "-")}-link`}
+                                >
+                                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-paper/45">
+                                    {item.eyebrow}
+                                  </span>
+                                  <span className="mt-2 flex items-center justify-between gap-4">
+                                    <span className="text-2xl font-semibold leading-8 tracking-[-0.04em] text-qps-paper transition-colors group-hover:text-qps-signal">
+                                      {item.name}
+                                    </span>
+                                    <ArrowRightMini className="shrink-0 text-qps-paper/40 transition-transform group-hover:translate-x-1 group-hover:text-qps-signal" />
+                                  </span>
+                                  <span className="mt-1 block text-sm leading-5 text-qps-paper/55">
+                                    {item.description}
+                                  </span>
+                                </LocalizedClientLink>
+                              </m.li>
+                            ))}
                           </ul>
-                          <div className="flex flex-col gap-y-6">
+                          <div className="relative flex flex-col gap-y-6 border-t border-qps-paper/10 pt-6">
+                            <div className="grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.16em] text-qps-paper/55">
+                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                                Pharma
+                              </div>
+                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                                Biotech
+                              </div>
+                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                                Food Tech
+                              </div>
+                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                                GxP
+                              </div>
+                            </div>
                             {!!locales?.length && (
                               <div
                                 className="flex justify-between"
