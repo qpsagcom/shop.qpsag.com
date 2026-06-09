@@ -12,15 +12,15 @@ export default async function ProductRail({
   collection: HttpTypes.StoreCollection
   region: HttpTypes.StoreRegion
 }) {
-  const {
-    response: { products: pricedProducts },
-  } = await listProducts({
+  const pricedProducts = await listProducts({
     regionId: region.id,
     queryParams: {
       collection_id: collection.id,
       fields: "*variants.calculated_price",
     },
   })
+    .then(({ response }) => response.products)
+    .catch(() => [])
 
   if (!pricedProducts) {
     return null

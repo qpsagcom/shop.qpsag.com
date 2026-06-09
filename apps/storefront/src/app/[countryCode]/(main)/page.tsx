@@ -19,15 +19,14 @@ export default async function Home(props: {
 
   const { countryCode } = params
 
-  const region = await getRegion(countryCode)
+  const [region, collectionsResult] = await Promise.all([
+    getRegion(countryCode).catch(() => null),
+    listCollections({
+      fields: "id, handle, title",
+    }).catch(() => ({ collections: [] })),
+  ])
 
-  const { collections } = await listCollections({
-    fields: "id, handle, title",
-  })
-
-  if (!collections || !region) {
-    return null
-  }
+  const collections = collectionsResult.collections
 
   return (
     <>
@@ -135,9 +134,27 @@ export default async function Home(props: {
             Raster bleibt ruhig, damit die Produkte hochwertiger wirken.
           </p>
         </div>
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
+        {collections.length > 0 && region ? (
+          <ul className="flex flex-col gap-x-6">
+            <FeaturedProducts collections={collections} region={region} />
+          </ul>
+        ) : (
+          <div className="content-container">
+            <div className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
+                Catalog temporarily unavailable
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-qps-ink">
+                Die kuratierten Produkte werden geladen, sobald die Store API
+                wieder antwortet.
+              </h3>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-qps-graphite">
+                Die Startseite bleibt erreichbar und der Checkout-Fluss wird
+                nicht durch einen temporären Backend-Fehler blockiert.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       <section className="bg-qps-ink py-16 text-qps-paper small:py-24">

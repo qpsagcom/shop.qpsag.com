@@ -8,8 +8,10 @@ import ColorSwitch from "@modules/layout/components/color-switch"
 
 export default async function Footer() {
   const [collections, productCategories, currentLocale] = await Promise.all([
-    listCollections({ fields: "*products" }).then((r) => r.collections),
-    listCategories(),
+    listCollections({ fields: "*products" })
+      .then((r) => r.collections)
+      .catch(() => []),
+    listCategories().catch(() => []),
     getLocale(),
   ])
 

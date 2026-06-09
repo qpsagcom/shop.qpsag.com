@@ -11,7 +11,9 @@ import { getTranslator } from "@lib/i18n/translations"
 
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
-    listRegions().then((regions: StoreRegion[]) => regions),
+    listRegions()
+      .then((regions: StoreRegion[]) => regions)
+      .catch(() => null),
     listLocales(),
     getLocale(),
   ])
