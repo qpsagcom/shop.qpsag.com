@@ -52,7 +52,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             variants={fadeUp}
             className="mb-5 inline-flex rounded-full border border-qps-line bg-qps-surface/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted shadow-sm"
           >
-            Visual Inspection Technology
+            QxTec Robotics Systems
           </m.p>
           <m.div variants={fadeUp}>
             <Heading
@@ -92,8 +92,8 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-12 grid max-w-2xl grid-cols-3 gap-3 text-left"
           >
             {[
-              ["Testsets", "Inspection quality"],
               ["ROVIS", "Inspection robot"],
+              ["Testsets", "Inspection quality"],
               ["GxP", "Regulated workflows"],
             ].map(([value, label]) => (
               <m.div
@@ -133,7 +133,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
 
             <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted">
-              <span>Visual Inspection</span>
+              <span>Robotics Cell</span>
               <span>QPS AG</span>
             </div>
 
@@ -144,14 +144,14 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               transition={{ ...qpsMotion.soft, delay: 0.44 }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-signal">
-                QPS Sortiment
+                Industrial Robotics
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                Testsets, ROVIS und Inspektionsboxen
+                ROVIS, Testsets und Inspektionsboxen
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Produkte für visuelle Inspektion, Qualifizierung und
-                reproduzierbare Prüfprozesse.
+                Robotics und Zubehör für visuelle Inspektion, Qualifizierung
+                und reproduzierbare Prüfprozesse.
               </p>
             </m.div>
 

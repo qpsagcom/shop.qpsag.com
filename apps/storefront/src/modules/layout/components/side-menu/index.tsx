@@ -19,13 +19,13 @@ const SideMenuItems = [
     name: "Home",
     href: "/",
     eyebrow: "Start",
-    description: "Visuelle Inspektion mit QPS",
+    description: "Robotics und visuelle Inspektion",
   },
   {
-    name: "Inspection Store",
+    name: "Robotics Store",
     href: "/store",
     eyebrow: "Sortiment",
-    description: "Testsets, ROVIS, Software und Inspektionsboxen",
+    description: "ROVIS, Roboter, Testsets und Software",
   },
   {
     name: "Account",
