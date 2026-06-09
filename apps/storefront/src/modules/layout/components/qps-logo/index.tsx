@@ -3,7 +3,7 @@
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const qpsLogoUrl =
-  "https://qpsag.com/wp-content/uploads/2024/09/QPS_Logo_gesamt_v03_QPS-normal-2.png"
+  "https://qpsag.com/wp-content/uploads/2024/10/QPS_Logo_gesamt_v03_QPS-kleinamasmall-5.png"
 
 type QpsLogoProps = {
   href?: string
