@@ -5,6 +5,7 @@ import { getTranslator } from "@lib/i18n/translations"
 import { Text, clx } from "@modules/common/components/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ColorSwitch from "@modules/layout/components/color-switch"
+import QpsLogo from "@modules/layout/components/qps-logo"
 
 export default async function Footer() {
   const [collections, productCategories, currentLocale] = await Promise.all([
@@ -23,12 +24,7 @@ export default async function Footer() {
         <div className="grid gap-12 py-16 small:grid-cols-[1fr_1.2fr] small:py-24">
           {/* Brand */}
           <div className="max-w-md">
-            <LocalizedClientLink
-              href="/"
-              className="text-3xl font-semibold tracking-[-0.06em] text-qps-ink transition-colors hover:text-qps-signal"
-            >
-              QPS AG
-            </LocalizedClientLink>
+            <QpsLogo />
             <p className="mt-4 text-sm leading-6 text-qps-graphite">
               Industrial Robotics, Visual Inspection und Measurement
               Technology für Pharma, Biotech und Food Tech.
@@ -42,6 +38,46 @@ export default async function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-10 text-small-regular md:gap-x-16 sm:grid-cols-3">
+            <div className="flex flex-col gap-y-4">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
+                Kontakt
+              </span>
+              <div className="grid gap-4 text-sm text-qps-muted">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-graphite">
+                    Backoffice Phone
+                  </p>
+                  <a
+                    className="mt-1 block transition-colors hover:text-qps-ink"
+                    href="tel:+41562819114"
+                  >
+                    +41 56 281 91 14
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-graphite">
+                    Email
+                  </p>
+                  <a
+                    className="mt-1 block transition-colors hover:text-qps-ink"
+                    href="mailto:info@qpsag.com"
+                  >
+                    info@qpsag.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-graphite">
+                    Our Location
+                  </p>
+                  <p className="mt-1 leading-6">
+                    Schaffhauserstrasse 30
+                    <br />
+                    4332 Stein, Switzerland
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Kategorien */}
             {productCategories && productCategories.length > 0 && (
               <div className="flex flex-col gap-y-2">

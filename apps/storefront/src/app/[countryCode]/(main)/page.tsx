@@ -5,6 +5,7 @@ import Hero from "@modules/home/components/hero"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ScrollReveal from "@modules/common/components/motion/scroll-reveal"
 
 export const metadata: Metadata = {
   title: "QPS AG Shop | Industrial Robotics & Inspection",
@@ -123,59 +124,61 @@ export default async function Home(props: {
       <section className="relative overflow-hidden bg-qps-paper py-16 small:py-28">
         <div className="pointer-events-none absolute right-0 top-12 h-80 w-80 rounded-full bg-qps-signal/12 blur-3xl" />
         <div className="content-container relative">
-          <div className="mb-8 grid gap-6 small:grid-cols-[0.95fr_1.05fr] small:items-end">
+          <ScrollReveal className="mb-8 grid gap-6 small:grid-cols-[0.95fr_1.05fr] small:items-end">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-                Robotics stack
+                QPS Shop Sortiment
               </p>
               <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-                Beschaffung für Automatisierung, Prüfung und Qualität.
+                Produkte für Prüfung, Robotik und regulierte Produktion.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-7 text-qps-graphite">
-              Der Shop soll nicht wie ein generischer Katalog wirken, sondern
-              wie ein technisches Beschaffungs-Cockpit für QPS-nahe Robotics,
-              Visual Inspection und Measurement-Komponenten.
+              Der Shop bündelt die ersten QPS-Angebote: Testsets,
+              Robotertechnik, ROVIS, Software und Inspektionsboxen für Pharma,
+              Biotech, Food Tech und andere regulierte Industrieprozesse.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid gap-4 small:grid-cols-6">
             {[
               {
-                title: "Robotic Inspection Cells",
-                body: "Systeme und Bausteine für automatisierte Sichtprüfung in regulierten Produktionsumgebungen.",
-                meta: "QxTec / Vision",
+                title: "Testset",
+                body: "Defect Test Sets, Referenzmuster und Trainingsmaterial für Visual Inspection und Qualifizierung.",
+                meta: "QLabs",
                 className: "small:col-span-3 small:row-span-2",
               },
               {
-                title: "Defect Test Sets",
-                body: "Referenzmuster, Trainingsmaterial und Qualifizierungsunterstützung für Visual Inspection.",
-                meta: "QLabs",
+                title: "Roboter",
+                body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Industrieprozesse.",
+                meta: "QxTec",
                 className: "small:col-span-3",
               },
               {
-                title: "Measurement Technology",
-                body: "Material ID, Oberflächenrauheit, LUX, Temperatur und Noise Level für Prozesskontrolle.",
-                meta: "QMeasure",
+                title: "ROVIS",
+                body: "Robotic Visual Inspection für automatisierte Prüfprozesse mit Machine Vision und GxP-Kontext.",
+                meta: "Vision Systems",
                 className: "small:col-span-2",
               },
               {
-                title: "Selection & Integration",
-                body: "Technische Auswahl und Integration passend zu Prozess, Risiko und Compliance.",
-                meta: "Engineering",
+                title: "Software",
+                body: "Digitale Workflows, AI-basierte Lösungen und Softwaremodule für Prüfung und Prozessführung.",
+                meta: "Digital",
                 className: "small:col-span-2",
               },
               {
-                title: "GxP Context",
-                body: "Produkte und Systeme mit Validierung, Qualifizierung und Dokumentation im Blick.",
-                meta: "Compliance",
+                title: "Inspektionsboxen",
+                body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training und Musterverwaltung.",
+                meta: "Inspection",
                 className: "small:col-span-2",
               },
-            ].map((item) => (
-              <article
+            ].map((item, index) => (
+              <ScrollReveal
                 key={item.title}
-                className={`group rounded-[1.6rem] border border-qps-line bg-qps-surface/80 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)] ${item.className}`}
+                delay={index * 0.04}
+                className={item.className}
               >
+                <article className="group h-full rounded-[1.6rem] border border-qps-line bg-qps-surface p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)]">
                 <div className="flex min-h-full flex-col justify-between gap-8">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
@@ -188,11 +191,13 @@ export default async function Home(props: {
                       {item.body}
                     </p>
                   </div>
-                  <div className="h-1.5 overflow-hidden rounded-full bg-qps-paper">
-                    <div className="h-full w-2/3 rounded-full bg-qps-signal transition-all duration-300 group-hover:w-full" />
+                  <div className="flex items-center justify-between border-t border-qps-line pt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted">
+                    <span>QPS</span>
+                    <span>Shop ready</span>
                   </div>
                 </div>
-              </article>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -204,7 +209,7 @@ export default async function Home(props: {
             Curated catalog
           </p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.045em] text-qps-ink small:text-5xl">
-            Robotics, Inspection und Measurement Technology für industrielle Anwendungen.
+            Testsets, Roboter, ROVIS, Software und Inspektionsboxen.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-qps-graphite">
             Der Shop wird zum Beschaffungspunkt für QPS-nahe Systeme,

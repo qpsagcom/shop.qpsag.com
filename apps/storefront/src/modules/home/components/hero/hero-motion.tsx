@@ -23,7 +23,7 @@ const container = {
 }
 
 const heroImageUrl =
-  "https://qpsag.com/wp-content/uploads/2024/09/QPS_Engineering_Fotoshooting_-2-960x718.jpg"
+  "/qps-hero-lab.jpeg"
 
 export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()
@@ -132,31 +132,31 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(var(--qps-paper)/0.92)_0%,rgb(var(--qps-paper)/0.52)_42%,rgb(0_0_0/0.18)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
 
-            <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface/86 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted backdrop-blur-md">
-              <span>Robotics Cell</span>
-              <span>QxTec</span>
+            <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted">
+              <span>Regulated Lab</span>
+              <span>QPS AG</span>
             </div>
 
             <m.div
-              className="absolute bottom-5 left-5 max-w-[18rem] rounded-[1.35rem] border border-qps-line bg-qps-surface/88 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              className="absolute bottom-5 left-5 max-w-[18rem] rounded-[1.35rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(0,0,0,0.18)]"
               initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...qpsMotion.soft, delay: 0.44 }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-signal">
-                Industrial Robotics
+                Pharma Robotics
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                High-precision technology solutions
+                Testsets, ROVIS und Robotik
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Robotics, inspection and measurement technology for regulated
-                production.
+                Produkte und Systeme für Inspection, Qualifizierung und
+                regulierte Industrieprozesse.
               </p>
             </m.div>
 
             <m.div
-              className="absolute bottom-5 right-5 hidden w-48 rounded-[1.2rem] border border-qps-paper/15 bg-qps-ink/88 p-4 text-qps-paper shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-md xsmall:block"
+              className="absolute bottom-5 right-5 hidden w-48 rounded-[1.2rem] border border-qps-paper/15 bg-qps-ink p-4 text-qps-paper shadow-[0_18px_60px_rgba(0,0,0,0.24)] xsmall:block"
               initial={shouldReduceMotion ? false : { opacity: 0, x: 14 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ ...qpsMotion.soft, delay: 0.52 }}
@@ -165,15 +165,9 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 Focus
               </p>
               <p className="mt-2 text-lg font-semibold">Visual Inspection</p>
-              <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-qps-paper/15">
-                <m.div
-                  className="h-full rounded-full bg-qps-signal"
-                  initial={shouldReduceMotion ? false : { scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ ...qpsMotion.soft, delay: 0.7 }}
-                  style={{ transformOrigin: "left" }}
-                />
-              </div>
+              <p className="mt-3 text-sm leading-5 text-qps-paper/65">
+                Defect samples, robotic systems and software workflows.
+              </p>
             </m.div>
           </m.div>
         </m.div>

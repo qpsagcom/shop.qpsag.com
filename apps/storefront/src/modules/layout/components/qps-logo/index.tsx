@@ -23,14 +23,12 @@ export default function QpsLogo({
       data-testid="nav-store-link"
       aria-label="QPS AG Shop"
     >
-      <span className="flex h-10 items-center justify-center rounded-full border border-qps-line bg-white px-3 shadow-sm transition-transform duration-200 group-hover:scale-[1.025]">
-        <img
-          src={qpsLogoUrl}
-          alt=""
-          className="h-6 w-auto object-contain"
-          loading="eager"
-        />
-      </span>
+      <img
+        src={qpsLogoUrl}
+        alt=""
+        className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.025]"
+        loading="eager"
+      />
       {!compact && (
         <span className="flex flex-col leading-none">
           <span className="text-sm font-semibold tracking-[-0.03em] text-qps-ink transition-colors group-hover:text-qps-signal">

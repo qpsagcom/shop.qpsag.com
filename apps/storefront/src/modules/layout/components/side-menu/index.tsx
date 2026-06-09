@@ -72,7 +72,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                 {open && (
                   <>
                     <m.div
-                      className="fixed inset-0 z-[50] bg-qps-ink/20 backdrop-blur-sm pointer-events-auto"
+                      className="fixed inset-0 z-[50] bg-qps-ink/55 pointer-events-auto"
                       onClick={close}
                       data-testid="side-menu-backdrop"
                       initial={{ opacity: 0 }}
@@ -81,7 +81,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       transition={qpsMotion.quick}
                     />
                     <m.div
-                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-qps-ink backdrop-blur-2xl sm:w-[440px] sm:min-w-min sm:pr-0"
+                      className="fixed left-3 top-3 z-[51] h-[calc(100dvh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-[460px] text-sm text-qps-ink"
                       initial={
                         shouldReduceMotion
                           ? { opacity: 0 }
@@ -98,7 +98,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       <PopoverPanel static className="flex h-full flex-col">
                         <div
                           data-testid="nav-menu-popup"
-                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.4rem] border border-qps-line bg-qps-surface p-6 shadow-[0_32px_90px_rgba(0,0,0,0.18)]"
+                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-qps-line bg-qps-surface p-6 shadow-[0_32px_90px_rgba(0,0,0,0.22)]"
                         >
                           <div className="pointer-events-none absolute -right-20 top-12 h-56 w-56 rounded-full bg-qps-signal/20 blur-3xl" />
                           <div className="relative flex items-start justify-between gap-6" id="xmark">
