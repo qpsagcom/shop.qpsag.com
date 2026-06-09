@@ -74,8 +74,8 @@ const translations = {
     store_sort_price_desc: "Preis absteigend",
 
     // Hero
-    hero_title: "Willkommen bei QPS AG",
-    hero_subtitle: "Qualität, die überzeugt.",
+    hero_title: "Präzise Produkte. Ruhig kuratiert.",
+    hero_subtitle: "Ein schneller Schweizer Commerce-Store für ausgewählte Produkte, sichere Zahlungen und klare Kaufentscheidungen.",
     hero_cta: "Jetzt entdecken",
 
     // Order
@@ -158,8 +158,8 @@ const translations = {
     store_sort_price_desc: "Price: High to Low",
 
     // Hero
-    hero_title: "Welcome to QPS AG",
-    hero_subtitle: "Quality that inspires.",
+    hero_title: "Precise products. Calmly curated.",
+    hero_subtitle: "A fast Swiss commerce store for selected products, secure payments, and clear buying decisions.",
     hero_cta: "Shop Now",
 
     // Order

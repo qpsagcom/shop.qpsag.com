@@ -4,6 +4,7 @@ import { getLocale } from "@lib/data/locale-actions"
 import { getTranslator } from "@lib/i18n/translations"
 import { Text, clx } from "@modules/common/components/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ColorSwitch from "@modules/layout/components/color-switch"
 
 export default async function Footer() {
   const [collections, productCategories, currentLocale] = await Promise.all([
@@ -15,27 +16,34 @@ export default async function Footer() {
   const translate = getTranslator(currentLocale)
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="w-full border-t border-qps-line bg-qps-paper">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-
+        <div className="grid gap-12 py-16 small:grid-cols-[1fr_1.2fr] small:py-24">
           {/* Brand */}
-          <div>
+          <div className="max-w-md">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base font-semibold tracking-tight"
+              className="text-3xl font-semibold tracking-[-0.06em] text-qps-ink transition-colors hover:text-qps-signal"
             >
               QPS AG
             </LocalizedClientLink>
-            <p className="txt-small text-ui-fg-muted mt-1">shop.qpsag.com</p>
+            <p className="mt-4 text-sm leading-6 text-qps-graphite">
+              Swiss Precision Commerce für ein ruhiges, schnelles und
+              vertrauenswürdiges Einkaufserlebnis.
+            </p>
+            <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
+              shop.qpsag.com
+            </p>
+            <div className="mt-8">
+              <ColorSwitch />
+            </div>
           </div>
 
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-
+          <div className="grid grid-cols-2 gap-10 text-small-regular md:gap-x-16 sm:grid-cols-3">
             {/* Kategorien */}
             {productCategories && productCategories.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
                   {translate("footer_categories")}
                 </span>
                 <ul className="grid grid-cols-1 gap-2" data-testid="footer-categories">
@@ -49,11 +57,14 @@ export default async function Footer() {
 
                     return (
                       <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
+                        className="flex flex-col gap-2 text-sm text-qps-muted"
                         key={c.id}
                       >
                         <LocalizedClientLink
-                          className={clx("hover:text-ui-fg-base", children && "txt-small-plus")}
+                          className={clx(
+                            "transition-colors hover:text-qps-ink",
+                            children && "font-semibold text-qps-graphite"
+                          )}
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
@@ -64,7 +75,7 @@ export default async function Footer() {
                             {children.map((child) => (
                               <li key={child.id}>
                                 <LocalizedClientLink
-                                  className="hover:text-ui-fg-base"
+                                  className="transition-colors hover:text-qps-ink"
                                   href={`/categories/${child.handle}`}
                                   data-testid="category-link"
                                 >
@@ -84,18 +95,21 @@ export default async function Footer() {
             {/* Kollektionen */}
             {collections && collections.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
                   {translate("footer_collections")}
                 </span>
                 <ul
-                  className={clx("grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small", {
-                    "grid-cols-2": (collections.length || 0) > 3,
-                  })}
+                  className={clx(
+                    "grid grid-cols-1 gap-2 text-sm text-qps-muted",
+                    {
+                      "grid-cols-2": (collections.length || 0) > 3,
+                    }
+                  )}
                 >
                   {collections.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="transition-colors hover:text-qps-ink"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -108,13 +122,13 @@ export default async function Footer() {
 
             {/* Unternehmen */}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
                 {translate("footer_company")}
               </span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+              <ul className="grid grid-cols-1 gap-y-2 text-sm text-qps-muted">
                 <li>
                   <LocalizedClientLink
-                    className="hover:text-ui-fg-base"
+                    className="transition-colors hover:text-qps-ink"
                     href="/impressum"
                   >
                     {translate("footer_imprint")}
@@ -122,7 +136,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <LocalizedClientLink
-                    className="hover:text-ui-fg-base"
+                    className="transition-colors hover:text-qps-ink"
                     href="/datenschutz"
                   >
                     {translate("footer_privacy")}
@@ -134,8 +148,8 @@ export default async function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
+        <div className="mb-10 flex w-full justify-between border-t border-qps-line pt-6 text-qps-muted">
+          <Text className="txt-compact-small text-qps-muted">
             © {new Date().getFullYear()} QPS AG. {translate("footer_copyright")}
           </Text>
         </div>

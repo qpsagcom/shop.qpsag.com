@@ -13,9 +13,7 @@ type Props = {
   }>
 }
 
-export async function generateStaticParams() {
-  return []
-}
+export const dynamic = "force-dynamic"
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params

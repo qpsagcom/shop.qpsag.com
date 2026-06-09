@@ -5,6 +5,7 @@ import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@modules/common/components/ui"
 import Divider from "@modules/common/components/divider"
+import { qpsMotion } from "@modules/common/components/motion"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
 import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
@@ -12,6 +13,8 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
 import MobileActions from "./mobile-actions"
 import { useRouter } from "next/navigation"
+import { AnimatePresence } from "motion/react"
+import * as m from "motion/react-m"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -38,6 +41,8 @@ export default function ProductActions({
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
+  const [addError, setAddError] = useState<string | null>(null)
+  const [addSuccess, setAddSuccess] = useState(false)
   const countryCode = useParams().countryCode as string
 
   // If there is only 1 variant, preselect the options
@@ -90,7 +95,7 @@ export default function ProductActions({
     }
 
     router.replace(pathname + "?" + params.toString())
-  }, [selectedVariant, isValidVariant])
+  }, [isValidVariant, pathname, router, searchParams, selectedVariant])
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
@@ -117,22 +122,46 @@ export default function ProductActions({
   }, [selectedVariant])
 
   const actionsRef = useRef<HTMLDivElement>(null)
+  const successTimeoutRef = useRef<number | null>(null)
 
   const inView = useIntersection(actionsRef, "0px")
+
+  useEffect(() => {
+    return () => {
+      if (successTimeoutRef.current) {
+        window.clearTimeout(successTimeoutRef.current)
+      }
+    }
+  }, [])
 
   // add the selected variant to the cart
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null
 
     setIsAdding(true)
+    setAddError(null)
+    setAddSuccess(false)
 
-    await addToCart({
-      variantId: selectedVariant.id,
-      quantity: 1,
-      countryCode,
-    })
-
-    setIsAdding(false)
+    try {
+      await addToCart({
+        variantId: selectedVariant.id,
+        quantity: 1,
+        countryCode,
+      })
+      setAddSuccess(true)
+      router.refresh()
+      if (successTimeoutRef.current) {
+        window.clearTimeout(successTimeoutRef.current)
+      }
+      successTimeoutRef.current = window.setTimeout(
+        () => setAddSuccess(false),
+        2200
+      )
+    } catch {
+      setAddError("Could not add this product to the cart. Please try again.")
+    } finally {
+      setIsAdding(false)
+    }
   }
 
   return (
@@ -180,8 +209,38 @@ export default function ProductActions({
             ? "Select variant"
             : !inStock || !isValidVariant
             ? "Out of stock"
+            : addSuccess
+            ? "Added"
             : "Add to cart"}
         </Button>
+        <AnimatePresence mode="popLayout">
+          {addSuccess && (
+            <m.p
+              key="add-success"
+              className="text-small-regular text-qps-success"
+              role="status"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={qpsMotion.quick}
+            >
+              Added to cart.
+            </m.p>
+          )}
+          {addError && (
+            <m.p
+              key="add-error"
+              className="text-small-regular text-ui-fg-error"
+              role="alert"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={qpsMotion.quick}
+            >
+              {addError}
+            </m.p>
+          )}
+        </AnimatePresence>
         <MobileActions
           product={product}
           variant={selectedVariant}

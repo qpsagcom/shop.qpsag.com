@@ -2,6 +2,73 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  :root {
+    --qps-ink: 17 19 21;
+    --qps-graphite: 43 47 51;
+    --qps-muted: 112 118 125;
+    --qps-paper: 250 248 243;
+    --qps-surface: 255 255 255;
+    --qps-line: 231 225 216;
+    --qps-steel: 142 153 164;
+    --qps-signal: 196 122 58;
+    --qps-signal-dark: 143 79 33;
+    --qps-success: 47 107 79;
+    --qps-danger: 180 61 50;
+    color-scheme: light;
+  }
+
+  [data-qps-theme="graphite"] {
+    --qps-ink: 241 237 229;
+    --qps-graphite: 215 207 194;
+    --qps-muted: 159 150 138;
+    --qps-paper: 17 19 21;
+    --qps-surface: 31 34 37;
+    --qps-line: 66 61 54;
+    --qps-steel: 139 148 154;
+    --qps-signal: 217 143 76;
+    --qps-signal-dark: 238 176 113;
+    --qps-success: 112 174 139;
+    --qps-danger: 226 103 90;
+    color-scheme: dark;
+  }
+
+  [data-qps-theme="alpine"] {
+    --qps-ink: 18 34 34;
+    --qps-graphite: 38 63 60;
+    --qps-muted: 91 114 109;
+    --qps-paper: 241 247 241;
+    --qps-surface: 252 255 250;
+    --qps-line: 205 220 210;
+    --qps-steel: 99 137 130;
+    --qps-signal: 47 107 79;
+    --qps-signal-dark: 25 75 55;
+    --qps-success: 47 107 79;
+    --qps-danger: 164 63 54;
+    color-scheme: light;
+  }
+
+  html {
+    @apply bg-qps-paper text-qps-ink antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-qps-paper text-qps-ink;
+    background-image:
+      radial-gradient(circle at top left, rgb(var(--qps-signal) / 0.12), transparent 34rem),
+      linear-gradient(rgb(var(--qps-line) / 0.28) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--qps-line) / 0.22) 1px, transparent 1px);
+    background-size: auto, 56px 56px, 56px 56px;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+
+  ::selection {
+    @apply bg-qps-ink text-qps-paper;
+  }
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

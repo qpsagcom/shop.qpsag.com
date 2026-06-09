@@ -1,16 +1,17 @@
 "use client"
 
-import { Popover, PopoverPanel, Transition } from "@headlessui/react"
+import { Popover, PopoverPanel } from "@headlessui/react"
 import useToggleState from "@lib/hooks/use-toggle-state"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { qpsMotion } from "@modules/common/components/motion"
 import { Text, clx } from "@modules/common/components/ui"
-import { Fragment } from "react"
 import CountrySelect from "../country-select"
 import LanguageSelect from "../language-select"
 import { Locale } from "@lib/data/locales"
-
+import { AnimatePresence, useReducedMotion } from "motion/react"
+import * as m from "motion/react-m"
 
 const SideMenuItems = {
   Home: "/",
@@ -28,6 +29,7 @@ type SideMenuProps = {
 const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
   const countryToggleState = useToggleState()
   const languageToggleState = useToggleState()
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <div className="h-full">
@@ -44,96 +46,116 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                 </Popover.Button>
               </div>
 
-              {open && (
-                <div
-                  className="fixed inset-0 z-[50] bg-black/0 pointer-events-auto"
-                  onClick={close}
-                  data-testid="side-menu-backdrop"
-                />
-              )}
-
-              <Transition
-                show={open}
-                as={Fragment}
-                enter="transition ease-out duration-150"
-                enterFrom="opacity-0"
-                enterTo="opacity-100 backdrop-blur-2xl"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 backdrop-blur-2xl"
-                leaveTo="opacity-0"
-              >
-                <PopoverPanel className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-[51] inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl">
-                  <div
-                    data-testid="nav-menu-popup"
-                    className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6"
-                  >
-                    <div className="flex justify-end" id="xmark">
-                      <button data-testid="close-menu-button" onClick={close}>
-                        <XMark />
-                      </button>
-                    </div>
-                    <ul className="flex flex-col gap-6 items-start justify-start">
-                      {Object.entries(SideMenuItems).map(([name, href]) => {
-                        return (
-                          <li key={name}>
-                            <LocalizedClientLink
-                              href={href}
-                              className="text-3xl leading-10 hover:text-ui-fg-disabled"
-                              onClick={close}
-                              data-testid={`${name.toLowerCase()}-link`}
-                            >
-                              {name}
-                            </LocalizedClientLink>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                    <div className="flex flex-col gap-y-6">
-                      {!!locales?.length && (
+              <AnimatePresence>
+                {open && (
+                  <>
+                    <m.div
+                      className="fixed inset-0 z-[50] bg-qps-ink/20 backdrop-blur-sm pointer-events-auto"
+                      onClick={close}
+                      data-testid="side-menu-backdrop"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={qpsMotion.quick}
+                    />
+                    <m.div
+                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-ui-fg-on-color backdrop-blur-2xl sm:w-1/3 sm:min-w-min sm:pr-0 2xl:w-1/4"
+                      initial={
+                        shouldReduceMotion
+                          ? { opacity: 0 }
+                          : { opacity: 0, x: -24 }
+                      }
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={
+                        shouldReduceMotion
+                          ? { opacity: 0 }
+                          : { opacity: 0, x: -24 }
+                      }
+                      transition={qpsMotion.soft}
+                    >
+                      <PopoverPanel static className="flex h-full flex-col">
                         <div
-                          className="flex justify-between"
-                          onMouseEnter={languageToggleState.open}
-                          onMouseLeave={languageToggleState.close}
+                          data-testid="nav-menu-popup"
+                          className="flex h-full flex-col justify-between rounded-[1.4rem] border border-qps-paper/10 bg-qps-ink/88 p-6 shadow-[0_32px_90px_rgba(17,19,21,0.32)]"
                         >
-                          <LanguageSelect
-                            toggleState={languageToggleState}
-                            locales={locales}
-                            currentLocale={currentLocale}
-                          />
-                          <ArrowRightMini
-                            className={clx(
-                              "transition-transform duration-150",
-                              languageToggleState.state ? "-rotate-90" : ""
+                          <div className="flex justify-end" id="xmark">
+                            <button
+                              data-testid="close-menu-button"
+                              onClick={close}
+                              className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-qps-paper/15 transition-colors hover:bg-qps-paper/10"
+                            >
+                              <XMark />
+                            </button>
+                          </div>
+                          <ul className="flex flex-col gap-6 items-start justify-start">
+                            {Object.entries(SideMenuItems).map(
+                              ([name, href]) => {
+                                return (
+                                  <li key={name}>
+                                    <LocalizedClientLink
+                                      href={href}
+                                      className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                                      onClick={close}
+                                      data-testid={`${name.toLowerCase()}-link`}
+                                    >
+                                      {name}
+                                    </LocalizedClientLink>
+                                  </li>
+                                )
+                              }
                             )}
-                          />
+                          </ul>
+                          <div className="flex flex-col gap-y-6">
+                            {!!locales?.length && (
+                              <div
+                                className="flex justify-between"
+                                onMouseEnter={languageToggleState.open}
+                                onMouseLeave={languageToggleState.close}
+                              >
+                                <LanguageSelect
+                                  toggleState={languageToggleState}
+                                  locales={locales}
+                                  currentLocale={currentLocale}
+                                />
+                                <ArrowRightMini
+                                  className={clx(
+                                    "transition-transform duration-150",
+                                    languageToggleState.state
+                                      ? "-rotate-90"
+                                      : ""
+                                  )}
+                                />
+                              </div>
+                            )}
+                            <div
+                              className="flex justify-between"
+                              onMouseEnter={countryToggleState.open}
+                              onMouseLeave={countryToggleState.close}
+                            >
+                              {regions && (
+                                <CountrySelect
+                                  toggleState={countryToggleState}
+                                  regions={regions}
+                                />
+                              )}
+                              <ArrowRightMini
+                                className={clx(
+                                  "transition-transform duration-150",
+                                  countryToggleState.state ? "-rotate-90" : ""
+                                )}
+                              />
+                            </div>
+                            <Text className="flex justify-between txt-compact-small">
+                              © {new Date().getFullYear()} QPS AG. All rights
+                              reserved.
+                            </Text>
+                          </div>
                         </div>
-                      )}
-                      <div
-                        className="flex justify-between"
-                        onMouseEnter={countryToggleState.open}
-                        onMouseLeave={countryToggleState.close}
-                      >
-                        {regions && (
-                          <CountrySelect
-                            toggleState={countryToggleState}
-                            regions={regions}
-                          />
-                        )}
-                        <ArrowRightMini
-                          className={clx(
-                            "transition-transform duration-150",
-                            countryToggleState.state ? "-rotate-90" : ""
-                          )}
-                        />
-                      </div>
-                      <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
-                        reserved.
-                      </Text>
-                    </div>
-                  </div>
-                </PopoverPanel>
-              </Transition>
+                      </PopoverPanel>
+                    </m.div>
+                  </>
+                )}
+              </AnimatePresence>
             </>
           )}
         </Popover>

@@ -20,6 +20,19 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        qps: {
+          ink: "rgb(var(--qps-ink) / <alpha-value>)",
+          graphite: "rgb(var(--qps-graphite) / <alpha-value>)",
+          muted: "rgb(var(--qps-muted) / <alpha-value>)",
+          paper: "rgb(var(--qps-paper) / <alpha-value>)",
+          surface: "rgb(var(--qps-surface) / <alpha-value>)",
+          line: "rgb(var(--qps-line) / <alpha-value>)",
+          steel: "rgb(var(--qps-steel) / <alpha-value>)",
+          signal: "rgb(var(--qps-signal) / <alpha-value>)",
+          "signal-dark": "rgb(var(--qps-signal-dark) / <alpha-value>)",
+          success: "rgb(var(--qps-success) / <alpha-value>)",
+          danger: "rgb(var(--qps-danger) / <alpha-value>)",
+        },
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
