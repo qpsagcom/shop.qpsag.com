@@ -23,11 +23,11 @@ export default function QpsLogo({
       data-testid="nav-store-link"
       aria-label="QPS AG Shop"
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-qps-line bg-qps-surface p-1.5 shadow-sm transition-transform duration-200 group-hover:scale-105">
+      <span className="flex h-10 items-center justify-center rounded-full border border-qps-line bg-white px-3 shadow-sm transition-transform duration-200 group-hover:scale-[1.025]">
         <img
           src={qpsLogoUrl}
           alt=""
-          className="h-full w-full object-contain"
+          className="h-6 w-auto object-contain"
           loading="eager"
         />
       </span>

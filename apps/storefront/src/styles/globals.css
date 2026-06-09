@@ -13,6 +13,7 @@
     --qps-steel: 126 140 156;
     --qps-signal: 0 158 224;
     --qps-signal-dark: 0 103 166;
+    --qps-signal-text: 5 7 10;
     --qps-success: 35 119 82;
     --qps-danger: 185 52 44;
     color-scheme: light;
@@ -28,6 +29,7 @@
     --qps-steel: 118 132 148;
     --qps-signal: 56 189 248;
     --qps-signal-dark: 14 165 233;
+    --qps-signal-text: 0 0 0;
     --qps-success: 96 190 139;
     --qps-danger: 255 112 97;
     color-scheme: dark;

@@ -81,7 +81,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       transition={qpsMotion.quick}
                     />
                     <m.div
-                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-qps-paper backdrop-blur-2xl sm:w-[440px] sm:min-w-min sm:pr-0"
+                      className="absolute inset-x-0 z-[51] m-2 h-[calc(100vh-1rem)] w-full pr-4 text-sm text-qps-ink backdrop-blur-2xl sm:w-[440px] sm:min-w-min sm:pr-0"
                       initial={
                         shouldReduceMotion
                           ? { opacity: 0 }
@@ -98,15 +98,15 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       <PopoverPanel static className="flex h-full flex-col">
                         <div
                           data-testid="nav-menu-popup"
-                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.4rem] border border-qps-paper/10 bg-[linear-gradient(145deg,rgb(3,4,6),rgb(17,19,23))] p-6 shadow-[0_32px_90px_rgba(0,0,0,0.44)]"
+                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.4rem] border border-qps-line bg-qps-surface p-6 shadow-[0_32px_90px_rgba(0,0,0,0.18)]"
                         >
                           <div className="pointer-events-none absolute -right-20 top-12 h-56 w-56 rounded-full bg-qps-signal/20 blur-3xl" />
                           <div className="relative flex items-start justify-between gap-6" id="xmark">
-                            <QpsLogo className="text-qps-paper [&_span:last-child_span:first-child]:text-qps-paper [&_span:last-child_span:last-child]:text-qps-paper/55" />
+                            <QpsLogo />
                             <button
                               data-testid="close-menu-button"
                               onClick={close}
-                              className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-qps-paper/15 transition-colors hover:bg-qps-paper/10"
+                              className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-qps-line bg-qps-paper/60 transition-colors hover:bg-qps-signal hover:text-[rgb(var(--qps-signal-text))]"
                               aria-label="Close menu"
                             >
                               <XMark />
@@ -129,38 +129,38 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                               >
                                 <LocalizedClientLink
                                   href={item.href}
-                                  className="group block rounded-[1.1rem] border border-qps-paper/10 bg-qps-paper/[0.04] p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
+                                  className="group block rounded-[1.1rem] border border-qps-line bg-qps-paper/60 p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
                                   onClick={close}
                                   data-testid={`${item.name.toLowerCase().replace(/\s+/g, "-")}-link`}
                                 >
-                                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-paper/45">
+                                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
                                     {item.eyebrow}
                                   </span>
                                   <span className="mt-2 flex items-center justify-between gap-4">
-                                    <span className="text-2xl font-semibold leading-8 tracking-[-0.04em] text-qps-paper transition-colors group-hover:text-qps-signal">
+                                    <span className="text-2xl font-semibold leading-8 tracking-[-0.04em] text-qps-ink transition-colors group-hover:text-qps-signal">
                                       {item.name}
                                     </span>
-                                    <ArrowRightMini className="shrink-0 text-qps-paper/40 transition-transform group-hover:translate-x-1 group-hover:text-qps-signal" />
+                                    <ArrowRightMini className="shrink-0 text-qps-muted transition-transform group-hover:translate-x-1 group-hover:text-qps-signal" />
                                   </span>
-                                  <span className="mt-1 block text-sm leading-5 text-qps-paper/55">
+                                  <span className="mt-1 block text-sm leading-5 text-qps-graphite">
                                     {item.description}
                                   </span>
                                 </LocalizedClientLink>
                               </m.li>
                             ))}
                           </ul>
-                          <div className="relative flex flex-col gap-y-6 border-t border-qps-paper/10 pt-6">
-                            <div className="grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.16em] text-qps-paper/55">
-                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                          <div className="relative flex flex-col gap-y-6 border-t border-qps-line pt-6">
+                            <div className="grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.16em] text-qps-muted">
+                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
                                 Pharma
                               </div>
-                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
                                 Biotech
                               </div>
-                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
                                 Food Tech
                               </div>
-                              <div className="rounded-large border border-qps-paper/10 bg-qps-paper/[0.04] p-3">
+                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
                                 GxP
                               </div>
                             </div>

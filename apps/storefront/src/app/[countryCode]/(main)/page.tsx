@@ -120,6 +120,84 @@ export default async function Home(props: {
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-qps-paper py-16 small:py-28">
+        <div className="pointer-events-none absolute right-0 top-12 h-80 w-80 rounded-full bg-qps-signal/12 blur-3xl" />
+        <div className="content-container relative">
+          <div className="mb-8 grid gap-6 small:grid-cols-[0.95fr_1.05fr] small:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
+                Robotics stack
+              </p>
+              <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
+                Beschaffung für Automatisierung, Prüfung und Qualität.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-base leading-7 text-qps-graphite">
+              Der Shop soll nicht wie ein generischer Katalog wirken, sondern
+              wie ein technisches Beschaffungs-Cockpit für QPS-nahe Robotics,
+              Visual Inspection und Measurement-Komponenten.
+            </p>
+          </div>
+
+          <div className="grid gap-4 small:grid-cols-6">
+            {[
+              {
+                title: "Robotic Inspection Cells",
+                body: "Systeme und Bausteine für automatisierte Sichtprüfung in regulierten Produktionsumgebungen.",
+                meta: "QxTec / Vision",
+                className: "small:col-span-3 small:row-span-2",
+              },
+              {
+                title: "Defect Test Sets",
+                body: "Referenzmuster, Trainingsmaterial und Qualifizierungsunterstützung für Visual Inspection.",
+                meta: "QLabs",
+                className: "small:col-span-3",
+              },
+              {
+                title: "Measurement Technology",
+                body: "Material ID, Oberflächenrauheit, LUX, Temperatur und Noise Level für Prozesskontrolle.",
+                meta: "QMeasure",
+                className: "small:col-span-2",
+              },
+              {
+                title: "Selection & Integration",
+                body: "Technische Auswahl und Integration passend zu Prozess, Risiko und Compliance.",
+                meta: "Engineering",
+                className: "small:col-span-2",
+              },
+              {
+                title: "GxP Context",
+                body: "Produkte und Systeme mit Validierung, Qualifizierung und Dokumentation im Blick.",
+                meta: "Compliance",
+                className: "small:col-span-2",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className={`group rounded-[1.6rem] border border-qps-line bg-qps-surface/80 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)] ${item.className}`}
+              >
+                <div className="flex min-h-full flex-col justify-between gap-8">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
+                      {item.meta}
+                    </p>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-qps-ink">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-qps-graphite">
+                      {item.body}
+                    </p>
+                  </div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-qps-paper">
+                    <div className="h-full w-2/3 rounded-full bg-qps-signal transition-all duration-300 group-hover:w-full" />
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="bg-qps-paper py-12 small:py-24">
         <div className="content-container mb-4 small:mb-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
