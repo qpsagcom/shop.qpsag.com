@@ -52,7 +52,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             variants={fadeUp}
             className="mb-5 inline-flex rounded-full border border-qps-line bg-qps-surface/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted shadow-sm"
           >
-            QxTec robotics systems
+            Visual Inspection Technology
           </m.p>
           <m.div variants={fadeUp}>
             <Heading
@@ -83,7 +83,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               href="/store"
               className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-line bg-qps-surface/70 px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:border-qps-ink focus:outline-none focus:ring-2 focus:ring-qps-steel focus:ring-offset-2 focus:ring-offset-qps-paper"
             >
-              View catalog
+              Katalog ansehen
             </LocalizedClientLink>
           </m.div>
 
@@ -92,9 +92,9 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-12 grid max-w-2xl grid-cols-3 gap-3 text-left"
           >
             {[
-              ["GxP", "Regulated industry"],
-              ["AI", "Vision systems"],
-              ["CH", "Swiss engineering"],
+              ["Testsets", "Inspection quality"],
+              ["ROVIS", "Inspection robot"],
+              ["GxP", "Regulated workflows"],
             ].map(([value, label]) => (
               <m.div
                 key={value}
@@ -133,7 +133,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
 
             <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted">
-              <span>Regulated Lab</span>
+              <span>Visual Inspection</span>
               <span>QPS AG</span>
             </div>
 
@@ -144,14 +144,14 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               transition={{ ...qpsMotion.soft, delay: 0.44 }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-signal">
-                Pharma Robotics
+                QPS Sortiment
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                Testsets, ROVIS und Robotik
+                Testsets, ROVIS und Inspektionsboxen
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Produkte und Systeme für Inspection, Qualifizierung und
-                regulierte Industrieprozesse.
+                Produkte für visuelle Inspektion, Qualifizierung und
+                reproduzierbare Prüfprozesse.
               </p>
             </m.div>
 
@@ -164,9 +164,10 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               <p className="text-[11px] uppercase tracking-[0.18em] text-qps-paper/55">
                 Focus
               </p>
-              <p className="mt-2 text-lg font-semibold">Visual Inspection</p>
+              <p className="mt-2 text-lg font-semibold">ROVIS</p>
               <p className="mt-3 text-sm leading-5 text-qps-paper/65">
-                Defect samples, robotic systems and software workflows.
+                Der QPS-Roboter für visuelle Inspektion in regulierten
+                Umgebungen.
               </p>
             </m.div>
           </m.div>

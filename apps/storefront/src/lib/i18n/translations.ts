@@ -74,9 +74,9 @@ const translations = {
     store_sort_price_desc: "Preis absteigend",
 
     // Hero
-    hero_title: "Robotik für regulierte Industrie.",
-    hero_subtitle: "QPS Engineering AG liefert High-Precision Technology Solutions für Pharma, Biotech und Food Tech: Robotics, Visual Inspection, Measurement und GxP-nahe Integration.",
-    hero_cta: "Robotics ansehen",
+    hero_title: "Visuelle Inspektion für regulierte Produktion.",
+    hero_subtitle: "QPS Engineering AG bündelt Testsets, ROVIS-Roboter, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
+    hero_cta: "Sortiment ansehen",
 
     // Order
     order_confirmed: "Bestellung bestätigt",
@@ -158,9 +158,9 @@ const translations = {
     store_sort_price_desc: "Price: High to Low",
 
     // Hero
-    hero_title: "Robotics for regulated industry.",
-    hero_subtitle: "QPS Engineering AG delivers high-precision technology solutions for pharma, biotech, and food tech: robotics, visual inspection, measurement, and GxP-ready integration.",
-    hero_cta: "Explore Robotics",
+    hero_title: "Visual inspection for regulated production.",
+    hero_subtitle: "QPS Engineering AG brings together test sets, the ROVIS robot, inspection boxes, and software for reliable inspection workflows in pharma, biotech, and food tech.",
+    hero_cta: "Explore products",
 
     // Order
     order_confirmed: "Order Confirmed",

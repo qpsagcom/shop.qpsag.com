@@ -26,8 +26,8 @@ export default async function Footer() {
           <div className="max-w-md">
             <QpsLogo />
             <p className="mt-4 text-sm leading-6 text-qps-graphite">
-              Industrial Robotics, Visual Inspection und Measurement
-              Technology für Pharma, Biotech und Food Tech.
+              Testsets, ROVIS-Roboter, Software und Inspektionsboxen für
+              visuelle Inspektion in Pharma, Biotech und Food Tech.
             </p>
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
               shop.qpsag.com

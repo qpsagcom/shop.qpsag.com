@@ -8,9 +8,9 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import ScrollReveal from "@modules/common/components/motion/scroll-reveal"
 
 export const metadata: Metadata = {
-  title: "QPS AG Shop | Industrial Robotics & Inspection",
+  title: "QPS AG Shop | Visuelle Inspektion & ROVIS",
   description:
-    "Industrial robotics, visual inspection and measurement technology for pharma, biotech and food technology.",
+    "Testsets, ROVIS-Roboter, Inspektionsboxen und Software für visuelle Inspektion in Pharma, Biotech und Food Tech.",
 }
 
 export default async function Home(props: {
@@ -36,16 +36,16 @@ export default async function Home(props: {
         <div className="content-container grid gap-6 py-8 small:grid-cols-3 small:py-12">
           {[
             [
-              "Robotic systems",
-              "Industrial automation platforms for regulated production environments.",
+              "Testsets für visuelle Inspektion",
+              "Referenzmuster, Defect Samples und Trainingsmaterial für sichere Prüfentscheidungen.",
             ],
             [
-              "Visual inspection",
-              "Reference containers, defect sets, training tools and qualification support.",
+              "ROVIS Roboter",
+              "Robotergestützte visuelle Inspektion für wiederholbare Prüfprozesse.",
             ],
             [
-              "GxP ready",
-              "Engineering, validation and compliance thinking from QPS Engineering AG.",
+              "GxP-nahe Umsetzung",
+              "Engineering, Qualifizierung und Compliance-Denken von QPS Engineering AG.",
             ],
           ].map(([title, body]) => (
             <article key={title} className="border-l border-qps-paper/20 pl-5">
@@ -67,18 +67,18 @@ export default async function Home(props: {
               QPS Engineering AG
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-              Engineering what life-science needs next.
+              Produkte für visuelle Inspektion, die in regulierte Prozesse passen.
             </h2>
           </div>
           <div className="grid gap-4 xsmall:grid-cols-2">
             {[
               [
-                "Pharma, Biotech, Food Tech",
-                "Der Shop bündelt Produkte und Systeme für Industrien, in denen Präzision, Wiederholbarkeit und Compliance entscheidend sind.",
+                "Für Pharma, Biotech und Food Tech",
+                "QPS fokussiert auf Industrien, in denen Prüfqualität, Wiederholbarkeit und Dokumentation entscheidend sind.",
               ],
               [
-                "Robotics with engineering context",
-                "Nicht nur Komponenten: QPS verbindet Robotik, Machine Vision, Measurement und Auswahl/Integration zu belastbaren Lösungen.",
+                "Mehr als ein Katalog",
+                "Testsets, ROVIS, Inspektionsboxen und Software werden mit Engineering-, Qualifizierungs- und Integrationswissen gedacht.",
               ],
             ].map(([title, body]) => (
               <article
@@ -100,10 +100,10 @@ export default async function Home(props: {
       <section className="border-y border-qps-line bg-qps-surface/70 py-14 small:py-20">
         <div className="content-container grid gap-5 small:grid-cols-4">
           {[
-            ["01", "Robotic Visual Inspection", "Automatisierte Prüfprozesse für regulierte Produktionslinien."],
-            ["02", "Robotic Systems", "Robotik-Plattformen und End-of-line Automation für Industrieprozesse."],
-            ["03", "Selection & Integration", "Auswahl, Integration und Qualifizierung passend zum Prozess."],
-            ["04", "Measurement Technology", "Material ID, Roughness, LUX, Temperature und Noise Measurement."],
+            ["01", "Testsets & Samples", "Defect Test Sets und Referenzmuster für visuelle Inspektion."],
+            ["02", "ROVIS Roboter", "Roboter für visuelle Inspektion mit wiederholbaren Prüfabläufen."],
+            ["03", "Inspektionsboxen", "Kontrollierte Prüfplätze für Training, Muster und manuelle Sichtprüfung."],
+            ["04", "Software & Integration", "Digitale Workflows, AI-Lösungen und QPS Engineering Support."],
           ].map(([step, title, body]) => (
             <article
               key={step}
@@ -130,46 +130,47 @@ export default async function Home(props: {
                 QPS Shop Sortiment
               </p>
               <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-                Produkte für Prüfung, Robotik und regulierte Produktion.
+                Verkaufsfertig für visuelle Inspektion.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-7 text-qps-graphite">
-              Der Shop bündelt die ersten QPS-Angebote: Testsets,
-              Robotertechnik, ROVIS, Software und Inspektionsboxen für Pharma,
-              Biotech, Food Tech und andere regulierte Industrieprozesse.
+              Wählen Sie Produkte und Systeme, die visuelle Prüfung planbarer
+              machen: Testsets für Inspektionsqualität, ROVIS als Roboter für
+              visuelle Inspektion, Software und Inspektionsboxen für den
+              operativen Einsatz.
             </p>
           </ScrollReveal>
 
           <div className="grid gap-4 small:grid-cols-6">
             {[
               {
-                title: "Testset",
-                body: "Defect Test Sets, Referenzmuster und Trainingsmaterial für Visual Inspection und Qualifizierung.",
-                meta: "QLabs",
+                title: "Testsets",
+                body: "Defect Test Sets & Samples für visuelle Inspektion, Training und Qualifizierung. Ideal, um Prüfergebnisse reproduzierbar abzusichern.",
+                meta: "Visual Inspection",
                 className: "small:col-span-3 small:row-span-2",
               },
               {
                 title: "Roboter",
-                body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Industrieprozesse.",
+                body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Prüf- und Handlingprozesse in regulierter Produktion.",
                 meta: "QxTec",
                 className: "small:col-span-3",
               },
               {
                 title: "ROVIS",
-                body: "Robotic Visual Inspection für automatisierte Prüfprozesse mit Machine Vision und GxP-Kontext.",
-                meta: "Vision Systems",
+                body: "ROVIS ist der QPS-Roboter für visuelle Inspektion: konzipiert für automatisierte, stabile und dokumentierbare Prüfabläufe.",
+                meta: "Robotic Visual Inspection",
                 className: "small:col-span-2",
               },
               {
                 title: "Software",
-                body: "Digitale Workflows, AI-basierte Lösungen und Softwaremodule für Prüfung und Prozessführung.",
+                body: "Softwaremodule und AI-basierte Workflows für Prüfprozesse, Auswertung, Dokumentation und Integration in bestehende Abläufe.",
                 meta: "Digital",
                 className: "small:col-span-2",
               },
               {
                 title: "Inspektionsboxen",
-                body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training und Musterverwaltung.",
-                meta: "Inspection",
+                body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training, Musterverwaltung und standardisierte Arbeitsplätze.",
+                meta: "Inspection Tools",
                 className: "small:col-span-2",
               },
             ].map((item, index) => (
@@ -206,15 +207,15 @@ export default async function Home(props: {
       <div className="bg-qps-paper py-12 small:py-24">
         <div className="content-container mb-4 small:mb-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-            Curated catalog
+            Sortiment für visuelle Inspektion
           </p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.045em] text-qps-ink small:text-5xl">
-            Testsets, Roboter, ROVIS, Software und Inspektionsboxen.
+            Alles für sichere Sichtprüfung: Testsets, ROVIS, Roboter, Software und Inspektionsboxen.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-qps-graphite">
-            Der Shop wird zum Beschaffungspunkt für QPS-nahe Systeme,
-            Referenzprodukte und Technologiebausteine rund um industrielle
-            Robotik, Visual Inspection und Prozessqualität.
+            Der Shop wird zum Beschaffungspunkt für QPS-nahe Produkte rund um
+            visuelle Inspektion, Prüfertraining, robotergestützte Sichtprüfung
+            und qualitätsnahe Prozessunterstützung.
           </p>
         </div>
         {collections.length > 0 && region ? (
@@ -225,16 +226,16 @@ export default async function Home(props: {
           <div className="content-container">
             <div className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                Robotics catalog temporarily unavailable
+                Sortiment temporär nicht verfügbar
               </p>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-qps-ink">
-                Die Robotics-Produkte werden geladen, sobald die Store API
+                Die Produkte für visuelle Inspektion werden geladen, sobald die Store API
                 wieder antwortet.
               </h3>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-qps-graphite">
-                Die Startseite bleibt erreichbar, damit QPS-Kompetenzen und
-                Anwendungsfelder auch bei temporärer API-Störung sichtbar
-                bleiben.
+                Die Startseite bleibt erreichbar, damit Testsets, ROVIS,
+                Inspektionsboxen und QPS-Kompetenzen auch bei temporärer
+                API-Störung sichtbar bleiben.
               </p>
             </div>
           </div>
@@ -245,23 +246,24 @@ export default async function Home(props: {
         <div className="content-container grid gap-8 small:grid-cols-[1.2fr_0.8fr] small:items-center">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-paper/55">
-              Built for regulated operations
+              Bereit für regulierte Abläufe
             </p>
             <h2 className="mt-4 max-w-4xl text-4xl font-semibold leading-[0.96] tracking-[-0.06em] small:text-6xl">
-              Vom Defect Test Set bis zur Robotic Inspection Cell: der Shop
-              wird auf industrielle Beschaffung ausgerichtet.
+              Von Defect Test Sets bis ROVIS: der Shop wird zur ersten Adresse
+              für visuelle Inspektion mit QPS Engineering Know-how.
             </h2>
           </div>
           <div className="rounded-[1.5rem] border border-qps-paper/15 bg-qps-paper/8 p-6">
             <p className="text-sm leading-6 text-qps-paper/70">
-              Nächster Inhaltsfokus: echte Robotics-Produkte, technische
-              Daten, Qualifizierungsbezug und klare Anfrage- oder Kaufpfade.
+              Ziel ist ein Sortiment, das sofort verständlich ist: was es
+              löst, wo es eingesetzt wird und wie es Ihre Prüfprozesse
+              reproduzierbarer macht.
             </p>
             <LocalizedClientLink
               href="/store"
               className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-qps-paper px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:bg-qps-signal hover:text-qps-paper focus:outline-none focus:ring-2 focus:ring-qps-paper/70"
             >
-              Robotics Sortiment ansehen
+              Sortiment ansehen
             </LocalizedClientLink>
           </div>
         </div>

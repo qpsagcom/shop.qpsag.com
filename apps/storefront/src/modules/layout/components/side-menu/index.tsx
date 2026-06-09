@@ -18,26 +18,26 @@ const SideMenuItems = [
   {
     name: "Home",
     href: "/",
-    eyebrow: "Overview",
-    description: "QPS Robotics storefront",
+    eyebrow: "Start",
+    description: "Visuelle Inspektion mit QPS",
   },
   {
-    name: "Robotics Store",
+    name: "Inspection Store",
     href: "/store",
-    eyebrow: "Catalog",
-    description: "Systems, inspection and measurement",
+    eyebrow: "Sortiment",
+    description: "Testsets, ROVIS, Software und Inspektionsboxen",
   },
   {
     name: "Account",
     href: "/account",
-    eyebrow: "Procurement",
-    description: "Orders and addresses",
+    eyebrow: "Beschaffung",
+    description: "Bestellungen und Adressen",
   },
   {
     name: "Cart",
     href: "/cart",
     eyebrow: "Checkout",
-    description: "Review selected equipment",
+    description: "Auswahl prüfen und anfragen",
   },
 ] as const
 
