@@ -13,6 +13,73 @@ export const metadata: Metadata = {
     "ROVIS-Roboter, Testsets, Inspektionsboxen und Software für robotergestützte visuelle Inspektion in Pharma, Biotech und Food Tech.",
 }
 
+const workflowSteps = [
+  {
+    step: "01",
+    title: "ROVIS",
+    eyebrow: "Robotic Visual Inspection",
+    body: "Roboterbasierte Sichtprüfung für stabile, wiederholbare und dokumentierbare Prüfabläufe.",
+  },
+  {
+    step: "02",
+    title: "Testsets",
+    eyebrow: "Inspection Quality",
+    body: "Defect Test Sets, Samples und Referenzen für Training, Qualifizierung und sichere Entscheidungen.",
+  },
+  {
+    step: "03",
+    title: "Software",
+    eyebrow: "Workflow Control",
+    body: "Digitale Prüfprozesse, Auswertung und Integration in bestehende Produktions- und Qualitätsabläufe.",
+  },
+  {
+    step: "04",
+    title: "Inspektionsboxen",
+    eyebrow: "Controlled Inspection",
+    body: "Kontrollierte Prüfplätze für Sichtprüfung, Musterverwaltung und reproduzierbare Arbeitsbedingungen.",
+  },
+] as const
+
+const trustSignals = [
+  ["Regulated Industries", "Pharma, Biotech und Food Tech als primärer Einsatzkontext."],
+  ["GxP-nahe Denkweise", "Qualifizierung, Dokumentation und Prozesssicherheit sind von Anfang an mitgedacht."],
+  ["Swiss Engineering", "QPS Engineering AG verbindet Robotik, Visual Inspection und Projektumsetzung."],
+] as const
+
+const assortmentItems = [
+  {
+    title: "ROVIS",
+    body: "Der QPS-Roboter für visuelle Inspektion: entwickelt für automatisierte, stabile und dokumentierbare Prüfabläufe in regulierten Umgebungen.",
+    meta: "Lead System",
+    className: "small:col-span-3 small:row-span-2",
+    highlight: true,
+  },
+  {
+    title: "Roboter",
+    body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Prüf- und Handlingprozesse.",
+    meta: "QxTec",
+    className: "small:col-span-3",
+  },
+  {
+    title: "Testsets",
+    body: "Defect Test Sets & Samples für visuelle Inspektion, Training und Qualifizierung.",
+    meta: "Visual Inspection",
+    className: "small:col-span-2",
+  },
+  {
+    title: "Software",
+    body: "Softwaremodule und AI-basierte Workflows für Prüfprozesse, Auswertung und Integration.",
+    meta: "Digital",
+    className: "small:col-span-2",
+  },
+  {
+    title: "Inspektionsboxen",
+    body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training und Musterverwaltung.",
+    meta: "Inspection Tools",
+    className: "small:col-span-2",
+  },
+] as const
+
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
@@ -63,34 +130,42 @@ export default async function Home(props: {
       </section>
 
       <section className="bg-qps-paper py-16 small:py-28">
-        <div className="content-container grid gap-8 small:grid-cols-[0.82fr_1.18fr] small:items-end">
-          <ScrollReveal>
+        <div className="content-container grid gap-10 small:grid-cols-[0.75fr_1.25fr] small:items-start">
+          <ScrollReveal className="small:sticky small:top-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-              QPS Engineering AG
+              Industrial Robotics Procurement
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-              Robotics, die visuelle Inspektion reproduzierbar macht.
+              Ein klarer Stack für robotergestützte Sichtprüfung.
             </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
+              QPS verbindet ROVIS, Testsets, Software und kontrollierte
+              Prüfplätze zu einem Beschaffungsbild, das zu regulierten
+              Produktionsprozessen passt.
+            </p>
           </ScrollReveal>
-          <div className="grid gap-4 xsmall:grid-cols-2">
-            {[
-              [
-                "Für Pharma, Biotech und Food Tech",
-                "QPS fokussiert auf Industrien, in denen Prüfqualität, Wiederholbarkeit und Dokumentation entscheidend sind.",
-              ],
-              [
-                "Robotics mit Engineering-Kontext",
-                "ROVIS, Roboter, Testsets, Inspektionsboxen und Software werden mit Qualifizierungs- und Integrationswissen gedacht.",
-              ],
-            ].map(([title, body], index) => (
-              <ScrollReveal key={title} delay={0.08 + index * 0.05} variant="scale">
-                <article className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-6 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition-transform duration-300 hover:-translate-y-1">
-                  <h3 className="text-lg font-semibold tracking-[-0.03em] text-qps-ink">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                    {body}
-                  </p>
+
+          <div className="relative grid gap-3">
+            <div className="pointer-events-none absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-px bg-gradient-to-b from-qps-signal via-qps-line to-transparent small:block" />
+            {workflowSteps.map((item, index) => (
+              <ScrollReveal key={item.step} delay={index * 0.06} variant="slide-left">
+                <article className="group relative rounded-[1.5rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/60">
+                  <div className="flex gap-5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-qps-line bg-qps-paper text-[11px] font-semibold tracking-[0.18em] text-qps-signal transition-colors group-hover:border-qps-signal">
+                      {item.step}
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
+                        {item.eyebrow}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-qps-ink">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-sm leading-6 text-qps-graphite">
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
                 </article>
               </ScrollReveal>
             ))}
@@ -99,17 +174,12 @@ export default async function Home(props: {
       </section>
 
       <section className="border-y border-qps-line bg-qps-surface/70 py-14 small:py-20">
-        <div className="content-container grid gap-5 small:grid-cols-4">
-          {[
-            ["01", "ROVIS Roboter", "Roboter für visuelle Inspektion mit wiederholbaren Prüfabläufen."],
-            ["02", "Testsets & Samples", "Defect Test Sets und Referenzmuster für visuelle Inspektion."],
-            ["03", "Inspektionsboxen", "Kontrollierte Prüfplätze für Training, Muster und manuelle Sichtprüfung."],
-            ["04", "Software & Integration", "Digitale Workflows, AI-Lösungen und QPS Engineering Support."],
-          ].map(([step, title, body], index) => (
-            <ScrollReveal key={step} delay={index * 0.045} variant="scale">
-              <article className="rounded-[1.25rem] border border-qps-line bg-qps-paper p-5 transition-transform duration-300 hover:-translate-y-1">
+        <div className="content-container grid gap-5 small:grid-cols-3">
+          {trustSignals.map(([title, body], index) => (
+            <ScrollReveal key={title} delay={index * 0.05} variant="scale">
+              <article className="h-full rounded-[1.25rem] border border-qps-line bg-qps-paper p-6 transition-transform duration-300 hover:-translate-y-1">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                  {step}
+                  Trust 0{index + 1}
                 </p>
                 <h3 className="mt-5 text-xl font-semibold tracking-[-0.04em] text-qps-ink">
                   {title}
@@ -142,62 +212,53 @@ export default async function Home(props: {
           </ScrollReveal>
 
           <div className="grid gap-4 small:grid-cols-6">
-            {[
-              {
-                title: "ROVIS",
-                body: "ROVIS ist der QPS-Roboter für visuelle Inspektion: konzipiert für automatisierte, stabile und dokumentierbare Prüfabläufe.",
-                meta: "Robotic Visual Inspection",
-                className: "small:col-span-3 small:row-span-2",
-              },
-              {
-                title: "Roboter",
-                body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Prüf- und Handlingprozesse in regulierter Produktion.",
-                meta: "QxTec",
-                className: "small:col-span-3",
-              },
-              {
-                title: "Testsets",
-                body: "Defect Test Sets & Samples für visuelle Inspektion, Training und Qualifizierung. Ideal, um Prüfergebnisse reproduzierbar abzusichern.",
-                meta: "Visual Inspection",
-                className: "small:col-span-2",
-              },
-              {
-                title: "Software",
-                body: "Softwaremodule und AI-basierte Workflows für Prüfprozesse, Auswertung, Dokumentation und Integration in bestehende Abläufe.",
-                meta: "Digital",
-                className: "small:col-span-2",
-              },
-              {
-                title: "Inspektionsboxen",
-                body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training, Musterverwaltung und standardisierte Arbeitsplätze.",
-                meta: "Inspection Tools",
-                className: "small:col-span-2",
-              },
-            ].map((item, index) => (
+            {assortmentItems.map((item, index) => (
               <ScrollReveal
                 key={item.title}
                 delay={index * 0.04}
                 className={item.className}
                 variant={index === 0 ? "scale" : "fade-up"}
               >
-                <article className="group h-full rounded-[1.6rem] border border-qps-line bg-qps-surface p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)]">
-                <div className="flex min-h-full flex-col justify-between gap-8">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                      {item.meta}
-                    </p>
-                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-qps-ink">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                      {item.body}
-                    </p>
+                <article
+                  className={`group h-full overflow-hidden rounded-[1.6rem] border p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)] ${
+                    item.highlight
+                      ? "border-qps-ink bg-qps-ink text-qps-paper"
+                      : "border-qps-line bg-qps-surface"
+                  }`}
+                >
+                  <div className="flex min-h-full flex-col justify-between gap-8">
+                    <div>
+                      <p
+                        className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal"
+                      >
+                        {item.meta}
+                      </p>
+                      <h3
+                        className={`mt-4 text-3xl font-semibold tracking-[-0.06em] ${
+                          item.highlight ? "text-qps-paper" : "text-qps-ink"
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className={`mt-4 text-sm leading-6 ${
+                          item.highlight ? "text-qps-paper/70" : "text-qps-graphite"
+                        }`}
+                      >
+                        {item.body}
+                      </p>
+                    </div>
+                    <div
+                      className={`flex items-center justify-between border-t pt-5 text-[11px] font-semibold uppercase tracking-[0.18em] ${
+                        item.highlight
+                          ? "border-qps-paper/15 text-qps-paper/55"
+                          : "border-qps-line text-qps-muted"
+                      }`}
+                    >
+                      <span>QPS</span>
+                      <span>{item.highlight ? "Lead system" : "Shop ready"}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between border-t border-qps-line pt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted">
-                    <span>QPS</span>
-                    <span>Shop ready</span>
-                  </div>
-                </div>
                 </article>
               </ScrollReveal>
             ))}
@@ -260,12 +321,20 @@ export default async function Home(props: {
               löst, wo es eingesetzt wird und wie es Ihre Prüfprozesse
               reproduzierbarer macht.
             </p>
-            <LocalizedClientLink
-              href="/store"
-              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-qps-paper px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:bg-qps-signal hover:text-qps-paper focus:outline-none focus:ring-2 focus:ring-qps-paper/70"
-            >
-              Robotics Sortiment ansehen
-            </LocalizedClientLink>
+            <div className="mt-6 flex flex-col gap-3 xsmall:flex-row">
+              <LocalizedClientLink
+                href="/store"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-qps-paper px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:bg-qps-signal hover:text-qps-paper focus:outline-none focus:ring-2 focus:ring-qps-paper/70"
+              >
+                Robotics Sortiment ansehen
+              </LocalizedClientLink>
+              <a
+                href="mailto:info@qpsag.com"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-paper/20 px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-paper transition-colors hover:border-qps-signal hover:text-qps-signal focus:outline-none focus:ring-2 focus:ring-qps-paper/50"
+              >
+                QPS kontaktieren
+              </a>
+            </div>
           </div>
         </div>
       </section>
