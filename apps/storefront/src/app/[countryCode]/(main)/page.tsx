@@ -47,29 +47,31 @@ export default async function Home(props: {
               "GxP-nahe Umsetzung",
               "Engineering, Qualifizierung und Compliance-Denken von QPS Engineering AG.",
             ],
-          ].map(([title, body]) => (
-            <article key={title} className="border-l border-qps-paper/20 pl-5">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-qps-paper">
-                {title}
-              </h2>
-              <p className="mt-2 max-w-sm text-sm leading-6 text-qps-paper/65">
-                {body}
-              </p>
-            </article>
+          ].map(([title, body], index) => (
+            <ScrollReveal key={title} delay={index * 0.05}>
+              <article className="border-l border-qps-paper/20 pl-5">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-qps-paper">
+                  {title}
+                </h2>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-qps-paper/65">
+                  {body}
+                </p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       <section className="bg-qps-paper py-16 small:py-28">
         <div className="content-container grid gap-8 small:grid-cols-[0.82fr_1.18fr] small:items-end">
-          <div>
+          <ScrollReveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
               QPS Engineering AG
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
               Robotics, die visuelle Inspektion reproduzierbar macht.
             </h2>
-          </div>
+          </ScrollReveal>
           <div className="grid gap-4 xsmall:grid-cols-2">
             {[
               [
@@ -80,18 +82,17 @@ export default async function Home(props: {
                 "Robotics mit Engineering-Kontext",
                 "ROVIS, Roboter, Testsets, Inspektionsboxen und Software werden mit Qualifizierungs- und Integrationswissen gedacht.",
               ],
-            ].map(([title, body]) => (
-              <article
-                key={title}
-                className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-6 shadow-[0_18px_60px_rgba(17,19,21,0.06)]"
-              >
-                <h3 className="text-lg font-semibold tracking-[-0.03em] text-qps-ink">
-                  {title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                  {body}
-                </p>
-              </article>
+            ].map(([title, body], index) => (
+              <ScrollReveal key={title} delay={0.08 + index * 0.05} variant="scale">
+                <article className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-6 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition-transform duration-300 hover:-translate-y-1">
+                  <h3 className="text-lg font-semibold tracking-[-0.03em] text-qps-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-qps-graphite">
+                    {body}
+                  </p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -104,19 +105,18 @@ export default async function Home(props: {
             ["02", "Testsets & Samples", "Defect Test Sets und Referenzmuster für visuelle Inspektion."],
             ["03", "Inspektionsboxen", "Kontrollierte Prüfplätze für Training, Muster und manuelle Sichtprüfung."],
             ["04", "Software & Integration", "Digitale Workflows, AI-Lösungen und QPS Engineering Support."],
-          ].map(([step, title, body]) => (
-            <article
-              key={step}
-              className="rounded-[1.25rem] border border-qps-line bg-qps-paper p-5"
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                {step}
-              </p>
-              <h3 className="mt-5 text-xl font-semibold tracking-[-0.04em] text-qps-ink">
-                {title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-qps-muted">{body}</p>
-            </article>
+          ].map(([step, title, body], index) => (
+            <ScrollReveal key={step} delay={index * 0.045} variant="scale">
+              <article className="rounded-[1.25rem] border border-qps-line bg-qps-paper p-5 transition-transform duration-300 hover:-translate-y-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
+                  {step}
+                </p>
+                <h3 className="mt-5 text-xl font-semibold tracking-[-0.04em] text-qps-ink">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-qps-muted">{body}</p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -178,6 +178,7 @@ export default async function Home(props: {
                 key={item.title}
                 delay={index * 0.04}
                 className={item.className}
+                variant={index === 0 ? "scale" : "fade-up"}
               >
                 <article className="group h-full rounded-[1.6rem] border border-qps-line bg-qps-surface p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)]">
                 <div className="flex min-h-full flex-col justify-between gap-8">

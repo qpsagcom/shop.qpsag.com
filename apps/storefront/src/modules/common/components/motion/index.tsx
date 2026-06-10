@@ -14,6 +14,10 @@ export const qpsMotion = {
     duration: 0.24,
     ease: qpsEase,
   },
+  slow: {
+    duration: 0.9,
+    ease: qpsEase,
+  },
 }
 
 export const fadeUp: Variants = {
@@ -31,6 +35,16 @@ export const scaleIn: Variants = {
     opacity: 1,
     scale: 1,
     transition: qpsMotion.soft,
+  },
+}
+
+export const staggerContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
+    },
   },
 }
 

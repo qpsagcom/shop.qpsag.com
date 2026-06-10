@@ -25,6 +25,8 @@ const container = {
 const heroImageUrl =
   "/qps-hero-lab.jpeg"
 
+const inspectionCycle = ["Position", "Inspect", "Document"] as const
+
 export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()
 
@@ -124,16 +126,41 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...qpsMotion.soft, delay: 0.32 }}
           >
-            <img
+            <m.img
               src={heroImageUrl}
               alt="QPS Engineering industrial robotics and process technology environment"
               className="h-full w-full object-cover"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : { scale: [1, 1.025, 1], x: [0, -4, 0] }
+              }
+              transition={{
+                duration: 16,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
             />
             <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(var(--qps-paper)/0.92)_0%,rgb(var(--qps-paper)/0.52)_42%,rgb(0_0_0/0.18)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
 
             <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted">
-              <span>Robotics Cell</span>
+              <span className="flex items-center gap-2">
+                <m.span
+                  className="h-1.5 w-1.5 rounded-full bg-qps-signal"
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { opacity: [0.45, 1, 0.45], scale: [1, 1.35, 1] }
+                  }
+                  transition={{
+                    duration: 2.2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
+                />
+                Robotics Cell
+              </span>
               <span>QPS AG</span>
             </div>
 
@@ -153,6 +180,34 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 Robotics und Zubehör für visuelle Inspektion, Qualifizierung
                 und reproduzierbare Prüfprozesse.
               </p>
+              <div className="mt-5 grid grid-cols-3 gap-2">
+                {inspectionCycle.map((step, index) => (
+                  <m.span
+                    key={step}
+                    className="rounded-full border border-qps-line bg-qps-paper px-2.5 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-qps-muted"
+                    animate={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: [0, -2, 0],
+                            borderColor: [
+                              "rgb(var(--qps-line))",
+                              "rgb(var(--qps-signal))",
+                              "rgb(var(--qps-line))",
+                            ],
+                          }
+                    }
+                    transition={{
+                      duration: 2.8,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      delay: index * 0.32,
+                    }}
+                  >
+                    {step}
+                  </m.span>
+                ))}
+              </div>
             </m.div>
 
             <m.div
@@ -169,6 +224,22 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 Der QPS-Roboter für visuelle Inspektion in regulierten
                 Umgebungen.
               </p>
+              <div className="mt-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-qps-paper/55">
+                <m.span
+                  className="h-2 w-2 rounded-full bg-qps-signal"
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { opacity: [0.4, 1, 0.4], scale: [1, 1.25, 1] }
+                  }
+                  transition={{
+                    duration: 1.8,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
+                />
+                Cycle ready
+              </div>
             </m.div>
           </m.div>
         </m.div>
