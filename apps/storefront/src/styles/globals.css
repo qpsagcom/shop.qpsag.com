@@ -81,6 +81,27 @@
 }
 
 @layer utilities {
+  /*
+   * Blueprint line art (blue ink on white):
+   * multiply blends the white background away on light surfaces;
+   * in dark mode the image is inverted (hue-rotated back to blue)
+   * and screened so the black background disappears.
+   */
+  .blueprint-img {
+    mix-blend-mode: multiply;
+  }
+
+  [data-qps-theme="dark"] .blueprint-img {
+    filter: invert(1) hue-rotate(180deg) saturate(1.15);
+    mix-blend-mode: screen;
+  }
+
+  /* For blueprint art placed on always-dark (qps-ink) surfaces */
+  .blueprint-img-on-ink {
+    filter: invert(1) hue-rotate(180deg) saturate(1.15);
+    mix-blend-mode: screen;
+  }
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

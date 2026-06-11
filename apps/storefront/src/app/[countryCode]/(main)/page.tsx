@@ -53,30 +53,45 @@ const assortmentItems = [
     meta: "Lead System",
     className: "small:col-span-3 small:row-span-2",
     highlight: true,
+    image: "/blueprint/blueprint-rovis-cell.webp",
+    imageAlt: "Technische Zeichnung der ROVIS Robotics-Zelle",
+    figure: "Fig. 01 — ROVIS Cell",
   },
   {
     title: "Roboter",
     body: "Robotik-Plattformen und Automationsbausteine für wiederholbare Prüf- und Handlingprozesse.",
     meta: "QxTec",
     className: "small:col-span-3",
+    image: "/blueprint/blueprint-humanoid.webp",
+    imageAlt: "Technische Zeichnung einer humanoiden Robotik-Plattform",
+    figure: "Fig. 02 — Robotics Platform",
   },
   {
     title: "Testsets",
     body: "Defect Test Sets & Samples für visuelle Inspektion, Training und Qualifizierung.",
     meta: "Visual Inspection",
     className: "small:col-span-2",
+    image: "/blueprint/blueprint-vials-trio.webp",
+    imageAlt: "Technische Zeichnung von Vials für Defect Test Sets",
+    figure: "Fig. 03 — Defect Samples",
   },
   {
     title: "Software",
     body: "Softwaremodule und AI-basierte Workflows für Prüfprozesse, Auswertung und Integration.",
     meta: "Digital",
     className: "small:col-span-2",
+    image: "/blueprint/blueprint-inspection.webp",
+    imageAlt: "Technische Zeichnung einer Vial-Inspektionsstation",
+    figure: "Fig. 04 — Inspection Detail",
   },
   {
     title: "Inspektionsboxen",
     body: "Prüf- und Inspektionsboxen für kontrollierte Sichtprüfung, Training und Musterverwaltung.",
     meta: "Inspection Tools",
     className: "small:col-span-2",
+    image: "/blueprint/blueprint-vials.webp",
+    imageAlt: "Technische Zeichnung von Vials und Verschlusskappen",
+    figure: "Fig. 05 — Sample Handling",
   },
 ] as const
 
@@ -143,6 +158,18 @@ export default async function Home(props: {
               Prüfplätze zu einem Beschaffungsbild, das zu regulierten
               Produktionsprozessen passt.
             </p>
+            <figure className="mt-8 overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface">
+              <div className="flex items-center justify-between border-b border-dashed border-qps-line px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
+                <span>Fig. 00 — Production Line</span>
+                <span className="text-qps-signal">QPS Engineering</span>
+              </div>
+              <img
+                src="/blueprint/blueprint-facility.webp"
+                alt="Technische Zeichnung einer pharmazeutischen Produktionslinie"
+                loading="lazy"
+                className="blueprint-img w-full object-cover"
+              />
+            </figure>
           </ScrollReveal>
 
           <div className="relative grid gap-3">
@@ -191,6 +218,37 @@ export default async function Home(props: {
         </div>
       </section>
 
+      <section className="border-b border-qps-line bg-qps-paper py-14 small:py-20">
+        <div className="content-container">
+          <ScrollReveal variant="scale">
+            <figure className="overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
+              <div className="flex items-center justify-between border-b border-dashed border-qps-line px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted small:px-7">
+                <span>QPS Robotics Lab — Schemazeichnung</span>
+                <span className="hidden xsmall:inline">we serve humanity.</span>
+                <span className="text-qps-signal">Stein, Switzerland</span>
+              </div>
+              <div className="relative">
+                <img
+                  src="/blueprint/blueprint-lab.webp"
+                  alt="Technische Zeichnung des QPS Robotics Lab mit humanoiden Robotern, Isolatoren und Inspektionslinien"
+                  loading="lazy"
+                  className="blueprint-img w-full object-cover"
+                />
+              </div>
+              <figcaption className="flex flex-col gap-2 border-t border-dashed border-qps-line px-5 py-4 text-sm leading-6 text-qps-graphite small:flex-row small:items-center small:justify-between small:px-7">
+                <span className="max-w-2xl">
+                  Vom Isolator bis zur Inspektionslinie: QPS denkt Robotik,
+                  visuelle Inspektion und Prozessumgebung als ein System.
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
+                  Blueprint Series / 2026
+                </span>
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-qps-paper py-16 small:py-28">
         <div className="pointer-events-none absolute right-0 top-12 h-80 w-80 rounded-full bg-qps-signal/12 blur-3xl" />
         <div className="content-container relative">
@@ -226,7 +284,7 @@ export default async function Home(props: {
                       : "border-qps-line bg-qps-surface"
                   }`}
                 >
-                  <div className="flex min-h-full flex-col justify-between gap-8">
+                  <div className="flex min-h-full flex-col justify-between gap-6">
                     <div>
                       <p
                         className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal"
@@ -248,6 +306,25 @@ export default async function Home(props: {
                         {item.body}
                       </p>
                     </div>
+                    <figure className="relative">
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt}
+                        loading="lazy"
+                        className={`mx-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] ${
+                          item.highlight
+                            ? "blueprint-img-on-ink max-h-80"
+                            : "blueprint-img max-h-40"
+                        }`}
+                      />
+                      <figcaption
+                        className={`mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] ${
+                          item.highlight ? "text-qps-paper/45" : "text-qps-muted"
+                        }`}
+                      >
+                        {item.figure}
+                      </figcaption>
+                    </figure>
                     <div
                       className={`flex items-center justify-between border-t pt-5 text-[11px] font-semibold uppercase tracking-[0.18em] ${
                         item.highlight
@@ -304,8 +381,16 @@ export default async function Home(props: {
         )}
       </div>
 
-      <section className="bg-qps-ink py-16 text-qps-paper small:py-24">
-        <div className="content-container grid gap-8 small:grid-cols-[1.2fr_0.8fr] small:items-center">
+      <section className="relative overflow-hidden bg-qps-ink py-16 text-qps-paper small:py-24">
+        <img
+          src="/blueprint/blueprint-facility.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="blueprint-img-on-ink pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#05070a] via-[#05070a]/72 to-[#05070a]/40" />
+        <div className="content-container relative grid gap-8 small:grid-cols-[1.2fr_0.8fr] small:items-center">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-paper/55">
               Bereit für regulierte Abläufe
