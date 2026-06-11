@@ -2,9 +2,6 @@
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
-const qpsLogoUrl =
-  "https://qpsag.com/wp-content/uploads/2024/10/QPS_Logo_gesamt_v03_QPS-kleinamasmall-5.png"
-
 type QpsLogoProps = {
   href?: string
   compact?: boolean
@@ -24,9 +21,15 @@ export default function QpsLogo({
       aria-label="QPS AG Shop"
     >
       <img
-        src={qpsLogoUrl}
+        src="/qps-logo-black.webp"
         alt=""
-        className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.025]"
+        className="theme-light-only h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.025]"
+        loading="eager"
+      />
+      <img
+        src="/qps-logo-white.webp"
+        alt=""
+        className="theme-dark-only h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.025]"
         loading="eager"
       />
       {!compact && (

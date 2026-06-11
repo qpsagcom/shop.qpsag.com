@@ -22,8 +22,7 @@ const container = {
   },
 }
 
-const heroImageUrl =
-  "/qps-hero-lab.jpeg"
+const heroImageUrl = "/qps-hero-cleanroom.webp"
 
 const inspectionCycle = ["Position", "Inspect", "Document"] as const
 
@@ -77,7 +76,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
           >
             <LocalizedClientLink
               href="/store"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-qps-ink px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-paper transition-colors hover:bg-qps-signal-dark focus:outline-none focus:ring-2 focus:ring-qps-signal focus:ring-offset-2 focus:ring-offset-qps-paper"
+              className="qps-btn-ink inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.14em] transition-colors focus:outline-none focus:ring-2 focus:ring-qps-signal focus:ring-offset-2 focus:ring-offset-qps-paper"
             >
               {cta}
             </LocalizedClientLink>
@@ -141,8 +140,8 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 repeat: Infinity,
               }}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(var(--qps-paper)/0.92)_0%,rgb(var(--qps-paper)/0.52)_42%,rgb(0_0_0/0.18)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-qps-ink/70 to-transparent" />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(var(--qps-paper)/0.55)_0%,rgb(var(--qps-paper)/0.18)_42%,rgb(0_0_0/0.10)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#05070a]/65 to-transparent" />
 
             <div className="absolute left-5 right-5 top-5 flex items-center justify-between rounded-full border border-qps-line bg-qps-surface px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-qps-muted">
               <span className="flex items-center gap-2">

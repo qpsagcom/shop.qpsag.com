@@ -83,10 +83,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         className={clsx(
           "inline-flex gap-2 items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-          variant === "primary" && "bg-black text-white hover:bg-gray-800",
+          variant === "primary" && "qps-btn-ink",
           variant === "secondary" &&
-            "bg-white text-black border border-gray-200 hover:bg-gray-50",
-          variant === "transparent" && "bg-transparent hover:bg-gray-100",
+            "bg-qps-surface text-qps-ink border border-qps-line hover:border-qps-signal/60",
+          variant === "transparent" && "bg-transparent hover:bg-qps-surface",
           size === "small" && "h-8 px-3 text-sm",
           size === "medium" && "h-10 px-4",
           size === "large" && "h-12 px-6 text-lg",

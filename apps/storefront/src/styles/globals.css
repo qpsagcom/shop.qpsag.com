@@ -71,8 +71,33 @@
     border-color: rgb(246 248 251 / 0.15);
   }
 
+  [data-qps-theme="dark"] .border-qps-paper\/20 {
+    border-color: rgb(246 248 251 / 0.2);
+  }
+
   [data-qps-theme="dark"] .bg-qps-paper\/8 {
     background-color: rgb(246 248 251 / 0.08);
+  }
+
+  [data-qps-theme="dark"] .text-qps-paper\/45 {
+    color: rgb(246 248 251 / 0.45);
+  }
+
+  [data-qps-theme="dark"] .text-qps-paper\/55 {
+    color: rgb(246 248 251 / 0.55);
+  }
+
+  [data-qps-theme="dark"] .text-qps-paper\/65 {
+    color: rgb(246 248 251 / 0.65);
+  }
+
+  [data-qps-theme="dark"] .text-qps-paper\/70 {
+    color: rgb(246 248 251 / 0.7);
+  }
+
+  /* Backdrops must stay dark in dark mode (ink token flips to light) */
+  [data-qps-theme="dark"] .bg-qps-ink\/55 {
+    background-color: rgb(3 4 6 / 0.72);
   }
 
   ::selection {
@@ -100,6 +125,19 @@
   .blueprint-img-on-ink {
     filter: invert(1) hue-rotate(180deg) saturate(1.15);
     mix-blend-mode: screen;
+  }
+
+  /* Theme-dependent visibility (e.g. black vs. white logo) */
+  .theme-dark-only {
+    display: none;
+  }
+
+  [data-qps-theme="dark"] .theme-light-only {
+    display: none;
+  }
+
+  [data-qps-theme="dark"] .theme-dark-only {
+    display: block;
   }
 
   /* Chrome, Safari and Opera */
@@ -151,6 +189,25 @@
 @layer components {
   .content-container {
     @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  /*
+   * Primary button that inverts with the theme:
+   * dark button on light pages, light button on dark pages.
+   * (Intentionally not using .bg-qps-ink, which is pinned dark for sections.)
+   */
+  .qps-btn-ink {
+    background-color: rgb(var(--qps-ink));
+    color: rgb(var(--qps-paper));
+  }
+
+  .qps-btn-ink:hover {
+    background-color: rgb(var(--qps-signal-dark));
+    color: rgb(255 255 255);
+  }
+
+  [data-qps-theme="dark"] .qps-btn-ink:hover {
+    color: rgb(0 0 0);
   }
 
   .contrast-btn {

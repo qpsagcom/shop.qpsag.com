@@ -221,30 +221,35 @@ export default async function Home(props: {
       <section className="border-b border-qps-line bg-qps-paper py-14 small:py-20">
         <div className="content-container">
           <ScrollReveal variant="scale">
-            <figure className="overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
-              <div className="flex items-center justify-between border-b border-dashed border-qps-line px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted small:px-7">
-                <span>QPS Robotics Lab — Schemazeichnung</span>
-                <span className="hidden xsmall:inline">we serve humanity.</span>
-                <span className="text-qps-signal">Stein, Switzerland</span>
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
+              <img
+                src="/blueprint/blueprint-lab.webp"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="blueprint-img absolute inset-0 h-full w-full object-cover object-right"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-qps-surface via-qps-surface/85 to-qps-surface/15" />
+              <div className="relative max-w-2xl px-6 py-12 small:px-12 small:py-20">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-signal">
+                  QPS Robotics Lab — Stein, Switzerland
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
+                  Robotik, Inspektion und Prozessumgebung als ein System.
+                </h2>
+                <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
+                  Vom Isolator über die Inspektionslinie bis zum humanoiden
+                  Roboter: QPS entwickelt und integriert die Bausteine, die im
+                  Shop einzeln beschaffbar sind — abgestimmt auf regulierte
+                  Produktion.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
+                  <span>Blueprint Series / 2026</span>
+                  <span className="hidden h-1 w-1 rounded-full bg-qps-signal xsmall:inline-block" />
+                  <span>we serve humanity.</span>
+                </div>
               </div>
-              <div className="relative">
-                <img
-                  src="/blueprint/blueprint-lab.webp"
-                  alt="Technische Zeichnung des QPS Robotics Lab mit humanoiden Robotern, Isolatoren und Inspektionslinien"
-                  loading="lazy"
-                  className="blueprint-img w-full object-cover"
-                />
-              </div>
-              <figcaption className="flex flex-col gap-2 border-t border-dashed border-qps-line px-5 py-4 text-sm leading-6 text-qps-graphite small:flex-row small:items-center small:justify-between small:px-7">
-                <span className="max-w-2xl">
-                  Vom Isolator bis zur Inspektionslinie: QPS denkt Robotik,
-                  visuelle Inspektion und Prozessumgebung als ein System.
-                </span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
-                  Blueprint Series / 2026
-                </span>
-              </figcaption>
-            </figure>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -409,7 +414,7 @@ export default async function Home(props: {
             <div className="mt-6 flex flex-col gap-3 xsmall:flex-row">
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-qps-paper px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:bg-qps-signal hover:text-qps-paper focus:outline-none focus:ring-2 focus:ring-qps-paper/70"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold uppercase tracking-[0.14em] text-[#05070a] transition-colors hover:bg-qps-signal hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
               >
                 Robotics Sortiment ansehen
               </LocalizedClientLink>
