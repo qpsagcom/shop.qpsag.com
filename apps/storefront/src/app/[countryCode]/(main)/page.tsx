@@ -168,42 +168,6 @@ export default async function Home(props: {
         </div>
       </section>
 
-      <section className="border-b border-qps-line bg-qps-paper py-14 small:py-20">
-        <div className="content-container">
-          <ScrollReveal variant="scale">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
-              <img
-                src="/blueprint/blueprint-lab.webp"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="blueprint-img absolute inset-0 h-full w-full object-cover object-right"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-qps-surface via-qps-surface/85 to-qps-surface/15" />
-              <div className="relative max-w-2xl px-6 py-12 small:px-12 small:py-20">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-signal">
-                  QPS Robotics Lab — Stein, Switzerland
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
-                  Robotics, inspection, and process environment as one system.
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
-                  From the isolator through the inspection line to the humanoid
-                  robot: QPS develops and integrates the building blocks that
-                  are available individually in the shop — tailored to
-                  regulated production.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
-                  <span>Blueprint Series / 2026</span>
-                  <span className="hidden h-1 w-1 rounded-full bg-qps-signal xsmall:inline-block" />
-                  <span>we serve humanity.</span>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <div className="bg-qps-paper py-12 small:py-24">
         <div className="content-container mb-4 small:mb-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
@@ -241,6 +205,42 @@ export default async function Home(props: {
           </div>
         )}
       </div>
+
+      <section className="border-b border-qps-line bg-qps-paper py-14 small:py-20">
+        <div className="content-container">
+          <ScrollReveal variant="scale">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
+              <img
+                src="/blueprint/blueprint-lab.webp"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="blueprint-img absolute inset-0 h-full w-full object-cover object-right"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-qps-surface via-qps-surface/85 to-qps-surface/15" />
+              <div className="relative max-w-2xl px-6 py-12 small:px-12 small:py-20">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-signal">
+                  QPS Robotics Lab — Stein, Switzerland
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
+                  Robotics, inspection, and process environment as one system.
+                </h2>
+                <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
+                  From the isolator through the inspection line to the humanoid
+                  robot: QPS develops and integrates the building blocks that
+                  are available individually in the shop — tailored to
+                  regulated production.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
+                  <span>Blueprint Series / 2026</span>
+                  <span className="hidden h-1 w-1 rounded-full bg-qps-signal xsmall:inline-block" />
+                  <span>we serve humanity.</span>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       <section className="relative overflow-hidden bg-qps-ink py-16 text-qps-paper small:py-24">
         <img

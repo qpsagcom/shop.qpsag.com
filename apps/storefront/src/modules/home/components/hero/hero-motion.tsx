@@ -159,7 +159,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                     repeat: Infinity,
                   }}
                 />
-                Robotics Cell
+                Robotic Solutions
               </span>
               <span>QPS AG</span>
             </div>
@@ -174,11 +174,11 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 Industrial Robotics
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                ROVIS, test sets, and inspection boxes
+                Test sets and inspection boxes
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Robotics and accessories for visual inspection, qualification,
-                and reproducible inspection processes.
+                Accessories and references for visual inspection,
+                qualification, and reproducible inspection processes.
               </p>
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {inspectionCycle.map((step, index) => (
