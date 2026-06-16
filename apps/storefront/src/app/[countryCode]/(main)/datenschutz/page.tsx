@@ -1,15 +1,12 @@
 import { Metadata } from "next"
-import { getLocale } from "@lib/data/locale-actions"
 import { getTranslator } from "@lib/i18n/translations"
 
 export const metadata: Metadata = {
-  title: "Datenschutz | QPS Engineering AG",
+  title: "Privacy Policy | QPS Engineering AG",
 }
 
 export default async function DatenschutzPage() {
-  const currentLocale = await getLocale()
-  const translate = getTranslator(currentLocale)
-  const isDE = !currentLocale || currentLocale.startsWith("de")
+  const translate = getTranslator()
 
   return (
     <div className="content-container py-16 max-w-3xl">
@@ -17,95 +14,7 @@ export default async function DatenschutzPage() {
         {translate("footer_privacy")}
       </h1>
 
-      {isDE ? (
-        <div className="prose prose-sm max-w-none text-ui-fg-subtle space-y-6">
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">Datenschutzerklärung für QPS Engineering AG</h2>
-            <p>
-              Willkommen im Shop der QPS Engineering AG. Diese
-              Datenschutzerklärung beschreibt, wie wir personenbezogene Daten
-              erheben, verwenden und schützen, wenn Sie unsere Website besuchen,
-              mit unseren Services interagieren oder uns kontaktieren.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">1. Erhebung von Informationen</h2>
-            <p>
-              Wenn Sie unsere Website besuchen, Formulare nutzen oder Services
-              anfragen, können wir personenbezogene Daten wie Name,
-              E-Mail-Adresse, Telefonnummer, Rechnungs- und Lieferadresse sowie
-              Informationen zur Nutzung der Website verarbeiten.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">2. Nutzung der Informationen</h2>
-            <p>
-              Wir verwenden diese Informationen, um angefragte Leistungen und
-              Bestellungen bereitzustellen, Anfragen zu beantworten, wichtige
-              Updates zu senden und unsere Website sowie die Nutzererfahrung zu
-              verbessern.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">3. Bestellungen und Zahlungsabwicklung</h2>
-            <p>
-              Für Bestellungen im Shop verarbeiten wir die für Bestellung,
-              Lieferung, Kommunikation und Abrechnung erforderlichen Daten. Die
-              Zahlungsabwicklung kann über externe Zahlungsdienstleister wie
-              Stripe erfolgen.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">4. Weitergabe von Informationen</h2>
-            <p>
-              Wir geben personenbezogene Daten nicht an Dritte weiter, ausser
-              soweit dies für Dienstleister, technische Unterstützung,
-              Zahlungsabwicklung, Lieferung, gesetzliche Pflichten oder den
-              Schutz unserer Rechte erforderlich ist.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">5. Datensicherheit</h2>
-            <p>
-              Wir setzen angemessene technische und organisatorische Massnahmen
-              ein, um personenbezogene Daten vor unbefugtem Zugriff,
-              Veränderung, Offenlegung oder Zerstörung zu schützen. Dazu zählen
-              marktübliche Sicherheitsmassnahmen wie SSL-Verschlüsselung.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">6. Cookies</h2>
-            <p>
-              Unsere Website verwendet technisch notwendige Cookies, zum
-              Beispiel für Warenkorb, Session und Shop-Funktionen. Weitere
-              Informationen zu Cookies können in einer separaten Cookie Policy
-              bereitgestellt werden.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">7. Ihre Rechte</h2>
-            <p>
-              Sie haben das Recht auf Auskunft, Berichtigung, Löschung,
-              Einschränkung der Verarbeitung und Widerspruch gegen bestimmte
-              Verarbeitungen Ihrer personenbezogenen Daten.
-            </p>
-          </section>
-          <section>
-            <h2 className="text-lg font-medium text-ui-fg-base mb-2">8. Kontakt</h2>
-            <p>
-              QPS Engineering AG<br />
-              Schaffhauserstrasse 30<br />
-              4332 Stein, Switzerland<br />
-              Telefon: <a href="tel:+41562819114" className="hover:underline">+41 56 281 91 14</a><br />
-              E-Mail: <a href="mailto:info@qpsag.com" className="hover:underline">info@qpsag.com</a>
-            </p>
-          </section>
-          <p className="text-ui-fg-muted txt-small mt-8">
-            Quelle: Privacy Policy von qpsag.com, angepasst für shop.qpsag.com.
-          </p>
-        </div>
-      ) : (
-        <div className="prose prose-sm max-w-none text-ui-fg-subtle space-y-6">
+      <div className="prose prose-sm max-w-none text-ui-fg-subtle space-y-6">
           <section>
             <h2 className="text-lg font-medium text-ui-fg-base mb-2">Privacy Policy for QPS Engineering AG</h2>
             <p>
@@ -186,8 +95,7 @@ export default async function DatenschutzPage() {
           <p className="text-ui-fg-muted txt-small mt-8">
             Source: Privacy Policy from qpsag.com, adapted for shop.qpsag.com.
           </p>
-        </div>
-      )}
+      </div>
     </div>
   )
 }

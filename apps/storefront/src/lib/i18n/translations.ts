@@ -159,7 +159,7 @@ const translations = {
 
     // Hero
     hero_title: "Services and Products for the Lifesciences",
-    hero_subtitle: "QPS Engineering AG brings together the ROVIS robot, test sets, inspection boxes, and software for reliable inspection workflows in pharma, biotech, and food tech.",
+    hero_subtitle: "QPS Engineering delivers engineering and validation services, robotic-based solutions, visual inspection technologies, AI-driven tools, and defect test sets—helping customers achieve safe, efficient, and reliable inspection processes.",
     hero_cta: "Explore Robotics",
 
     // Order
@@ -179,19 +179,18 @@ const translations = {
 export type TranslationKey = keyof typeof translations.de
 
 /**
- * Returns translation for a given key based on locale.
- * Falls back to 'en' if locale not supported.
+ * Returns translation for a given key.
+ * The shop is currently English-only, so locale is ignored and English copy
+ * is always returned. (Locale param kept for call-site compatibility.)
  */
-export function t(key: TranslationKey, locale: string | null): string {
-  const lang = (locale?.split("-")[0] ?? "de") as SupportedLocale
-  const dict = translations[lang] ?? translations.de
-  return dict[key] ?? translations.en[key] ?? key
+export function t(key: TranslationKey, _locale?: string | null): string {
+  return translations.en[key] ?? key
 }
 
 /**
  * Returns a translator function bound to a specific locale.
  * Usage: const translate = useTranslations(locale); translate('nav_cart')
  */
-export function getTranslator(locale: string | null) {
-  return (key: TranslationKey) => t(key, locale)
+export function getTranslator(_locale?: string | null) {
+  return (key: TranslationKey) => t(key)
 }

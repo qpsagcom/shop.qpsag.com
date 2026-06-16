@@ -19,25 +19,25 @@ const SideMenuItems = [
     name: "Home",
     href: "/",
     eyebrow: "Start",
-    description: "Robotics und visuelle Inspektion",
+    description: "Robotics and visual inspection",
   },
   {
     name: "Robotics Store",
     href: "/store",
-    eyebrow: "Sortiment",
-    description: "ROVIS, Roboter, Testsets und Software",
+    eyebrow: "Range",
+    description: "ROVIS, robots, test sets, and software",
   },
   {
     name: "Account",
     href: "/account",
-    eyebrow: "Beschaffung",
-    description: "Bestellungen und Adressen",
+    eyebrow: "Procurement",
+    description: "Orders and addresses",
   },
   {
     name: "Cart",
     href: "/cart",
     eyebrow: "Checkout",
-    description: "Auswahl prüfen und anfragen",
+    description: "Review your selection and request",
   },
 ] as const
 

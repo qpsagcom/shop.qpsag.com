@@ -84,7 +84,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               href="/store"
               className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-line bg-qps-surface/70 px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:border-qps-ink focus:outline-none focus:ring-2 focus:ring-qps-steel focus:ring-offset-2 focus:ring-offset-qps-paper"
             >
-              Katalog ansehen
+              View catalog
             </LocalizedClientLink>
           </m.div>
 
@@ -94,7 +94,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
           >
             {[
               ["ROVIS", "Inspection robot"],
-              ["Testsets", "Inspection quality"],
+              ["Test Sets", "Inspection quality"],
               ["GxP", "Regulated workflows"],
             ].map(([value, label]) => (
               <m.div
@@ -173,11 +173,11 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                 Industrial Robotics
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                ROVIS, Testsets und Inspektionsboxen
+                ROVIS, test sets, and inspection boxes
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Robotics und Zubehör für visuelle Inspektion, Qualifizierung
-                und reproduzierbare Prüfprozesse.
+                Robotics and accessories for visual inspection, qualification,
+                and reproducible inspection processes.
               </p>
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {inspectionCycle.map((step, index) => (
@@ -220,8 +220,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
               </p>
               <p className="mt-2 text-lg font-semibold">ROVIS</p>
               <p className="mt-3 text-sm leading-5 text-qps-paper/65">
-                Der QPS-Roboter für visuelle Inspektion in regulierten
-                Umgebungen.
+                The QPS robot for visual inspection in regulated environments.
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-qps-paper/55">
                 <m.span
