@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 
-import FeaturedProducts from "@modules/home/components/featured-products"
+import CategoryRail from "@modules/home/components/featured-products/category-rail"
 import Hero from "@modules/home/components/hero"
-import { listCollections } from "@lib/data/collections"
+import { listCategories } from "@lib/data/categories"
 import { getRegion } from "@lib/data/regions"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ScrollReveal from "@modules/common/components/motion/scroll-reveal"
@@ -59,14 +59,14 @@ export default async function Home(props: {
 
   const { countryCode } = params
 
-  const [region, collectionsResult] = await Promise.all([
+  const [region, categories] = await Promise.all([
     getRegion(countryCode).catch(() => null),
-    listCollections({
-      fields: "id, handle, title",
-    }).catch(() => ({ collections: [] })),
+    listCategories({
+      fields: "id, handle, name, *parent_category",
+    }).catch(() => []),
   ])
 
-  const collections = collectionsResult.collections
+  const topLevelCategories = categories.filter((c) => !c.parent_category)
 
   return (
     <>
@@ -182,9 +182,13 @@ export default async function Home(props: {
             and quality-related process support.
           </p>
         </div>
-        {collections.length > 0 && region ? (
+        {topLevelCategories.length > 0 && region ? (
           <ul className="flex flex-col gap-x-6">
-            <FeaturedProducts collections={collections} region={region} />
+            {topLevelCategories.map((category) => (
+              <li key={category.id}>
+                <CategoryRail category={category} region={region} />
+              </li>
+            ))}
           </ul>
         ) : (
           <div className="content-container">
