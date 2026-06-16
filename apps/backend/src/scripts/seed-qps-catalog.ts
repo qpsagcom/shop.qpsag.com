@@ -36,47 +36,11 @@ export default async function seedQpsCatalog({
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
 
-  // 1. Remove the demo products.
-  const { data: demoProducts } = await query.graph({
-    entity: "product",
-    fields: ["id", "handle"],
-    filters: { handle: DEMO_PRODUCT_HANDLES },
-  })
+  // The new catalog is created first; the demo data is only removed once the
+  // new products exist, so a failure during creation never leaves the store
+  // empty.
 
-  if (demoProducts.length) {
-    logger.info(
-      `Deleting ${demoProducts.length} demo product(s): ${demoProducts
-        .map((p) => p.handle)
-        .join(", ")}`
-    )
-    await deleteProductsWorkflow(container).run({
-      input: { ids: demoProducts.map((p) => p.id) },
-    })
-  } else {
-    logger.info("No demo products found. Skipping product deletion.")
-  }
-
-  // 2. Remove the demo categories.
-  const { data: demoCategories } = await query.graph({
-    entity: "product_category",
-    fields: ["id", "name"],
-    filters: { name: DEMO_CATEGORY_NAMES },
-  })
-
-  if (demoCategories.length) {
-    logger.info(
-      `Deleting ${demoCategories.length} demo categor(y/ies): ${demoCategories
-        .map((c) => c.name)
-        .join(", ")}`
-    )
-    await deleteProductCategoriesWorkflow(container).run({
-      input: demoCategories.map((c) => c.id),
-    })
-  } else {
-    logger.info("No demo categories found. Skipping category deletion.")
-  }
-
-  // 3. Ensure the QPS categories exist.
+  // 1. Ensure the QPS categories exist.
   const { data: existingCategories } = await query.graph({
     entity: "product_category",
     fields: ["id", "handle"],
@@ -116,7 +80,7 @@ export default async function seedQpsCatalog({
     logger.info("All QPS categories already exist.")
   }
 
-  // 4. Resolve the default sales channel and shipping profile.
+  // 2. Resolve the default sales channel and shipping profile.
   const { data: salesChannels } = await query.graph({
     entity: "sales_channel",
     fields: ["id", "name"],
@@ -139,7 +103,7 @@ export default async function seedQpsCatalog({
     throw new Error("No shipping profile found. Cannot create products.")
   }
 
-  // 5. Create the QPS products that don't already exist.
+  // 3. Create the QPS products that don't already exist.
   const { data: existingProducts } = await query.graph({
     entity: "product",
     fields: ["id", "handle"],
@@ -165,6 +129,46 @@ export default async function seedQpsCatalog({
     })
   } else {
     logger.info("All QPS products already exist.")
+  }
+
+  // 4. Remove the demo products (only after the new catalog exists).
+  const { data: demoProducts } = await query.graph({
+    entity: "product",
+    fields: ["id", "handle"],
+    filters: { handle: DEMO_PRODUCT_HANDLES },
+  })
+
+  if (demoProducts.length) {
+    logger.info(
+      `Deleting ${demoProducts.length} demo product(s): ${demoProducts
+        .map((p) => p.handle)
+        .join(", ")}`
+    )
+    await deleteProductsWorkflow(container).run({
+      input: { ids: demoProducts.map((p) => p.id) },
+    })
+  } else {
+    logger.info("No demo products found. Skipping product deletion.")
+  }
+
+  // 5. Remove the demo categories.
+  const { data: demoCategories } = await query.graph({
+    entity: "product_category",
+    fields: ["id", "name"],
+    filters: { name: DEMO_CATEGORY_NAMES },
+  })
+
+  if (demoCategories.length) {
+    logger.info(
+      `Deleting ${demoCategories.length} demo categor(y/ies): ${demoCategories
+        .map((c) => c.name)
+        .join(", ")}`
+    )
+    await deleteProductCategoriesWorkflow(container).run({
+      input: demoCategories.map((c) => c.id),
+    })
+  } else {
+    logger.info("No demo categories found. Skipping category deletion.")
   }
 
   logger.info("Finished seeding QPS catalog.")
