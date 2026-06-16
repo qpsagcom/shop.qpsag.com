@@ -19,76 +19,33 @@ const workflowSteps = [
     title: "ROVIS",
     eyebrow: "Robotic Visual Inspection",
     body: "Robot-based visual inspection for stable, repeatable, and fully documentable inspection workflows.",
+    image: "/blueprint/blueprint-rovis-cell.webp",
+    imageAlt: "Technical drawing of the ROVIS robotics cell",
+    figure: "Fig. 01 — ROVIS Cell",
   },
   {
     step: "02",
     title: "Test Sets",
     eyebrow: "Inspection Quality",
     body: "Defect test sets, samples, and references for training, qualification, and confident decisions.",
+    image: "/blueprint/blueprint-vials-trio.webp",
+    imageAlt: "Technical drawing of vials for defect test sets",
+    figure: "Fig. 03 — Defect Samples",
   },
   {
     step: "03",
     title: "Software",
     eyebrow: "Workflow Control",
     body: "Digital inspection processes, evaluation, and integration into existing production and quality workflows.",
+    image: "/blueprint/blueprint-inspection.webp",
+    imageAlt: "Technical drawing of a vial inspection station",
+    figure: "Fig. 04 — Inspection Detail",
   },
   {
     step: "04",
     title: "Inspection Boxes",
     eyebrow: "Controlled Inspection",
     body: "Controlled inspection stations for visual inspection, sample management, and reproducible working conditions.",
-  },
-] as const
-
-const trustSignals = [
-  ["Regulated Industries", "Pharma, biotech, and food tech as the primary deployment context."],
-  ["GxP Mindset", "Qualification, documentation, and process reliability are considered from the start."],
-  ["Swiss Engineering", "QPS Engineering AG combines robotics, visual inspection, and project delivery."],
-] as const
-
-const assortmentItems = [
-  {
-    title: "ROVIS",
-    body: "The QPS robot for visual inspection: built for automated, stable, and documentable inspection workflows in regulated environments.",
-    meta: "Lead System",
-    className: "small:col-span-3 small:row-span-2",
-    highlight: true,
-    image: "/blueprint/blueprint-rovis-cell.webp",
-    imageAlt: "Technical drawing of the ROVIS robotics cell",
-    figure: "Fig. 01 — ROVIS Cell",
-  },
-  {
-    title: "Robots",
-    body: "Robotics platforms and automation building blocks for repeatable inspection and handling processes.",
-    meta: "QxTec",
-    className: "small:col-span-3",
-    image: "/blueprint/blueprint-humanoid.webp",
-    imageAlt: "Technical drawing of a humanoid robotics platform",
-    figure: "Fig. 02 — Robotics Platform",
-  },
-  {
-    title: "Test Sets",
-    body: "Defect test sets and samples for visual inspection, training, and qualification.",
-    meta: "Visual Inspection",
-    className: "small:col-span-2",
-    image: "/blueprint/blueprint-vials-trio.webp",
-    imageAlt: "Technical drawing of vials for defect test sets",
-    figure: "Fig. 03 — Defect Samples",
-  },
-  {
-    title: "Software",
-    body: "Software modules and AI-driven workflows for inspection processes, evaluation, and integration.",
-    meta: "Digital",
-    className: "small:col-span-2",
-    image: "/blueprint/blueprint-inspection.webp",
-    imageAlt: "Technical drawing of a vial inspection station",
-    figure: "Fig. 04 — Inspection Detail",
-  },
-  {
-    title: "Inspection Boxes",
-    body: "Inspection and test boxes for controlled visual inspection, training, and sample management.",
-    meta: "Inspection Tools",
-    className: "small:col-span-2",
     image: "/blueprint/blueprint-vials.webp",
     imageAlt: "Technical drawing of vials and closure caps",
     figure: "Fig. 05 — Sample Handling",
@@ -176,12 +133,12 @@ export default async function Home(props: {
             <div className="pointer-events-none absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-px bg-gradient-to-b from-qps-signal via-qps-line to-transparent small:block" />
             {workflowSteps.map((item, index) => (
               <ScrollReveal key={item.step} delay={index * 0.06} variant="slide-left">
-                <article className="group relative rounded-[1.5rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/60">
-                  <div className="flex gap-5">
+                <article className="group relative overflow-hidden rounded-[1.5rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/60">
+                  <div className="flex gap-5 small:items-center">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-qps-line bg-qps-paper text-[11px] font-semibold tracking-[0.18em] text-qps-signal transition-colors group-hover:border-qps-signal">
                       {item.step}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
                         {item.eyebrow}
                       </p>
@@ -192,29 +149,22 @@ export default async function Home(props: {
                         {item.body}
                       </p>
                     </div>
+                    <figure className="hidden w-44 shrink-0 overflow-hidden rounded-[1rem] border border-qps-line bg-qps-paper small:block">
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt}
+                        loading="lazy"
+                        className="blueprint-img h-28 w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                      <figcaption className="border-t border-dashed border-qps-line px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.16em] text-qps-muted">
+                        {item.figure}
+                      </figcaption>
+                    </figure>
                   </div>
                 </article>
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-y border-qps-line bg-qps-surface/70 py-14 small:py-20">
-        <div className="content-container grid gap-5 small:grid-cols-3">
-          {trustSignals.map(([title, body], index) => (
-            <ScrollReveal key={title} delay={index * 0.05} variant="scale">
-              <article className="h-full rounded-[1.25rem] border border-qps-line bg-qps-paper p-6 transition-transform duration-300 hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                  Trust 0{index + 1}
-                </p>
-                <h3 className="mt-5 text-xl font-semibold tracking-[-0.04em] text-qps-ink">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-qps-muted">{body}</p>
-              </article>
-            </ScrollReveal>
-          ))}
         </div>
       </section>
 
@@ -251,100 +201,6 @@ export default async function Home(props: {
               </div>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-qps-paper py-16 small:py-28">
-        <div className="pointer-events-none absolute right-0 top-12 h-80 w-80 rounded-full bg-qps-signal/12 blur-3xl" />
-        <div className="content-container relative">
-          <ScrollReveal className="mb-8 grid gap-6 small:grid-cols-[0.95fr_1.05fr] small:items-end">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-                QPS Shop Range
-              </p>
-              <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-                A robotics range for visual inspection.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-7 text-qps-graphite">
-              Choose robotics and complementary products that make visual
-              inspection more predictable: ROVIS as the robot for visual
-              inspection, test sets for inspection quality, software, and
-              inspection boxes for operational use.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid gap-4 small:grid-cols-6">
-            {assortmentItems.map((item, index) => (
-              <ScrollReveal
-                key={item.title}
-                delay={index * 0.04}
-                className={item.className}
-                variant={index === 0 ? "scale" : "fade-up"}
-              >
-                <article
-                  className={`group h-full overflow-hidden rounded-[1.6rem] border p-6 shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/70 hover:shadow-[0_30px_100px_rgba(0,0,0,0.10)] ${
-                    item.highlight
-                      ? "border-qps-ink bg-qps-ink text-qps-paper"
-                      : "border-qps-line bg-qps-surface"
-                  }`}
-                >
-                  <div className="flex min-h-full flex-col justify-between gap-6">
-                    <div>
-                      <p
-                        className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal"
-                      >
-                        {item.meta}
-                      </p>
-                      <h3
-                        className={`mt-4 text-3xl font-semibold tracking-[-0.06em] ${
-                          item.highlight ? "text-qps-paper" : "text-qps-ink"
-                        }`}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        className={`mt-4 text-sm leading-6 ${
-                          item.highlight ? "text-qps-paper/70" : "text-qps-graphite"
-                        }`}
-                      >
-                        {item.body}
-                      </p>
-                    </div>
-                    <figure className="relative">
-                      <img
-                        src={item.image}
-                        alt={item.imageAlt}
-                        loading="lazy"
-                        className={`mx-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] ${
-                          item.highlight
-                            ? "blueprint-img-on-ink max-h-80"
-                            : "blueprint-img max-h-40"
-                        }`}
-                      />
-                      <figcaption
-                        className={`mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] ${
-                          item.highlight ? "text-qps-paper/45" : "text-qps-muted"
-                        }`}
-                      >
-                        {item.figure}
-                      </figcaption>
-                    </figure>
-                    <div
-                      className={`flex items-center justify-between border-t pt-5 text-[11px] font-semibold uppercase tracking-[0.18em] ${
-                        item.highlight
-                          ? "border-qps-paper/15 text-qps-paper/55"
-                          : "border-qps-line text-qps-muted"
-                      }`}
-                    >
-                      <span>QPS</span>
-                      <span>{item.highlight ? "Lead system" : "Shop ready"}</span>
-                    </div>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 

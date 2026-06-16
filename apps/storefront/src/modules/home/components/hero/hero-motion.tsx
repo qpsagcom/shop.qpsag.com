@@ -88,29 +88,30 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             </LocalizedClientLink>
           </m.div>
 
-          <m.dl
+          <m.ul
             variants={container}
-            className="mt-12 grid max-w-2xl grid-cols-3 gap-3 text-left"
+            className="mt-12 grid max-w-2xl grid-cols-1 gap-3 text-left xsmall:grid-cols-2"
           >
             {[
-              ["ROVIS", "Inspection robot"],
-              ["Test Sets", "Inspection quality"],
-              ["GxP", "Regulated workflows"],
-            ].map(([value, label]) => (
-              <m.div
-                key={value}
+              "Robotic solutions",
+              "AI business systems",
+              "Visual Inspection solutions",
+              "Defect Test Sets",
+              "Engineering and validation services",
+              "Measurement and certification",
+            ].map((label) => (
+              <m.li
+                key={label}
                 variants={scaleIn}
-                className="rounded-large border border-qps-line bg-qps-surface/65 p-4 shadow-sm"
+                className="flex items-center gap-3 rounded-large border border-qps-line bg-qps-surface/65 px-4 py-3 shadow-sm"
               >
-                <dt className="text-xl font-semibold tracking-[-0.03em] text-qps-ink">
-                  {value}
-                </dt>
-                <dd className="mt-1 text-[11px] uppercase tracking-[0.16em] text-qps-muted">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
+                <span className="text-sm font-semibold tracking-[-0.01em] text-qps-ink">
                   {label}
-                </dd>
-              </m.div>
+                </span>
+              </m.li>
             ))}
-          </m.dl>
+          </m.ul>
         </m.div>
 
         <m.div
