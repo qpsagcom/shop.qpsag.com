@@ -18,18 +18,6 @@ module.exports = defineConfig({
   },
   plugins: [],
   modules: [
-    {
-      resolve: "@medusajs/medusa/file",
-      options: {
-        providers: [
-          {
-            resolve: "./src/modules/file-provider",
-            id: "local",
-            options: {},
-          },
-        ],
-      },
-    },
     ...(process.env.STRIPE_API_KEY
       ? [
           {
