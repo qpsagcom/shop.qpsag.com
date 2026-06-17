@@ -7,6 +7,7 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Breadcrumb from "@modules/common/components/breadcrumb"
 import { HttpTypes } from "@medusajs/types"
 
 export default function CategoryTemplate({
@@ -36,6 +37,15 @@ export default function CategoryTemplate({
 
   getParents(category)
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    ...parents
+      .slice()
+      .reverse()
+      .map((p) => ({ label: p.name, href: `/categories/${p.handle}` })),
+    { label: category.name },
+  ]
+
   return (
     <div
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
@@ -43,20 +53,8 @@ export default function CategoryTemplate({
     >
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
+        <Breadcrumb items={breadcrumbItems} />
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
-          {parents &&
-            parents.map((parent) => (
-              <span key={parent.id} className="text-ui-fg-subtle">
-                <LocalizedClientLink
-                  className="mr-4 hover:text-black"
-                  href={`/categories/${parent.handle}`}
-                  data-testid="sort-by-link"
-                >
-                  {parent.name}
-                </LocalizedClientLink>
-                /
-              </span>
-            ))}
           <h1 data-testid="category-page-title">{category.name}</h1>
         </div>
         {category.description && (

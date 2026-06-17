@@ -18,6 +18,21 @@ module.exports = defineConfig({
   },
   plugins: [],
   modules: [
+    {
+      resolve: "@medusajs/medusa/file",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/medusa/file-local",
+            id: "local",
+            options: {
+              upload_dir: "uploads",
+              backend_url: process.env.BACKEND_URL || "http://localhost:9000",
+            },
+          },
+        ],
+      },
+    },
     ...(process.env.STRIPE_API_KEY
       ? [
           {

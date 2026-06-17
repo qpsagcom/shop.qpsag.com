@@ -38,7 +38,7 @@ export default function QpsLogo({
             QPS AG
           </span>
           <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-            Robotics Shop
+            Technology Shop
           </span>
         </span>
       )}

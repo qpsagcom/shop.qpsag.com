@@ -105,7 +105,7 @@ export default async function Home(props: {
         <div className="content-container grid gap-10 small:grid-cols-[0.75fr_1.25fr] small:items-start">
           <ScrollReveal className="small:sticky small:top-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-              Industrial Robotics Procurement
+              Discover QxTec
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
               A clear stack for robotic visual inspection.

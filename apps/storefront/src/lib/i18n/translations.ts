@@ -160,7 +160,7 @@ const translations = {
     // Hero
     hero_title: "Products for the Lifescience",
     hero_subtitle: "QPS Engineering delivers engineering and validation services, robotic-based solutions, visual inspection technologies, AI-driven tools, and defect test sets—helping customers achieve safe, efficient, and reliable inspection processes.",
-    hero_cta: "Explore Robotics",
+    hero_cta: "View Catalog",
 
     // Order
     order_confirmed: "Order Confirmed",

@@ -53,7 +53,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             variants={fadeUp}
             className="mb-5 inline-flex rounded-full border border-qps-line bg-qps-surface/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted shadow-sm"
           >
-            QxTec Robotics Systems
+            Discover QxTec
           </m.p>
           <m.div variants={fadeUp}>
             <Heading
@@ -75,16 +75,10 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-9 flex flex-col gap-3 xsmall:flex-row"
           >
             <LocalizedClientLink
-              href="/store"
+              href="/contact"
               className="qps-btn-ink inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.14em] transition-colors focus:outline-none focus:ring-2 focus:ring-qps-signal focus:ring-offset-2 focus:ring-offset-qps-paper"
             >
               {cta}
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href="/store"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-line bg-qps-surface/70 px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:border-qps-ink focus:outline-none focus:ring-2 focus:ring-qps-steel focus:ring-offset-2 focus:ring-offset-qps-paper"
-            >
-              View catalog
             </LocalizedClientLink>
           </m.div>
 
@@ -93,12 +87,10 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-12 grid max-w-2xl grid-cols-1 gap-3 text-left xsmall:grid-cols-2"
           >
             {[
-              "Robotic solutions",
+              "Technology solutions",
               "AI business systems",
               "Visual Inspection solutions",
               "Defect Test Sets",
-              "Engineering and validation services",
-              "Measurement and certification",
             ].map((label) => (
               <m.li
                 key={label}
@@ -159,7 +151,7 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
                     repeat: Infinity,
                   }}
                 />
-                Robotic Solutions
+                Technology Solutions
               </span>
               <span>QPS AG</span>
             </div>
