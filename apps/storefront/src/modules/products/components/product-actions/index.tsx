@@ -12,6 +12,9 @@ import { useParams, usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
 import MobileActions from "./mobile-actions"
+import InquiryForm from "../inquiry-form"
+
+const CATALOG_MODE = true
 import { useRouter } from "next/navigation"
 import { AnimatePresence } from "motion/react"
 import * as m from "motion/react-m"
@@ -191,67 +194,73 @@ export default function ProductActions({
 
         <ProductPrice product={product} variant={selectedVariant} />
 
-        <Button
-          onClick={handleAddToCart}
-          disabled={
-            !inStock ||
-            !selectedVariant ||
-            !!disabled ||
-            isAdding ||
-            !isValidVariant
-          }
-          variant="primary"
-          className="w-full h-10"
-          isLoading={isAdding}
-          data-testid="add-product-button"
-        >
-          {!selectedVariant && !options
-            ? "Select variant"
-            : !inStock || !isValidVariant
-            ? "Out of stock"
-            : addSuccess
-            ? "Added"
-            : "Add to cart"}
-        </Button>
-        <AnimatePresence mode="popLayout">
-          {addSuccess && (
-            <m.p
-              key="add-success"
-              className="text-small-regular text-qps-success"
-              role="status"
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={qpsMotion.quick}
+        {CATALOG_MODE ? (
+          <InquiryForm productTitle={product.title ?? ""} />
+        ) : (
+          <>
+            <Button
+              onClick={handleAddToCart}
+              disabled={
+                !inStock ||
+                !selectedVariant ||
+                !!disabled ||
+                isAdding ||
+                !isValidVariant
+              }
+              variant="primary"
+              className="w-full h-10"
+              isLoading={isAdding}
+              data-testid="add-product-button"
             >
-              Added to cart.
-            </m.p>
-          )}
-          {addError && (
-            <m.p
-              key="add-error"
-              className="text-small-regular text-ui-fg-error"
-              role="alert"
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={qpsMotion.quick}
-            >
-              {addError}
-            </m.p>
-          )}
-        </AnimatePresence>
-        <MobileActions
-          product={product}
-          variant={selectedVariant}
-          options={options}
-          updateOptions={setOptionValue}
-          inStock={inStock}
-          handleAddToCart={handleAddToCart}
-          isAdding={isAdding}
-          show={!inView}
-          optionsDisabled={!!disabled || isAdding}
-        />
+              {!selectedVariant && !options
+                ? "Select variant"
+                : !inStock || !isValidVariant
+                ? "Out of stock"
+                : addSuccess
+                ? "Added"
+                : "Add to cart"}
+            </Button>
+            <AnimatePresence mode="popLayout">
+              {addSuccess && (
+                <m.p
+                  key="add-success"
+                  className="text-small-regular text-qps-success"
+                  role="status"
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={qpsMotion.quick}
+                >
+                  Added to cart.
+                </m.p>
+              )}
+              {addError && (
+                <m.p
+                  key="add-error"
+                  className="text-small-regular text-ui-fg-error"
+                  role="alert"
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={qpsMotion.quick}
+                >
+                  {addError}
+                </m.p>
+              )}
+            </AnimatePresence>
+            <MobileActions
+              product={product}
+              variant={selectedVariant}
+              options={options}
+              updateOptions={setOptionValue}
+              inStock={inStock}
+              handleAddToCart={handleAddToCart}
+              isAdding={isAdding}
+              show={!inView}
+              optionsDisabled={!!disabled || isAdding}
+            />
+          </>
+        )}
       </div>
     </>
   )
