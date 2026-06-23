@@ -77,6 +77,7 @@ const translations = {
     hero_title: "Products for the Lifescience",
     hero_subtitle: "QPS Engineering AG bündelt ROVIS-Roboter, Testsets, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
     hero_cta: "Robotics ansehen",
+    hero_cta_secondary: "Kontakt",
 
     // Order
     order_confirmed: "Bestellung bestätigt",
@@ -161,6 +162,7 @@ const translations = {
     hero_title: "Products for the Lifescience",
     hero_subtitle: "QPS Engineering delivers engineering and validation services, robotic-based solutions, visual inspection technologies, AI-driven tools, and defect test sets—helping customers achieve safe, efficient, and reliable inspection processes.",
     hero_cta: "View Catalog",
+    hero_cta_secondary: "Contact",
 
     // Order
     order_confirmed: "Order Confirmed",

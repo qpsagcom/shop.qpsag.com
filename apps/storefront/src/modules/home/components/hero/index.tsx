@@ -11,6 +11,7 @@ const Hero = async () => {
       title={translate("hero_title")}
       subtitle={translate("hero_subtitle")}
       cta={translate("hero_cta")}
+      ctaSecondary={translate("hero_cta_secondary")}
     />
   )
 }

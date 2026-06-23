@@ -10,6 +10,7 @@ type HeroMotionProps = {
   title: string
   subtitle: string
   cta: string
+  ctaSecondary: string
 }
 
 const container = {
@@ -26,7 +27,7 @@ const heroImageUrl = "/qps-hero-cleanroom.webp"
 
 const inspectionCycle = ["Position", "Inspect", "Document"] as const
 
-export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
+export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -75,10 +76,16 @@ export default function HeroMotion({ title, subtitle, cta }: HeroMotionProps) {
             className="mt-9 flex flex-col gap-3 xsmall:flex-row"
           >
             <LocalizedClientLink
-              href="/contact"
+              href="/store"
               className="qps-btn-ink inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.14em] transition-colors focus:outline-none focus:ring-2 focus:ring-qps-signal focus:ring-offset-2 focus:ring-offset-qps-paper"
             >
               {cta}
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-line px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-ink transition-colors hover:border-qps-signal hover:text-qps-signal focus:outline-none focus:ring-2 focus:ring-qps-signal focus:ring-offset-2 focus:ring-offset-qps-paper"
+            >
+              {ctaSecondary}
             </LocalizedClientLink>
           </m.div>
 
