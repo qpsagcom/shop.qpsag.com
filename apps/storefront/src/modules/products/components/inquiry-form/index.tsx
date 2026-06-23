@@ -59,7 +59,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
   return (
     <>
       <Button onClick={() => setOpen(true)} variant="primary" className="w-full h-10">
-        Request Inquiry
+        Request Information
       </Button>
 
       <Transition appear show={open} as={Fragment}>
@@ -90,7 +90,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                 <div className="mb-5 flex items-start justify-between">
                   <div>
                     <Dialog.Title className="text-base font-semibold text-qps-ink">
-                      Request Inquiry
+                      Request Information
                     </Dialog.Title>
                     <p className="text-sm text-qps-muted">{productTitle}</p>
                   </div>
