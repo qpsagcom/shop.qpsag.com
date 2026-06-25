@@ -16,36 +16,36 @@ export const metadata: Metadata = {
 const workflowSteps = [
   {
     step: "01",
-    title: "ROVIS",
-    eyebrow: "Robotic Visual Inspection",
-    body: "Robot-based visual inspection for stable, repeatable, and fully documentable inspection workflows.",
+    title: "Robotic automation for life sciences",
+    eyebrow: "Robotic Solutions",
+    body: "We deliver tailored robotic automation solutions for life science applications, working with a wide range of leading technology partners. From concept to validated system, we provide a full-service approach—covering design, integration, implementation, and compliance. Our flexible, vendor-neutral model ensures each solution is optimized for performance, scalability, and regulatory requirements, helping you streamline workflows and accelerate results.",
     image: "/blueprint/blueprint-rovis-cell.webp",
     imageAlt: "Technical drawing of the ROVIS robotics cell",
     figure: "Fig. 01 — ROVIS Cell",
   },
   {
     step: "02",
-    title: "Test Sets",
-    eyebrow: "Inspection Quality",
-    body: "Defect test sets, samples, and references for training, qualification, and confident decisions.",
+    title: "AI business systems",
+    eyebrow: "AI automation for life sciences",
+    body: "The world is rapidly moving toward AI-driven tools, and the pharmaceutical industry requires solutions that not only deliver innovation, but also meet strict regulatory standards. At QPS, we provide scalable, end-to-end AI automation solutions tailored for life science environments. Our services include AI consulting, setup of intelligent agents, and chatbot implementation—helping organizations streamline operations and enhance decision-making. Our flagship platform, Dr. Project, is an enterprise-grade AI project and task management system designed specifically for regulated industries. It enables efficient, compliant project execution while maintaining full traceability and control. All our solutions are built with compliance in mind, including full support for qualification and validation, ensuring they meet industry and regulatory requirements from day one.",
     image: "/blueprint/blueprint-vials-trio.webp",
     imageAlt: "Technical drawing of vials for defect test sets",
     figure: "Fig. 03 — Defect Samples",
   },
   {
     step: "03",
-    title: "Software",
-    eyebrow: "Workflow Control",
-    body: "Digital inspection processes, evaluation, and integration into existing production and quality workflows.",
+    title: "Visual Inspection solutions",
+    eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
+    body: "We offer comprehensive visual inspection solutions for pharmaceutical injectable products by combining advanced technologies for both automated and manual inspection. Our ROVIS Automated Visual Inspection (AVI) system delivers high-speed, consistent, and repeatable inspection, reducing variability and ensuring reliable defect detection. Complementing this, inspection cabinets from Quantum Packaging Technologies provide robust Manual Visual Inspection (MVI) capabilities, enabling controlled and compliant human inspection where required. Together, these solutions create a flexible, end-to-end inspection approach—supporting both automated efficiency and manual verification—while ensuring product quality, regulatory compliance, and patient safety.",
     image: "/blueprint/blueprint-inspection.webp",
     imageAlt: "Technical drawing of a vial inspection station",
     figure: "Fig. 04 — Inspection Detail",
   },
   {
     step: "04",
-    title: "Inspection Boxes",
-    eyebrow: "Controlled Inspection",
-    body: "Controlled inspection stations for visual inspection, sample management, and reproducible working conditions.",
+    title: "Defect test sets",
+    eyebrow: "QLabs Defect Test Sets",
+    body: "QLabs provides high-quality defect test sets designed to support the development, validation, and ongoing performance verification of visual inspection systems. Our test sets replicate a wide range of real-world product defects, enabling reliable challenge testing for both automated (AVI) and manual (MVI) inspection processes. This allows manufacturers to accurately assess detection capabilities, optimize system settings, and ensure consistent inspection performance. Designed for use in regulated pharmaceutical environments, QLabs defect test sets support compliance by enabling robust qualification and validation activities—helping ensure inspection processes remain effective, repeatable, and audit-ready over time.",
     image: "/blueprint/blueprint-vials.webp",
     imageAlt: "Technical drawing of vials and closure caps",
     figure: "Fig. 05 — Sample Handling",
@@ -108,12 +108,10 @@ export default async function Home(props: {
               Discover QxTec
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-              A clear stack for robotic visual inspection.
+              A clear stack for regulated industries.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
-              QPS combines ROVIS, test sets, software, and controlled
-              inspection stations into a procurement picture that fits
-              regulated production processes.
+              QPS combines robotics, visual inspection and AI to provide customer-driven solutions.
             </p>
             <figure className="mt-8 overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface">
               <div className="flex items-center justify-between border-b border-dashed border-qps-line px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
