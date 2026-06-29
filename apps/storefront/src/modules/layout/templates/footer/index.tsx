@@ -26,9 +26,7 @@ export default async function Footer() {
           <div className="max-w-md">
             <QpsLogo />
             <p className="mt-4 text-sm leading-6 text-qps-graphite">
-              ROVIS robots, robotics systems, test sets, software, and
-              inspection boxes for visual inspection in pharma, biotech, and
-              food tech.
+              {translate("footer_tagline")}
             </p>
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
               shop.qpsag.com
@@ -41,7 +39,7 @@ export default async function Footer() {
           <div className="grid grid-cols-2 gap-10 text-small-regular md:gap-x-16 sm:grid-cols-3">
             <div className="flex flex-col gap-y-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
-                Kontakt
+                {translate("footer_contact")}
               </span>
               <div className="grid gap-4 text-sm text-qps-muted">
                 <div>
@@ -68,7 +66,7 @@ export default async function Footer() {
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-graphite">
-                    Our Location
+                    {translate("footer_location")}
                   </p>
                   <p className="mt-1 leading-6">
                     Schaffhauserstrasse 30

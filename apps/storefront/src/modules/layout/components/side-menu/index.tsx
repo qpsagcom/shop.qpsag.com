@@ -13,26 +13,12 @@ import LanguageSelect from "../language-select"
 import { Locale } from "@lib/data/locales"
 import { AnimatePresence, useReducedMotion } from "motion/react"
 import * as m from "motion/react-m"
+import { t, TranslationKey } from "@lib/i18n/translations"
 
-const SideMenuItems = [
-  {
-    name: "Home",
-    href: "/",
-    eyebrow: "Start",
-    description: "Robotics and visual inspection",
-  },
-  {
-    name: "Robotics Store",
-    href: "/store",
-    eyebrow: "Range",
-    description: "ROVIS, robots, test sets, and software",
-  },
-  {
-    name: "Account",
-    href: "/account",
-    eyebrow: "Procurement",
-    description: "Orders and addresses",
-  },
+const MENU_ITEMS = [
+  { nameKey: "menu_home" as TranslationKey, href: "/", eyebrowKey: "menu_home_eyebrow" as TranslationKey, descKey: "menu_home_desc" as TranslationKey },
+  { nameKey: "menu_store" as TranslationKey, href: "/store", eyebrowKey: "menu_store_eyebrow" as TranslationKey, descKey: "menu_store_desc" as TranslationKey },
+  { nameKey: "nav_account" as TranslationKey, href: "/account", eyebrowKey: "menu_account_eyebrow" as TranslationKey, descKey: "menu_account_desc" as TranslationKey },
 ] as const
 
 type SideMenuProps = {
@@ -107,9 +93,9 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                             </button>
                           </div>
                           <ul className="relative mt-12 flex flex-col gap-3">
-                            {SideMenuItems.map((item, index) => (
+                            {MENU_ITEMS.map((item, index) => (
                               <m.li
-                                key={item.name}
+                                key={item.href}
                                 initial={
                                   shouldReduceMotion
                                     ? { opacity: 0 }
@@ -125,19 +111,19 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                                   href={item.href}
                                   className="group block rounded-[1.1rem] border border-qps-line bg-qps-paper/60 p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
                                   onClick={close}
-                                  data-testid={`${item.name.toLowerCase().replace(/\s+/g, "-")}-link`}
+                                  data-testid={`${item.href.replace("/", "") || "home"}-link`}
                                 >
                                   <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-                                    {item.eyebrow}
+                                    {t(item.eyebrowKey, currentLocale)}
                                   </span>
                                   <span className="mt-2 flex items-center justify-between gap-4">
                                     <span className="text-2xl font-semibold leading-8 tracking-[-0.04em] text-qps-ink transition-colors group-hover:text-qps-signal">
-                                      {item.name}
+                                      {t(item.nameKey, currentLocale)}
                                     </span>
                                     <ArrowRightMini className="shrink-0 text-qps-muted transition-transform group-hover:translate-x-1 group-hover:text-qps-signal" />
                                   </span>
                                   <span className="mt-1 block text-sm leading-5 text-qps-graphite">
-                                    {item.description}
+                                    {t(item.descKey, currentLocale)}
                                   </span>
                                 </LocalizedClientLink>
                               </m.li>

@@ -23,6 +23,7 @@ type ProductActionsProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   disabled?: boolean
+  locale?: string
 }
 
 const optionsAsKeymap = (
@@ -37,6 +38,7 @@ const optionsAsKeymap = (
 export default function ProductActions({
   product,
   disabled,
+  locale = "en",
 }: ProductActionsProps) {
   const router = useRouter()
   const pathname = usePathname()
@@ -192,10 +194,10 @@ export default function ProductActions({
           )}
         </div>
 
-        <ProductPrice product={product} variant={selectedVariant} />
+        <ProductPrice product={product} variant={selectedVariant} locale={locale} />
 
         {CATALOG_MODE ? (
-          <InquiryForm productTitle={product.title ?? ""} />
+          <InquiryForm productTitle={product.title ?? ""} locale={locale} />
         ) : (
           <>
             <Button

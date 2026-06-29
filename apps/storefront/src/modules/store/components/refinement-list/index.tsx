@@ -5,6 +5,7 @@ import { useCallback } from "react"
 import { EllipseMiniSolid } from "@medusajs/icons"
 
 import SortProducts, { SortOptions } from "./sort-products"
+import { t } from "@lib/i18n/translations"
 
 type Category = {
   id: string
@@ -16,6 +17,7 @@ type RefinementListProps = {
   sortBy: SortOptions
   categories?: Category[]
   selectedCategoryId?: string
+  locale?: string
   "data-testid"?: string
 }
 
@@ -23,6 +25,7 @@ const RefinementList = ({
   sortBy,
   categories,
   selectedCategoryId,
+  locale = "en",
   "data-testid": dataTestId,
 }: RefinementListProps) => {
   const router = useRouter()
@@ -57,13 +60,14 @@ const RefinementList = ({
       <SortProducts
         sortBy={sortBy}
         setQueryParams={setQueryParams}
+        locale={locale}
         data-testid={dataTestId}
       />
 
       {!!categories?.length && (
         <div className="flex flex-col gap-y-3">
           <span className="txt-compact-small-plus text-ui-fg-muted">
-            Categories
+            {t("store_categories", locale)}
           </span>
           <ul className="flex flex-col gap-y-2">
             <li>
@@ -76,7 +80,7 @@ const RefinementList = ({
                 }`}
               >
                 {!selectedCategoryId && <EllipseMiniSolid className="shrink-0" />}
-                All Products
+                {t("store_all_products", locale)}
               </button>
             </li>
             {categories.map((cat) => (

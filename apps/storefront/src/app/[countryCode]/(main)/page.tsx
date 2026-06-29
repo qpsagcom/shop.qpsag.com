@@ -6,6 +6,8 @@ import { listCategories } from "@lib/data/categories"
 import { getRegion } from "@lib/data/regions"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ScrollReveal from "@modules/common/components/motion/scroll-reveal"
+import { getTranslator } from "@lib/i18n/translations"
+import { getLocale as getLocaleCookie } from "@lib/data/locale-actions"
 
 export const metadata: Metadata = {
   title: "QPS AG Shop | Industrial Robotics & ROVIS",
@@ -13,39 +15,23 @@ export const metadata: Metadata = {
     "ROVIS robots, test sets, inspection boxes, and software for robotic visual inspection in pharma, biotech, and food tech.",
 }
 
-const workflowSteps = [
+const STEP_IMAGES = [
   {
-    step: "01",
-    title: "Robotic automation for life sciences",
-    eyebrow: "Robotic Solutions",
-    body: "We deliver tailored robotic automation solutions for life science applications, working with a wide range of leading technology partners. From concept to validated system, we provide a full-service approach—covering design, integration, implementation, and compliance. Our flexible, vendor-neutral model ensures each solution is optimized for performance, scalability, and regulatory requirements, helping you streamline workflows and accelerate results.",
     image: "/blueprint/blueprint-rovis-cell.webp",
     imageAlt: "Technical drawing of the ROVIS robotics cell",
     figure: "Fig. 01 — ROVIS Cell",
   },
   {
-    step: "02",
-    title: "AI business systems",
-    eyebrow: "AI automation for life sciences",
-    body: "The world is rapidly moving toward AI-driven tools, and the pharmaceutical industry requires solutions that not only deliver innovation, but also meet strict regulatory standards. At QPS, we provide scalable, end-to-end AI automation solutions tailored for life science environments. Our services include AI consulting, setup of intelligent agents, and chatbot implementation—helping organizations streamline operations and enhance decision-making. Our flagship platform, Dr. Project, is an enterprise-grade AI project and task management system designed specifically for regulated industries. It enables efficient, compliant project execution while maintaining full traceability and control. All our solutions are built with compliance in mind, including full support for qualification and validation, ensuring they meet industry and regulatory requirements from day one.",
     image: "/blueprint/blueprint-vials-trio.webp",
     imageAlt: "Technical drawing of vials for defect test sets",
     figure: "Fig. 03 — Defect Samples",
   },
   {
-    step: "03",
-    title: "Visual Inspection solutions",
-    eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
-    body: "We offer comprehensive visual inspection solutions for pharmaceutical injectable products by combining advanced technologies for both automated and manual inspection. Our ROVIS Automated Visual Inspection (AVI) system delivers high-speed, consistent, and repeatable inspection, reducing variability and ensuring reliable defect detection. Complementing this, inspection cabinets from Quantum Packaging Technologies provide robust Manual Visual Inspection (MVI) capabilities, enabling controlled and compliant human inspection where required. Together, these solutions create a flexible, end-to-end inspection approach—supporting both automated efficiency and manual verification—while ensuring product quality, regulatory compliance, and patient safety.",
     image: "/blueprint/blueprint-inspection.webp",
     imageAlt: "Technical drawing of a vial inspection station",
     figure: "Fig. 04 — Inspection Detail",
   },
   {
-    step: "04",
-    title: "Defect test sets",
-    eyebrow: "QLabs Defect Test Sets",
-    body: "QLabs provides high-quality defect test sets designed to support the development, validation, and ongoing performance verification of visual inspection systems. Our test sets replicate a wide range of real-world product defects, enabling reliable challenge testing for both automated (AVI) and manual (MVI) inspection processes. This allows manufacturers to accurately assess detection capabilities, optimize system settings, and ensure consistent inspection performance. Designed for use in regulated pharmaceutical environments, QLabs defect test sets support compliance by enabling robust qualification and validation activities—helping ensure inspection processes remain effective, repeatable, and audit-ready over time.",
     image: "/blueprint/blueprint-vials.webp",
     imageAlt: "Technical drawing of vials and closure caps",
     figure: "Fig. 05 — Sample Handling",
@@ -56,37 +42,63 @@ export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
   const params = await props.params
-
   const { countryCode } = params
 
-  const [region, categories] = await Promise.all([
+  const [region, categories, locale] = await Promise.all([
     getRegion(countryCode).catch(() => null),
     listCategories({
       fields: "id, handle, name, *parent_category",
     }).catch(() => []),
+    getLocaleCookie(),
   ])
 
+  const translate = getTranslator(locale)
+
   const topLevelCategories = categories.filter((c) => !c.parent_category)
+
+  const workflowSteps = [
+    {
+      step: "01",
+      title: translate("home_step1_title"),
+      eyebrow: translate("home_step1_eyebrow"),
+      body: translate("home_step1_body"),
+      ...STEP_IMAGES[0],
+    },
+    {
+      step: "02",
+      title: translate("home_step2_title"),
+      eyebrow: translate("home_step2_eyebrow"),
+      body: translate("home_step2_body"),
+      ...STEP_IMAGES[1],
+    },
+    {
+      step: "03",
+      title: translate("home_step3_title"),
+      eyebrow: translate("home_step3_eyebrow"),
+      body: translate("home_step3_body"),
+      ...STEP_IMAGES[2],
+    },
+    {
+      step: "04",
+      title: translate("home_step4_title"),
+      eyebrow: translate("home_step4_eyebrow"),
+      body: translate("home_step4_body"),
+      ...STEP_IMAGES[3],
+    },
+  ]
+
+  const features = [
+    [translate("home_feature1_title"), translate("home_feature1_body")],
+    [translate("home_feature2_title"), translate("home_feature2_body")],
+    [translate("home_feature3_title"), translate("home_feature3_body")],
+  ] as const
 
   return (
     <>
       <Hero />
       <section className="border-b border-qps-line bg-qps-ink text-qps-paper">
         <div className="content-container grid gap-6 py-8 small:grid-cols-3 small:py-12">
-          {[
-            [
-              "Industrial Robotics",
-              "ROVIS and robotics building blocks for repeatable inspection processes in regulated production.",
-            ],
-            [
-              "Test Sets for Visual Inspection",
-              "Reference samples, defect samples, and training material for confident inspection decisions.",
-            ],
-            [
-              "GxP-Aligned Delivery",
-              "Engineering, qualification, and compliance thinking from QPS Engineering AG.",
-            ],
-          ].map(([title, body], index) => (
+          {features.map(([title, body], index) => (
             <ScrollReveal key={title} delay={index * 0.05}>
               <article className="border-l border-qps-paper/20 pl-5">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-qps-paper">
@@ -105,13 +117,13 @@ export default async function Home(props: {
         <div className="content-container grid gap-10 small:grid-cols-[0.75fr_1.25fr] small:items-start">
           <ScrollReveal className="small:sticky small:top-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-              Discover QxTec
+              {translate("home_discover_eyebrow")}
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
-              A clear stack for regulated industries.
+              {translate("home_discover_heading")}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
-              QPS combines robotics, visual inspection and AI to provide customer-driven solutions.
+              {translate("home_discover_body")}
             </p>
             <figure className="mt-8 overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface">
               <div className="flex items-center justify-between border-b border-dashed border-qps-line px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
@@ -169,15 +181,13 @@ export default async function Home(props: {
       <div className="bg-qps-paper py-12 small:py-24">
         <div className="content-container mb-4 small:mb-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-            Robotics Range
+            {translate("home_range_eyebrow")}
           </p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.045em] text-qps-ink small:text-5xl">
-            Robotics for reliable visual inspection: ROVIS, robots, test sets, software, and inspection boxes.
+            {translate("home_range_heading")}
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-qps-graphite">
-            The shop becomes the procurement point for QPS robotics around
-            visual inspection, inspector training, robotic visual inspection,
-            and quality-related process support.
+            {translate("home_range_body")}
           </p>
         </div>
         {topLevelCategories.length > 0 && region ? (
@@ -192,16 +202,13 @@ export default async function Home(props: {
           <div className="content-container">
             <div className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
-                Range temporarily unavailable
+                {translate("home_range_error_eyebrow")}
               </p>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-qps-ink">
-                The robotics products will load as soon as the store API
-                responds again.
+                {translate("home_range_error_heading")}
               </h3>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-qps-graphite">
-                The home page stays available so that ROVIS, robots, test sets,
-                inspection boxes, and QPS expertise remain visible even during a
-                temporary API disruption.
+                {translate("home_range_error_body")}
               </p>
             </div>
           </div>
@@ -222,16 +229,13 @@ export default async function Home(props: {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-qps-surface via-qps-surface/85 to-qps-surface/15" />
               <div className="relative max-w-2xl px-6 py-12 small:px-12 small:py-20">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-signal">
-                  QPS Robotics Lab — Stein, Switzerland
+                  {translate("home_lab_eyebrow")}
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
-                  Robotics, inspection, and process environment as one system.
+                  {translate("home_lab_heading")}
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
-                  From the isolator through the inspection line to the humanoid
-                  robot: QPS develops and integrates the building blocks that
-                  are available individually in the shop — tailored to
-                  regulated production.
+                  {translate("home_lab_body")}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
                   <span>Blueprint Series / 2026</span>
@@ -254,32 +258,28 @@ export default async function Home(props: {
         <div className="content-container relative grid gap-8 small:grid-cols-[1.2fr_0.8fr] small:items-center">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-paper/55">
-              Ready for regulated workflows
+              {translate("home_cta_eyebrow")}
             </p>
             <h2 className="mt-4 max-w-4xl text-4xl font-semibold leading-[0.96] tracking-[-0.06em] small:text-6xl">
-              From ROVIS to defect test sets: the shop becomes the first
-              address for robotics and visual inspection with QPS Engineering
-              know-how.
+              {translate("home_cta_heading")}
             </h2>
           </div>
           <div className="rounded-[1.5rem] border border-qps-paper/15 bg-qps-paper/8 p-6">
             <p className="text-sm leading-6 text-qps-paper/70">
-              The goal is a range that is immediately understandable: what it
-              solves, where it is used, and how it makes your inspection
-              processes more reproducible.
+              {translate("home_cta_body")}
             </p>
             <div className="mt-6 flex flex-col gap-3 xsmall:flex-row">
               <LocalizedClientLink
                 href="/store"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold uppercase tracking-[0.14em] text-[#05070a] transition-colors hover:bg-qps-signal hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
               >
-                View robotics range
+                {translate("home_cta_primary")}
               </LocalizedClientLink>
               <a
                 href="mailto:info@qpsag.com"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-paper/20 px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-paper transition-colors hover:border-qps-signal hover:text-qps-signal focus:outline-none focus:ring-2 focus:ring-qps-paper/50"
               >
-                Contact QPS
+                {translate("home_cta_secondary_btn")}
               </a>
             </div>
           </div>

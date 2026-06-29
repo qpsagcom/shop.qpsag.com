@@ -4,13 +4,20 @@ import { Dialog, Transition } from "@headlessui/react"
 import { Button } from "@modules/common/components/ui"
 import X from "@modules/common/icons/x"
 import { Fragment, useState } from "react"
+import { t } from "@lib/i18n/translations"
 
 const inputCls =
   "h-9 w-full rounded-lg border border-qps-line bg-qps-paper px-3 text-sm text-qps-ink placeholder:text-qps-muted focus:outline-none focus:ring-2 focus:ring-qps-signal"
 const labelCls =
   "text-[11px] font-semibold uppercase tracking-[0.12em] text-qps-muted"
 
-export default function InquiryForm({ productTitle }: { productTitle: string }) {
+export default function InquiryForm({
+  productTitle,
+  locale = "en",
+}: {
+  productTitle: string
+  locale?: string
+}) {
   const [open, setOpen] = useState(false)
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
@@ -42,7 +49,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
       if (!res.ok) throw new Error()
       setSent(true)
     } catch {
-      setError("Could not send your inquiry. Please try again.")
+      setError(t("inquiry_error", locale))
     } finally {
       setSending(false)
     }
@@ -59,7 +66,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
   return (
     <>
       <Button onClick={() => setOpen(true)} variant="primary" className="w-full h-10">
-        Request Information
+        {t("inquiry_button", locale)}
       </Button>
 
       <Transition appear show={open} as={Fragment}>
@@ -90,7 +97,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                 <div className="mb-5 flex items-start justify-between">
                   <div>
                     <Dialog.Title className="text-base font-semibold text-qps-ink">
-                      Request Information
+                      {t("inquiry_title", locale)}
                     </Dialog.Title>
                     <p className="text-sm text-qps-muted">{productTitle}</p>
                   </div>
@@ -104,19 +111,19 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
 
                 {sent ? (
                   <div className="py-8 text-center">
-                    <p className="text-base font-semibold text-qps-ink">Thank you.</p>
+                    <p className="text-base font-semibold text-qps-ink">{t("inquiry_thank_you", locale)}</p>
                     <p className="mt-1 text-sm text-qps-muted">
-                      We'll be in touch shortly.
+                      {t("inquiry_in_touch", locale)}
                     </p>
                     <Button onClick={handleClose} variant="secondary" className="mt-6 w-full">
-                      Close
+                      {t("inquiry_close", locale)}
                     </Button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className={labelCls}>Name *</label>
+                        <label className={labelCls}>{t("inquiry_name", locale)} *</label>
                         <input
                           required
                           value={form.name}
@@ -125,7 +132,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className={labelCls}>Company</label>
+                        <label className={labelCls}>{t("inquiry_company", locale)}</label>
                         <input
                           value={form.company}
                           onChange={set("company")}
@@ -136,7 +143,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
 
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
-                        <label className={labelCls}>Email *</label>
+                        <label className={labelCls}>{t("inquiry_email", locale)} *</label>
                         <input
                           required
                           type="email"
@@ -146,7 +153,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <label className={labelCls}>Phone</label>
+                        <label className={labelCls}>{t("inquiry_phone", locale)}</label>
                         <input
                           type="tel"
                           value={form.phone}
@@ -157,7 +164,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className={labelCls}>Quantity</label>
+                      <label className={labelCls}>{t("inquiry_quantity", locale)}</label>
                       <input
                         type="number"
                         min="1"
@@ -168,7 +175,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className={labelCls}>Message</label>
+                      <label className={labelCls}>{t("inquiry_message", locale)}</label>
                       <textarea
                         rows={3}
                         value={form.message}
@@ -187,7 +194,7 @@ export default function InquiryForm({ productTitle }: { productTitle: string }) 
                       isLoading={sending}
                       disabled={sending}
                     >
-                      Send Inquiry
+                      {t("inquiry_send", locale)}
                     </Button>
                   </form>
                 )}
