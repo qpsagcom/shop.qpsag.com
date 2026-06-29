@@ -33,12 +33,6 @@ const SideMenuItems = [
     eyebrow: "Procurement",
     description: "Orders and addresses",
   },
-  {
-    name: "Cart",
-    href: "/cart",
-    eyebrow: "Checkout",
-    description: "Review your selection and request",
-  },
 ] as const
 
 type SideMenuProps = {

@@ -8,6 +8,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import QpsLogo from "@modules/layout/components/qps-logo"
 import SideMenu from "@modules/layout/components/side-menu"
+import NavLanguageSwitcher from "@modules/layout/components/nav-language-switcher"
 import { getTranslator } from "@lib/i18n/translations"
 
 export default async function Nav() {
@@ -37,6 +38,9 @@ export default async function Nav() {
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
+              {!!locales?.length && (
+                <NavLanguageSwitcher locales={locales} currentLocale={currentLocale} />
+              )}
               <LocalizedClientLink
                 className="transition-colors hover:text-qps-ink"
                 href="/account"

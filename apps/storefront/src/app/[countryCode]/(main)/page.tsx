@@ -235,8 +235,6 @@ export default async function Home(props: {
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
                   <span>Blueprint Series / 2026</span>
-                  <span className="hidden h-1 w-1 rounded-full bg-qps-signal xsmall:inline-block" />
-                  <span>we serve humanity.</span>
                 </div>
               </div>
             </div>
