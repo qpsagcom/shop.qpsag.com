@@ -38,9 +38,7 @@ export default async function Nav() {
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
-              {!!locales?.length && (
-                <NavLanguageSwitcher locales={locales} currentLocale={currentLocale} />
-              )}
+              <NavLanguageSwitcher locales={locales} currentLocale={currentLocale} />
               <LocalizedClientLink
                 className="transition-colors hover:text-qps-ink"
                 href="/account"

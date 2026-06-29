@@ -4,27 +4,40 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import Breadcrumb from "@modules/common/components/breadcrumb"
+import { listCategories } from "@lib/data/categories"
 
 import PaginatedProducts from "./paginated-products"
 
-const StoreTemplate = ({
+const StoreTemplate = async ({
   sortBy,
   page,
   countryCode,
+  categoryId,
 }: {
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  categoryId?: string
 }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
+
+  const allCategories = await listCategories({
+    fields: "id, handle, name, *parent_category",
+  }).catch(() => [])
+
+  const topLevelCategories = allCategories.filter((c) => !c.parent_category)
 
   return (
     <div
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-      <RefinementList sortBy={sort} />
+      <RefinementList
+        sortBy={sort}
+        categories={topLevelCategories}
+        selectedCategoryId={categoryId}
+      />
       <div className="w-full">
         <Breadcrumb
           items={[{ label: "Home", href: "/" }, { label: "All Products" }]}
@@ -37,6 +50,7 @@ const StoreTemplate = ({
             sortBy={sort}
             page={pageNumber}
             countryCode={countryCode}
+            categoryId={categoryId}
           />
         </Suspense>
       </div>

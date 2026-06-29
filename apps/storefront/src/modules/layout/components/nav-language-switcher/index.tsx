@@ -5,15 +5,22 @@ import { Locale } from "@lib/data/locales"
 import { useRouter } from "next/navigation"
 import { useTransition } from "react"
 
+const FALLBACK_LOCALES: Locale[] = [
+  { code: "en", name: "English" },
+  { code: "de", name: "Deutsch" },
+]
+
 export default function NavLanguageSwitcher({
   locales,
   currentLocale,
 }: {
-  locales: Locale[]
+  locales: Locale[] | null
   currentLocale: string | null
 }) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
+
+  const activeLocales = locales?.length ? locales : FALLBACK_LOCALES
 
   const handleSwitch = (code: string) => {
     startTransition(async () => {
@@ -22,18 +29,16 @@ export default function NavLanguageSwitcher({
     })
   }
 
-  if (!locales?.length) return null
-
   return (
     <div className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.18em]">
-      {locales.map((locale, i) => (
+      {activeLocales.map((locale, i) => (
         <span key={locale.code} className="flex items-center gap-1">
           {i > 0 && <span className="text-qps-line mx-0.5">|</span>}
           <button
             onClick={() => handleSwitch(locale.code)}
             disabled={isPending}
             className={
-              currentLocale?.toLowerCase() === locale.code.toLowerCase()
+              (currentLocale ?? "en").toLowerCase() === locale.code.toLowerCase()
                 ? "text-qps-ink cursor-default"
                 : "text-qps-muted transition-colors hover:text-qps-ink"
             }
