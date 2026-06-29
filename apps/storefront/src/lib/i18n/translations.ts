@@ -78,6 +78,18 @@ const translations = {
     product_related: "Ähnliche Produkte",
     product_details: "Produktdetails",
     product_shipping_returns: "Versand & Rückgabe",
+    product_info_tab: "Produktinformationen",
+    product_material: "Material",
+    product_country_origin: "Herkunftsland",
+    product_type: "Typ",
+    product_weight: "Gewicht",
+    product_dimensions: "Abmessungen",
+    product_fast_delivery: "Schnelle Lieferung",
+    product_fast_delivery_body: "Ihr Paket kommt innerhalb von 3–5 Werktagen an Ihrem Abholort oder bei Ihnen zu Hause an.",
+    product_exchanges: "Einfacher Umtausch",
+    product_exchanges_body: "Passt die Grösse nicht ganz? Kein Problem – wir tauschen Ihr Produkt gegen ein neues um.",
+    product_returns: "Einfache Rückgabe",
+    product_returns_body: "Geben Sie einfach Ihr Produkt zurück und wir erstatten Ihr Geld. Keine Fragen gestellt.",
 
     // Price
     price_on_request: "Preis auf Anfrage",
@@ -111,11 +123,35 @@ const translations = {
     inquiry_in_touch: "Wir melden uns in Kürze.",
     inquiry_error: "Anfrage konnte nicht gesendet werden. Bitte erneut versuchen.",
 
+    // Breadcrumb
+    breadcrumb_home: "Startseite",
+    breadcrumb_all_products: "Alle Produkte",
+
+    // Contact page
+    contact_title: "QPS Engineering AG kontaktieren",
+    contact_body: "Anfragen zu ROVIS, Testsets, Inspektionsboxen, Robotersoftware oder unseren Technologielösungen.",
+    contact_get_in_touch: "Kontakt aufnehmen",
+    contact_phone: "Telefon",
+    contact_website: "Webseite",
+    contact_address: "Adresse",
+
     // Hero
     hero_title: "Products for the Lifesciences",
     hero_subtitle: "QPS Engineering AG bündelt ROVIS-Roboter, Testsets, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
     hero_cta: "Katalog ansehen",
     hero_cta_secondary: "Kontakt",
+    hero_pill_1: "Technologielösungen",
+    hero_pill_2: "KI-Geschäftssysteme",
+    hero_pill_3: "Lösungen für visuelle Inspektion",
+    hero_pill_4: "Fehler-Testsets",
+    hero_card_label: "Industrielle Robotik",
+    hero_card_title: "Testsets und Inspektionsboxen",
+    hero_card_body: "Zubehör und Referenzen für visuelle Inspektion, Qualifizierung und reproduzierbare Prüfprozesse.",
+    hero_cycle_1: "Positionieren",
+    hero_cycle_2: "Prüfen",
+    hero_cycle_3: "Dokumentieren",
+    hero_focus_body: "Der QPS-Roboter für die visuelle Inspektion in regulierten Umgebungen.",
+    hero_cycle_ready: "Zyklus bereit",
 
     // Home – feature bar
     home_feature1_title: "Industrielle Robotik",
@@ -251,6 +287,18 @@ const translations = {
     product_related: "Related Products",
     product_details: "Product Details",
     product_shipping_returns: "Shipping & Returns",
+    product_info_tab: "Product Information",
+    product_material: "Material",
+    product_country_origin: "Country of origin",
+    product_type: "Type",
+    product_weight: "Weight",
+    product_dimensions: "Dimensions",
+    product_fast_delivery: "Fast delivery",
+    product_fast_delivery_body: "Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home.",
+    product_exchanges: "Simple exchanges",
+    product_exchanges_body: "Is the fit not quite right? No worries - we'll exchange your product for a new one.",
+    product_returns: "Easy returns",
+    product_returns_body: "Just return your product and we'll refund your money. No questions asked – we'll do our best to make sure your return is hassle-free.",
 
     // Price
     price_on_request: "Price on request",
@@ -284,11 +332,35 @@ const translations = {
     inquiry_in_touch: "We'll be in touch shortly.",
     inquiry_error: "Could not send your inquiry. Please try again.",
 
+    // Breadcrumb
+    breadcrumb_home: "Home",
+    breadcrumb_all_products: "All Products",
+
+    // Contact page
+    contact_title: "Contact QPS Engineering AG",
+    contact_body: "Reach out for enquiries about ROVIS, test sets, inspection boxes, robotics software, or any of our technology solutions.",
+    contact_get_in_touch: "Get in Touch",
+    contact_phone: "Phone",
+    contact_website: "Website",
+    contact_address: "Address",
+
     // Hero
     hero_title: "Products for the Lifesciences",
     hero_subtitle: "QPS Engineering delivers engineering and validation services, robotic-based solutions, visual inspection technologies, AI-driven tools, and defect test sets—helping customers achieve safe, efficient, and reliable production processes.",
     hero_cta: "View Catalog",
     hero_cta_secondary: "Contact",
+    hero_pill_1: "Technology solutions",
+    hero_pill_2: "AI business systems",
+    hero_pill_3: "Visual Inspection solutions",
+    hero_pill_4: "Defect Test Sets",
+    hero_card_label: "Industrial Robotics",
+    hero_card_title: "Test sets and inspection boxes",
+    hero_card_body: "Accessories and references for visual inspection, qualification, and reproducible inspection processes.",
+    hero_cycle_1: "Position",
+    hero_cycle_2: "Inspect",
+    hero_cycle_3: "Document",
+    hero_focus_body: "The QPS robot for visual inspection in regulated environments.",
+    hero_cycle_ready: "Cycle ready",
 
     // Home – feature bar
     home_feature1_title: "Industrial Robotics",

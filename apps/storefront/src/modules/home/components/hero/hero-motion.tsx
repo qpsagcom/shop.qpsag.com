@@ -5,12 +5,14 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { Heading } from "@modules/common/components/ui"
 import { useReducedMotion } from "motion/react"
 import * as m from "motion/react-m"
+import { t } from "@lib/i18n/translations"
 
 type HeroMotionProps = {
   title: string
   subtitle: string
   cta: string
   ctaSecondary: string
+  locale?: string
 }
 
 const container = {
@@ -25,10 +27,21 @@ const container = {
 
 const heroImageUrl = "/qps-hero-cleanroom.webp"
 
-const inspectionCycle = ["Position", "Inspect", "Document"] as const
-
-export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroMotionProps) {
+export default function HeroMotion({ title, subtitle, cta, ctaSecondary, locale = "en" }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()
+
+  const pills = [
+    t("hero_pill_1", locale),
+    t("hero_pill_2", locale),
+    t("hero_pill_3", locale),
+    t("hero_pill_4", locale),
+  ]
+
+  const inspectionCycle = [
+    t("hero_cycle_1", locale),
+    t("hero_cycle_2", locale),
+    t("hero_cycle_3", locale),
+  ]
 
   return (
     <section className="relative overflow-hidden border-b border-qps-line bg-qps-paper">
@@ -93,12 +106,7 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroM
             variants={container}
             className="mt-12 grid max-w-2xl grid-cols-1 gap-3 text-left xsmall:grid-cols-2"
           >
-            {[
-              "Technology solutions",
-              "AI business systems",
-              "Visual Inspection solutions",
-              "Defect Test Sets",
-            ].map((label) => (
+            {pills.map((label) => (
               <m.li
                 key={label}
                 variants={scaleIn}
@@ -158,7 +166,7 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroM
                     repeat: Infinity,
                   }}
                 />
-                Technology Solutions
+                {t("hero_card_label", locale)}
               </span>
               <span>QPS AG</span>
             </div>
@@ -170,14 +178,13 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroM
               transition={{ ...qpsMotion.soft, delay: 0.44 }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-signal">
-                Industrial Robotics
+                {t("hero_card_label", locale)}
               </p>
               <h2 className="mt-3 text-2xl font-semibold leading-7 tracking-[-0.04em] text-qps-ink">
-                Test sets and inspection boxes
+                {t("hero_card_title", locale)}
               </h2>
               <p className="mt-3 text-sm leading-6 text-qps-graphite">
-                Accessories and references for visual inspection,
-                qualification, and reproducible inspection processes.
+                {t("hero_card_body", locale)}
               </p>
               <div className="mt-5 grid grid-cols-3 gap-2">
                 {inspectionCycle.map((step, index) => (
@@ -220,7 +227,7 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroM
               </p>
               <p className="mt-2 text-lg font-semibold">ROVIS</p>
               <p className="mt-3 text-sm leading-5 text-qps-paper/65">
-                The QPS robot for visual inspection in regulated environments.
+                {t("hero_focus_body", locale)}
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-qps-paper/55">
                 <m.span
@@ -236,7 +243,7 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary }: HeroM
                     repeat: Infinity,
                   }}
                 />
-                Cycle ready
+                {t("hero_cycle_ready", locale)}
               </div>
             </m.div>
           </m.div>

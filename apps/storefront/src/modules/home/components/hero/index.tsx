@@ -12,6 +12,7 @@ const Hero = async () => {
       subtitle={translate("hero_subtitle")}
       cta={translate("hero_cta")}
       ctaSecondary={translate("hero_cta_secondary")}
+      locale={currentLocale ?? "en"}
     />
   )
 }

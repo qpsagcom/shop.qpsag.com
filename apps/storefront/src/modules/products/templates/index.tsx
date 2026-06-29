@@ -10,6 +10,8 @@ import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-relat
 import Breadcrumb from "@modules/common/components/breadcrumb"
 import { notFound } from "next/navigation"
 import { HttpTypes } from "@medusajs/types"
+import { getLocale as getLocaleCookie } from "@lib/data/locale-actions"
+import { getTranslator } from "@lib/i18n/translations"
 
 import ProductActionsWrapper from "./product-actions-wrapper"
 
@@ -20,27 +22,31 @@ type ProductTemplateProps = {
   images: HttpTypes.StoreProductImage[]
 }
 
-const ProductTemplate: React.FC<ProductTemplateProps> = ({
+const ProductTemplate = async ({
   product,
   region,
   countryCode,
   images,
-}) => {
+}: ProductTemplateProps) => {
   if (!product || !product.id) {
     return notFound()
   }
 
+  const locale = await getLocaleCookie()
+  const translate = getTranslator(locale)
+
   const categoryHref = product.categories?.[0]
     ? `/categories/${product.categories[0].handle}`
     : "/store"
-  const categoryLabel = product.categories?.[0]?.name ?? "All Products"
+  const categoryLabel =
+    product.categories?.[0]?.name ?? translate("breadcrumb_all_products")
 
   return (
     <>
       <div className="content-container pt-6 pb-0">
         <Breadcrumb
           items={[
-            { label: "Home", href: "/" },
+            { label: translate("breadcrumb_home"), href: "/" },
             { label: categoryLabel, href: categoryHref },
             { label: product.title ?? "" },
           ]}
@@ -52,7 +58,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       >
         <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
           <ProductInfo product={product} />
-          <ProductTabs product={product} />
+          <ProductTabs product={product} locale={locale ?? "en"} />
         </div>
         <div className="block w-full relative">
           <ImageGallery images={images} />

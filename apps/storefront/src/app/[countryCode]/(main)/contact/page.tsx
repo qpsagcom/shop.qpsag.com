@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 import Breadcrumb from "@modules/common/components/breadcrumb"
+import { getLocale as getLocaleCookie } from "@lib/data/locale-actions"
+import { getTranslator } from "@lib/i18n/translations"
 
 export const metadata: Metadata = {
   title: "Contact | QPS Engineering AG",
@@ -7,32 +9,34 @@ export const metadata: Metadata = {
     "Get in touch with QPS Engineering AG for questions about ROVIS, test sets, robotics, and visual inspection solutions.",
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const locale = await getLocaleCookie()
+  const translate = getTranslator(locale)
+
   return (
     <div className="content-container py-16 max-w-3xl">
       <Breadcrumb
         items={[
-          { label: "Home", href: "/" },
-          { label: "Contact" },
+          { label: translate("breadcrumb_home"), href: "/" },
+          { label: translate("contact_get_in_touch") },
         ]}
       />
 
       <h1 className="text-3xl font-semibold tracking-[-0.04em] text-qps-ink mb-4">
-        Contact QPS Engineering AG
+        {translate("contact_title")}
       </h1>
       <p className="text-base leading-7 text-qps-graphite mb-12 max-w-xl">
-        Reach out for enquiries about ROVIS, test sets, inspection boxes,
-        robotics software, or any of our technology solutions.
+        {translate("contact_body")}
       </p>
 
       <div className="grid gap-8 small:grid-cols-2">
         <div className="rounded-[1.25rem] border border-qps-line bg-qps-surface p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal mb-4">
-            Get in Touch
+            {translate("contact_get_in_touch")}
           </p>
           <div className="space-y-3 text-sm leading-6 text-qps-graphite">
             <p>
-              <span className="font-semibold text-qps-ink">Phone</span>
+              <span className="font-semibold text-qps-ink">{translate("contact_phone")}</span>
               <br />
               <a
                 href="tel:+41562819114"
@@ -42,7 +46,7 @@ export default function ContactPage() {
               </a>
             </p>
             <p>
-              <span className="font-semibold text-qps-ink">Email</span>
+              <span className="font-semibold text-qps-ink">{translate("inquiry_email")}</span>
               <br />
               <a
                 href="mailto:info@qpsag.com"
@@ -52,7 +56,7 @@ export default function ContactPage() {
               </a>
             </p>
             <p>
-              <span className="font-semibold text-qps-ink">Website</span>
+              <span className="font-semibold text-qps-ink">{translate("contact_website")}</span>
               <br />
               <a
                 href="https://qpsag.com"
@@ -68,7 +72,7 @@ export default function ContactPage() {
 
         <div className="rounded-[1.25rem] border border-qps-line bg-qps-surface p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal mb-4">
-            Address
+            {translate("contact_address")}
           </p>
           <address className="not-italic text-sm leading-7 text-qps-graphite">
             <span className="font-semibold text-qps-ink">
