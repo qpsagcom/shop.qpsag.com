@@ -5,11 +5,6 @@ import { Locale } from "@lib/data/locales"
 import { useRouter } from "next/navigation"
 import { useTransition } from "react"
 
-const FALLBACK_LOCALES: Locale[] = [
-  { code: "en", name: "English" },
-  { code: "de", name: "Deutsch" },
-]
-
 export default function NavLanguageSwitcher({
   locales,
   currentLocale,
@@ -20,8 +15,6 @@ export default function NavLanguageSwitcher({
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
-  const activeLocales = locales?.length ? locales : FALLBACK_LOCALES
-
   const handleSwitch = (code: string) => {
     startTransition(async () => {
       await updateLocale(code)
@@ -29,9 +22,11 @@ export default function NavLanguageSwitcher({
     })
   }
 
+  if (!locales?.length) return null
+
   return (
     <div className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.18em]">
-      {activeLocales.map((locale, i) => (
+      {locales.map((locale, i) => (
         <span key={locale.code} className="flex items-center gap-1">
           {i > 0 && <span className="text-qps-line mx-0.5">|</span>}
           <button
