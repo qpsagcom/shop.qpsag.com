@@ -169,24 +169,24 @@ const translations = {
     // Home – workflow steps
     home_step1_title: "Roboterautomatisierung für Life Sciences",
     home_step1_eyebrow: "Roboterlösungen",
-    home_step1_body: "Wir liefern massgeschneiderte robotische Automatisierungslösungen für Life-Science-Anwendungen und arbeiten mit einer breiten Palette führender Technologiepartner zusammen. Vom Konzept bis zum validierten System bieten wir einen Full-Service-Ansatz – inklusive Design, Integration, Implementierung und Compliance. Unser flexibles, herstellerneutrales Modell stellt sicher, dass jede Lösung für Leistung, Skalierbarkeit und regulatorische Anforderungen optimiert ist.",
+    home_step1_body: "QPS liefert schlüsselfertige Roboterautomatisierung für Life-Science-Anwendungen – vom Konzept bis zum validierten System. Design, Integration und regulatorische Compliance werden mit einem herstellerneutralen Full-Service-Ansatz abgedeckt, der auf Ihre Prozessanforderungen zugeschnitten ist.",
 
     home_step2_title: "KI-Geschäftssysteme",
     home_step2_eyebrow: "KI-Automatisierung für Life Sciences",
-    home_step2_body: "Die Welt bewegt sich rasant in Richtung KI-gesteuerter Tools, und die Pharmaindustrie benötigt Lösungen, die nicht nur Innovation liefern, sondern auch strenge regulatorische Standards erfüllen. Bei QPS bieten wir skalierbare, durchgängige KI-Automatisierungslösungen für Life-Science-Umgebungen. Unsere Flaggschiff-Plattform Dr. Project ist ein unternehmensweites KI-Projekt- und Aufgabenmanagementsystem, das speziell für regulierte Industrien entwickelt wurde.",
+    home_step2_body: "Die Pharmaindustrie benötigt Innovation, die strenge regulatorische Standards erfüllt. QPS bietet skalierbare KI-Automatisierung für Life-Science-Umgebungen – von Beratung und Agenten-Setup bis zu Dr. Project, unserem unternehmensweiten KI-Projektmanagementsystem für qualifizierte, validierte Workflows.",
 
     home_step3_title: "Lösungen für visuelle Inspektion",
     home_step3_eyebrow: "Inspektionslösungen für injizierbare Pharmazeutika",
-    home_step3_body: "Wir bieten umfassende Lösungen für die visuelle Inspektion pharmazeutischer Injektionsprodukte durch die Kombination fortschrittlicher Technologien für die automatisierte und manuelle Inspektion. Unser ROVIS AVI-System liefert hochgeschwindige, konsistente und wiederholbare Inspektion. Inspektionsschränke von Quantum Packaging Technologies ergänzen dies mit robusten MVI-Fähigkeiten – für ein flexibles, durchgängiges Inspektionskonzept.",
+    home_step3_body: "Unser ROVIS AVI-System liefert hochgeschwindige, wiederholbare Fehlererkennung für pharmazeutische Injektionsprodukte. In Kombination mit Inspektionsschränken von Quantum Packaging Technologies für die manuelle Sichtprüfung bieten wir eine flexible Komplettlösung, die regulatorische und qualitative Anforderungen erfüllt.",
 
     home_step4_title: "Fehler-Testsets",
     home_step4_eyebrow: "QLabs Fehler-Testsets",
-    home_step4_body: "QLabs bietet hochwertige Fehler-Testsets, die die Entwicklung, Validierung und laufende Leistungsverifizierung von Sichtprüfsystemen unterstützen. Unsere Testsets replizieren eine breite Palette realer Produktfehler und ermöglichen zuverlässige Challenge-Tests für AVI und MVI. Entwickelt für den Einsatz in regulierten pharmazeutischen Umgebungen, unterstützen sie die Compliance durch robuste Qualifizierungs- und Validierungsaktivitäten.",
+    home_step4_body: "QLabs-Fehler-Testsets replizieren reale Produktdefekte zur Unterstützung der Entwicklung, Validierung und laufenden Verifizierung von AVI- und MVI-Systemen. Entwickelt für regulierte pharmazeutische Umgebungen, ermöglichen sie robuste Qualifizierungsaktivitäten und halten Prüfprozesse dauerhaft audit-ready.",
 
     // Home – product range section
     home_range_eyebrow: "Robotik-Sortiment",
-    home_range_heading: "Robotik für zuverlässige visuelle Inspektion: ROVIS, Roboter, Testsets, Software und Inspektionsboxen.",
-    home_range_body: "Der Shop wird zum Beschaffungspunkt für QPS-Robotik rund um visuelle Inspektion, Prüferschulung, robotergestützte visuelle Inspektion und qualitätsbezogene Prozessunterstützung.",
+    home_range_heading: "ROVIS, Roboter, Testsets, Inspektionsboxen und Software – alles in einem Katalog.",
+    home_range_body: "QxTec ist der Beschaffungspunkt für QPS-Robotik: Durchsuchen Sie das vollständige Sortiment, identifizieren Sie was zu Ihrem Prüfprozess passt, und fordern Sie direkt ein Angebot an.",
     home_range_error_eyebrow: "Sortiment vorübergehend nicht verfügbar",
     home_range_error_heading: "Die Robotikprodukte laden, sobald die Shop-API wieder antwortet.",
     home_range_error_body: "Die Startseite bleibt verfügbar, damit ROVIS, Roboter, Testsets, Inspektionsboxen und QPS-Know-how auch bei einer vorübergehenden API-Störung sichtbar bleiben.",
@@ -378,24 +378,24 @@ const translations = {
     // Home – workflow steps
     home_step1_title: "Robotic automation for life sciences",
     home_step1_eyebrow: "Robotic Solutions",
-    home_step1_body: "We deliver tailored robotic automation solutions for life science applications, working with a wide range of leading technology partners. From concept to validated system, we provide a full-service approach—covering design, integration, implementation, and compliance. Our flexible, vendor-neutral model ensures each solution is optimized for performance, scalability, and regulatory requirements.",
+    home_step1_body: "QPS delivers turnkey robotic automation for life science applications—from concept to validated system. We cover design, integration, and regulatory compliance with a vendor-neutral, full-service approach built around your process requirements.",
 
     home_step2_title: "AI business systems",
     home_step2_eyebrow: "AI automation for life sciences",
-    home_step2_body: "The world is rapidly moving toward AI-driven tools, and the pharmaceutical industry requires solutions that not only deliver innovation, but also meet strict regulatory standards. At QPS, we provide scalable, end-to-end AI automation solutions tailored for life science environments. Our flagship platform, Dr. Project, is an enterprise-grade AI project and task management system designed specifically for regulated industries.",
+    home_step2_body: "The pharmaceutical industry needs innovation that meets strict regulatory standards. QPS provides scalable AI automation for life science environments—from consulting and agent setup to Dr. Project, our enterprise-grade AI project management platform built for qualified, validated workflows.",
 
     home_step3_title: "Visual Inspection solutions",
     home_step3_eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
-    home_step3_body: "We offer comprehensive visual inspection solutions for pharmaceutical injectable products by combining advanced technologies for both automated and manual inspection. Our ROVIS AVI system delivers high-speed, consistent, and repeatable inspection, reducing variability and ensuring reliable defect detection. Inspection cabinets from Quantum Packaging Technologies provide robust MVI capabilities—together creating a flexible, end-to-end inspection approach.",
+    home_step3_body: "Our ROVIS AVI system delivers high-speed, repeatable defect detection for pharmaceutical injectables. Combined with Quantum Packaging Technologies inspection cabinets for Manual Visual Inspection, we provide a flexible end-to-end solution that meets regulatory and quality requirements.",
 
     home_step4_title: "Defect test sets",
     home_step4_eyebrow: "QLabs Defect Test Sets",
-    home_step4_body: "QLabs provides high-quality defect test sets designed to support the development, validation, and ongoing performance verification of visual inspection systems. Our test sets replicate a wide range of real-world product defects, enabling reliable challenge testing for both AVI and MVI processes. Designed for regulated pharmaceutical environments, they support compliance by enabling robust qualification and validation activities.",
+    home_step4_body: "QLabs defect test sets replicate real-world product defects to support the development, validation, and ongoing verification of AVI and MVI systems. Purpose-built for regulated environments, they enable robust qualification activities and keep inspection processes audit-ready over time.",
 
     // Home – product range section
     home_range_eyebrow: "Robotics Range",
-    home_range_heading: "Robotics for reliable visual inspection: ROVIS, robots, test sets, software, and inspection boxes.",
-    home_range_body: "The shop becomes the procurement point for QPS robotics around visual inspection, inspector training, robotic visual inspection, and quality-related process support.",
+    home_range_heading: "ROVIS, robots, test sets, inspection boxes, and software — all in one catalog.",
+    home_range_body: "QxTec is the procurement point for QPS robotics: browse the full range, identify what fits your inspection process, and request a quote directly.",
     home_range_error_eyebrow: "Range temporarily unavailable",
     home_range_error_heading: "The robotics products will load as soon as the store API responds again.",
     home_range_error_body: "The home page stays available so that ROVIS, robots, test sets, inspection boxes, and QPS expertise remain visible even during a temporary API disruption.",

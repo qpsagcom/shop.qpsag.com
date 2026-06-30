@@ -41,7 +41,7 @@ export default async function CategoryRail({
           View category
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-1 gap-5 xsmall:grid-cols-2 small:grid-cols-3 small:gap-7">
+      <ul className="grid grid-cols-2 gap-4 small:grid-cols-3 medium:grid-cols-4 small:gap-5">
         {pricedProducts.map((product) => (
           <li key={product.id}>
             <ProductPreview product={product} region={region} isFeatured />

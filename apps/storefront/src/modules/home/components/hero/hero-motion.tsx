@@ -25,7 +25,7 @@ const container = {
   },
 }
 
-const heroImageUrl = "/qps-hero-cleanroom.webp"
+const heroImageUrl = "/qps-hero-rovis.jpg"
 
 export default function HeroMotion({ title, subtitle, cta, ctaSecondary, locale = "en" }: HeroMotionProps) {
   const shouldReduceMotion = useReducedMotion()

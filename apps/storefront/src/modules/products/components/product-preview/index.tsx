@@ -22,9 +22,9 @@ export default async function ProductPreview({
           isFeatured={isFeatured}
           className="rounded-[1.1rem] bg-qps-paper shadow-none"
         />
-        <div className="mt-4 px-1 pb-1">
+        <div className="mt-2 px-1 pb-1">
           <Text
-            className="line-clamp-2 text-sm font-semibold leading-5 text-qps-ink"
+            className="line-clamp-1 text-xs font-semibold leading-5 text-qps-ink"
             data-testid="product-title"
           >
             {product.title}
