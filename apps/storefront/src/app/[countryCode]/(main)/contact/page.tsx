@@ -6,7 +6,7 @@ import { getTranslator } from "@lib/i18n/translations"
 export const metadata: Metadata = {
   title: "Contact | QPS Engineering AG",
   description:
-    "Get in touch with QPS Engineering AG for questions about ROVIS, test sets, robotics, and visual inspection solutions.",
+    "Get in touch with QPS Engineering AG for questions about AVI-Robot, test sets, robotics, and visual inspection solutions.",
 }
 
 export default async function ContactPage() {

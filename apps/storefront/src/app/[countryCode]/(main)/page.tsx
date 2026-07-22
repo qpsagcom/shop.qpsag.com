@@ -10,16 +10,16 @@ import { getTranslator } from "@lib/i18n/translations"
 import { getLocale as getLocaleCookie } from "@lib/data/locale-actions"
 
 export const metadata: Metadata = {
-  title: "QPS AG Shop | Industrial Robotics & ROVIS",
+  title: "QPS AG Shop | Industrial Robotics & AVI-Robot",
   description:
-    "ROVIS robots, test sets, inspection boxes, and software for robotic visual inspection in pharma, biotech, and food tech.",
+    "AVI-Robot robots, test sets, inspection boxes, and software for robotic visual inspection in pharma, biotech, and food tech.",
 }
 
 const STEP_IMAGES = [
   {
     image: "/blueprint/blueprint-rovis-cell.webp",
-    imageAlt: "Technical drawing of the ROVIS robotics cell",
-    figure: "Fig. 01 — ROVIS Cell",
+    imageAlt: "Technical drawing of the AVI-Robot robotics cell",
+    figure: "Fig. 01 — AVI-Robot Cell",
   },
   {
     image: "/blueprint/blueprint-vials-trio.webp",
