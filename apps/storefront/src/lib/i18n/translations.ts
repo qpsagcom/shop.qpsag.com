@@ -20,7 +20,7 @@ const translations = {
     menu_home_desc: "Robotik und visuelle Inspektion",
     menu_store: "Robotik-Katalog",
     menu_store_eyebrow: "Sortiment",
-    menu_store_desc: "AVI-Robot, Roboter, Testsets und Software",
+    menu_store_desc: "RAVI-720, Roboter, Testsets und Software",
     menu_account_eyebrow: "Beschaffung",
     menu_account_desc: "Bestellungen und Adressen",
 
@@ -31,7 +31,7 @@ const translations = {
     footer_imprint: "Impressum",
     footer_privacy: "Datenschutz",
     footer_copyright: "Alle Rechte vorbehalten.",
-    footer_tagline: "AVI-Roboter, Robotersysteme, Testsets, Software und Inspektionsboxen für die visuelle Inspektion in Pharma, Biotech und Food Tech.",
+    footer_tagline: "RAVI-720, Robotersysteme, Testsets, Software und Inspektionsboxen für die visuelle Inspektion in Pharma, Biotech und Food Tech.",
     footer_contact: "Kontakt",
     footer_location: "Standort",
 
@@ -129,7 +129,7 @@ const translations = {
 
     // Contact page
     contact_title: "QPS Engineering AG kontaktieren",
-    contact_body: "Anfragen zu AVI-Robot, Testsets, Inspektionsboxen, Robotersoftware oder unseren Technologielösungen.",
+    contact_body: "Anfragen zu RAVI-720, Testsets, Inspektionsboxen, Robotersoftware oder unseren Technologielösungen.",
     contact_get_in_touch: "Kontakt aufnehmen",
     contact_phone: "Telefon",
     contact_website: "Webseite",
@@ -137,7 +137,7 @@ const translations = {
 
     // Hero
     hero_title: "Products for the Lifesciences",
-    hero_subtitle: "QPS Engineering AG bündelt AVI-Roboter, Testsets, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
+    hero_subtitle: "QPS Engineering AG bündelt RAVI-720, Testsets, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
     hero_cta: "Katalog ansehen",
     hero_cta_secondary: "Kontakt",
     hero_pill_1: "Technologielösungen",
@@ -155,7 +155,7 @@ const translations = {
 
     // Home – feature bar
     home_feature1_title: "Industrielle Robotik",
-    home_feature1_body: "AVI-Robot und robotische Bausteine für wiederholbare Prüfprozesse in der regulierten Produktion.",
+    home_feature1_body: "RAVI-720 und robotische Bausteine für wiederholbare Prüfprozesse in der regulierten Produktion.",
     home_feature2_title: "Testsets für visuelle Inspektion",
     home_feature2_body: "Referenzproben, Fehlerproben und Trainingsmaterial für sichere Prüfentscheidungen.",
     home_feature3_title: "GxP-konforme Lieferung",
@@ -177,7 +177,7 @@ const translations = {
 
     home_step3_title: "Lösungen für visuelle Inspektion",
     home_step3_eyebrow: "Inspektionslösungen für injizierbare Pharmazeutika",
-    home_step3_body: "Unser AVI-Robot-System liefert hochgeschwindige, wiederholbare Fehlererkennung für pharmazeutische Injektionsprodukte. In Kombination mit Inspektionsschränken von Quantum Packaging Technologies für die manuelle Sichtprüfung bieten wir eine flexible Komplettlösung, die regulatorische und qualitative Anforderungen erfüllt.",
+    home_step3_body: "Unser RAVI-720 liefert hochgeschwindige, wiederholbare Fehlererkennung für pharmazeutische Injektionsprodukte. In Kombination mit Inspektionsschränken von Quantum Packaging Technologies für die manuelle Sichtprüfung bieten wir eine flexible Komplettlösung, die regulatorische und qualitative Anforderungen erfüllt.",
 
     home_step4_title: "Fehler-Testsets",
     home_step4_eyebrow: "QLabs Fehler-Testsets",
@@ -185,11 +185,11 @@ const translations = {
 
     // Home – product range section
     home_range_eyebrow: "Robotik-Sortiment",
-    home_range_heading: "AVI-Robot, Roboter, Testsets, Inspektionsboxen und Software – alles in einem Katalog.",
+    home_range_heading: "RAVI-720, Roboter, Testsets, Inspektionsboxen und Software – alles in einem Katalog.",
     home_range_body: "QxTec ist der Beschaffungspunkt für QPS-Robotik: Durchsuchen Sie das vollständige Sortiment, identifizieren Sie was zu Ihrem Prüfprozess passt, und fordern Sie direkt ein Angebot an.",
     home_range_error_eyebrow: "Sortiment vorübergehend nicht verfügbar",
     home_range_error_heading: "Die Robotikprodukte laden, sobald die Shop-API wieder antwortet.",
-    home_range_error_body: "Die Startseite bleibt verfügbar, damit AVI-Robot, Roboter, Testsets, Inspektionsboxen und QPS-Know-how auch bei einer vorübergehenden API-Störung sichtbar bleiben.",
+    home_range_error_body: "Die Startseite bleibt verfügbar, damit RAVI-720, Roboter, Testsets, Inspektionsboxen und QPS-Know-how auch bei einer vorübergehenden API-Störung sichtbar bleiben.",
 
     // Home – lab section
     home_lab_eyebrow: "QPS Robotics Lab — Stein, Schweiz",
@@ -198,7 +198,7 @@ const translations = {
 
     // Home – CTA section
     home_cta_eyebrow: "Bereit für regulierte Workflows",
-    home_cta_heading: "Von AVI-Robot bis Fehler-Testsets: Der Shop wird zur ersten Adresse für Robotik und visuelle Inspektion mit QPS Engineering Know-how.",
+    home_cta_heading: "Von RAVI-720 bis Fehler-Testsets: Der Shop wird zur ersten Adresse für Robotik und visuelle Inspektion mit QPS Engineering Know-how.",
     home_cta_body: "Das Ziel ist ein Sortiment, das sofort verständlich ist: was es löst, wo es eingesetzt wird und wie es Ihre Prüfprozesse reproduzierbarer macht.",
     home_cta_primary: "Robotik-Sortiment ansehen",
     home_cta_secondary_btn: "QPS kontaktieren",
@@ -229,7 +229,7 @@ const translations = {
     menu_home_desc: "Robotics and visual inspection",
     menu_store: "Robotics Catalog",
     menu_store_eyebrow: "Range",
-    menu_store_desc: "AVI-Robot, robots, test sets, and software",
+    menu_store_desc: "RAVI-720, robots, test sets, and software",
     menu_account_eyebrow: "Procurement",
     menu_account_desc: "Orders and addresses",
 
@@ -240,7 +240,7 @@ const translations = {
     footer_imprint: "Imprint",
     footer_privacy: "Privacy Policy",
     footer_copyright: "All rights reserved.",
-    footer_tagline: "AVI-Robot robots, robotics systems, test sets, software, and inspection boxes for visual inspection in pharma, biotech, and food tech.",
+    footer_tagline: "RAVI-720 robots, robotics systems, test sets, software, and inspection boxes for visual inspection in pharma, biotech, and food tech.",
     footer_contact: "Contact",
     footer_location: "Our Location",
 
@@ -338,7 +338,7 @@ const translations = {
 
     // Contact page
     contact_title: "Contact QPS Engineering AG",
-    contact_body: "Reach out for enquiries about AVI-Robot, test sets, inspection boxes, robotics software, or any of our technology solutions.",
+    contact_body: "Reach out for enquiries about RAVI-720, test sets, inspection boxes, robotics software, or any of our technology solutions.",
     contact_get_in_touch: "Get in Touch",
     contact_phone: "Phone",
     contact_website: "Website",
@@ -364,7 +364,7 @@ const translations = {
 
     // Home – feature bar
     home_feature1_title: "Industrial Robotics",
-    home_feature1_body: "AVI-Robot and robotics building blocks for repeatable inspection processes in regulated production.",
+    home_feature1_body: "RAVI-720 and robotics building blocks for repeatable inspection processes in regulated production.",
     home_feature2_title: "Test Sets for Visual Inspection",
     home_feature2_body: "Reference samples, defect samples, and training material for confident inspection decisions.",
     home_feature3_title: "GxP-Aligned Delivery",
@@ -386,7 +386,7 @@ const translations = {
 
     home_step3_title: "Visual Inspection solutions",
     home_step3_eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
-    home_step3_body: "Our AVI-Robot system delivers high-speed, repeatable defect detection for pharmaceutical injectables. Combined with Quantum Packaging Technologies inspection cabinets for Manual Visual Inspection, we provide a flexible end-to-end solution that meets regulatory and quality requirements.",
+    home_step3_body: "Our RAVI-720 delivers high-speed, repeatable defect detection for pharmaceutical injectables. Combined with Quantum Packaging Technologies inspection cabinets for Manual Visual Inspection, we provide a flexible end-to-end solution that meets regulatory and quality requirements.",
 
     home_step4_title: "Defect test sets",
     home_step4_eyebrow: "QLabs Defect Test Sets",
@@ -394,11 +394,11 @@ const translations = {
 
     // Home – product range section
     home_range_eyebrow: "Robotics Range",
-    home_range_heading: "AVI-Robot, robots, test sets, inspection boxes, and software — all in one catalog.",
+    home_range_heading: "RAVI-720, robots, test sets, inspection boxes, and software — all in one catalog.",
     home_range_body: "QxTec is the procurement point for QPS robotics: browse the full range, identify what fits your inspection process, and request a quote directly.",
     home_range_error_eyebrow: "Range temporarily unavailable",
     home_range_error_heading: "The robotics products will load as soon as the store API responds again.",
-    home_range_error_body: "The home page stays available so that AVI-Robot, robots, test sets, inspection boxes, and QPS expertise remain visible even during a temporary API disruption.",
+    home_range_error_body: "The home page stays available so that RAVI-720, robots, test sets, inspection boxes, and QPS expertise remain visible even during a temporary API disruption.",
 
     // Home – lab section
     home_lab_eyebrow: "QPS Robotics Lab — Stein, Switzerland",
@@ -407,7 +407,7 @@ const translations = {
 
     // Home – CTA section
     home_cta_eyebrow: "Ready for regulated workflows",
-    home_cta_heading: "From AVI-Robot to defect test sets: the shop becomes the first address for robotics and visual inspection with QPS Engineering know-how.",
+    home_cta_heading: "From RAVI-720 to defect test sets: the shop becomes the first address for robotics and visual inspection with QPS Engineering know-how.",
     home_cta_body: "The goal is a range that is immediately understandable: what it solves, where it is used, and how it makes your inspection processes more reproducible.",
     home_cta_primary: "View robotics range",
     home_cta_secondary_btn: "Contact QPS",

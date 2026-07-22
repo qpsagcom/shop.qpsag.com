@@ -225,7 +225,7 @@ export default function HeroMotion({ title, subtitle, cta, ctaSecondary, locale 
               <p className="text-[11px] uppercase tracking-[0.18em] text-qps-paper/55">
                 Focus
               </p>
-              <p className="mt-2 text-lg font-semibold">AVI-Robot</p>
+              <p className="mt-2 text-lg font-semibold">RAVI-720</p>
               <p className="mt-3 text-sm leading-5 text-qps-paper/65">
                 {t("hero_focus_body", locale)}
               </p>
