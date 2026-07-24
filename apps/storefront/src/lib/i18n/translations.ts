@@ -123,6 +123,11 @@ const translations = {
     inquiry_in_touch: "Wir melden uns in Kürze.",
     inquiry_error: "Anfrage konnte nicht gesendet werden. Bitte erneut versuchen.",
 
+    // Thank-you page
+    thankyou_title: "Vielen Dank für Ihre Anfrage",
+    thankyou_body: "Wir melden uns in Kürze bei Ihnen.",
+    thankyou_back: "Zurück zum Katalog",
+
     // Breadcrumb
     breadcrumb_home: "Startseite",
     breadcrumb_all_products: "Alle Produkte",
@@ -331,6 +336,11 @@ const translations = {
     inquiry_thank_you: "Thank you.",
     inquiry_in_touch: "We'll be in touch shortly.",
     inquiry_error: "Could not send your inquiry. Please try again.",
+
+    // Thank-you page
+    thankyou_title: "Thank you for your inquiry",
+    thankyou_body: "We'll be in touch shortly.",
+    thankyou_back: "Back to catalog",
 
     // Breadcrumb
     breadcrumb_home: "Home",

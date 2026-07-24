@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react"
 import { Button } from "@modules/common/components/ui"
 import X from "@modules/common/icons/x"
 import { Fragment, useState } from "react"
+import { useParams, useRouter } from "next/navigation"
 import { t } from "@lib/i18n/translations"
 
 const inputCls =
@@ -18,9 +19,10 @@ export default function InquiryForm({
   productTitle: string
   locale?: string
 }) {
+  const router = useRouter()
+  const countryCode = (useParams().countryCode as string) ?? "ch"
   const [open, setOpen] = useState(false)
   const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [form, setForm] = useState({
     name: "",
@@ -47,10 +49,11 @@ export default function InquiryForm({
         body: JSON.stringify({ ...form, product: productTitle }),
       })
       if (!res.ok) throw new Error()
-      setSent(true)
+      // Redirect to the thank-you page (URL contains "thank-you" for
+      // Google Ads conversion tracking via GTM).
+      router.push(`/${countryCode}/thank-you`)
     } catch {
       setError(t("inquiry_error", locale))
-    } finally {
       setSending(false)
     }
   }
@@ -58,7 +61,6 @@ export default function InquiryForm({
   const handleClose = () => {
     setOpen(false)
     setTimeout(() => {
-      setSent(false)
       setError(null)
     }, 300)
   }
@@ -109,18 +111,7 @@ export default function InquiryForm({
                   </button>
                 </div>
 
-                {sent ? (
-                  <div className="py-8 text-center">
-                    <p className="text-base font-semibold text-qps-ink">{t("inquiry_thank_you", locale)}</p>
-                    <p className="mt-1 text-sm text-qps-muted">
-                      {t("inquiry_in_touch", locale)}
-                    </p>
-                    <Button onClick={handleClose} variant="secondary" className="mt-6 w-full">
-                      {t("inquiry_close", locale)}
-                    </Button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div className="flex flex-col gap-1">
                         <label className={labelCls}>{t("inquiry_name", locale)} *</label>
@@ -197,7 +188,6 @@ export default function InquiryForm({
                       {t("inquiry_send", locale)}
                     </Button>
                   </form>
-                )}
               </Dialog.Panel>
             </Transition.Child>
           </div>
