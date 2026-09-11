@@ -11,6 +11,7 @@ type Spec = {
 type Highlight = {
   text: string
   text_de?: string
+  image?: string
 }
 
 type ProductSpecsProps = {
@@ -64,10 +65,27 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
         {items.map((item) => (
           <li
             key={item.text}
-            className="flex items-start gap-3 rounded-large border border-qps-line bg-qps-surface/65 px-4 py-3 shadow-sm"
+            className={`flex items-start gap-3 rounded-large border border-qps-line bg-qps-surface/65 shadow-sm ${
+              item.image ? "p-2 pr-4" : "px-4 py-3"
+            }`}
           >
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
-            <span className="text-sm font-medium tracking-[-0.01em] text-qps-ink">
+            {item.image ? (
+              <img
+                src={item.image}
+                alt=""
+                loading="lazy"
+                width={64}
+                height={64}
+                className="h-16 w-16 shrink-0 rounded-rounded border border-qps-line bg-white object-cover"
+              />
+            ) : (
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
+            )}
+            <span
+              className={`text-sm font-medium tracking-[-0.01em] text-qps-ink ${
+                item.image ? "self-center" : ""
+              }`}
+            >
               {pick(locale, item.text, item.text_de)}
             </span>
           </li>
