@@ -43,10 +43,38 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
   const highlights = parseJsonField<Highlight>(metadata.highlights).filter(
     (h) => h?.text
   )
+  const detects = parseJsonField<Highlight>(metadata.detects).filter(
+    (d) => d?.text
+  )
 
-  if (!specs.length && !highlights.length) {
+  if (!specs.length && !highlights.length && !detects.length) {
     return null
   }
+
+  const renderList = (items: Highlight[], title: string, spaced: boolean) => (
+    <>
+      <h3
+        className={`text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted ${
+          spaced ? "mt-12" : ""
+        }`}
+      >
+        {title}
+      </h3>
+      <ul className="mt-4 grid grid-cols-1 gap-3 xsmall:grid-cols-2 small:grid-cols-3">
+        {items.map((item) => (
+          <li
+            key={item.text}
+            className="flex items-start gap-3 rounded-large border border-qps-line bg-qps-surface/65 px-4 py-3 shadow-sm"
+          >
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
+            <span className="text-sm font-medium tracking-[-0.01em] text-qps-ink">
+              {pick(locale, item.text, item.text_de)}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 
   return (
     <section className="border-t border-qps-line bg-qps-paper">
@@ -77,30 +105,15 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
           </>
         )}
 
-        {highlights.length > 0 && (
-          <>
-            <h3
-              className={`text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted ${
-                specs.length ? "mt-12" : ""
-              }`}
-            >
-              {t("product_highlights_title", locale)}
-            </h3>
-            <ul className="mt-4 grid grid-cols-1 gap-3 xsmall:grid-cols-2 small:grid-cols-3">
-              {highlights.map((highlight) => (
-                <li
-                  key={highlight.text}
-                  className="flex items-start gap-3 rounded-large border border-qps-line bg-qps-surface/65 px-4 py-3 shadow-sm"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
-                  <span className="text-sm font-medium tracking-[-0.01em] text-qps-ink">
-                    {pick(locale, highlight.text, highlight.text_de)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        {detects.length > 0 &&
+          renderList(detects, t("product_detects_title", locale), !!specs.length)}
+
+        {highlights.length > 0 &&
+          renderList(
+            highlights,
+            t("product_highlights_title", locale),
+            !!specs.length || !!detects.length
+          )}
 
         {typeof metadata.spec_note === "string" && metadata.spec_note && (
           <p className="mt-8 max-w-3xl text-xs leading-relaxed text-qps-muted">
