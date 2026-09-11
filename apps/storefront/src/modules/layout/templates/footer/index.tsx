@@ -28,9 +28,6 @@ export default async function Footer() {
             <p className="mt-4 text-sm leading-6 text-qps-graphite">
               {translate("footer_tagline")}
             </p>
-            <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-              shop.qpsag.com
-            </p>
             <div className="mt-8">
               <ColorSwitch />
             </div>

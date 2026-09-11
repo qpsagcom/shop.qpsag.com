@@ -30,9 +30,6 @@ export default async function CategoryRail({
     <div className="content-container py-10 small:py-16">
       <div className="mb-8 flex flex-col gap-4 border-t border-qps-line pt-8 small:flex-row small:items-end small:justify-between">
         <div>
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
-            Category
-          </p>
           <Text className="text-2xl font-semibold tracking-[-0.04em] text-qps-ink small:text-4xl">
             {category.name}
           </Text>
@@ -42,7 +39,7 @@ export default async function CategoryRail({
         </InteractiveLink>
       </div>
       <ul className="grid grid-cols-2 gap-4 small:grid-cols-3 medium:grid-cols-4 small:gap-5">
-        {pricedProducts.map((product) => (
+        {pricedProducts.slice(0, 4).map((product) => (
           <li key={product.id}>
             <ProductPreview product={product} region={region} isFeatured />
           </li>

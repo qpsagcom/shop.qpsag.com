@@ -55,7 +55,7 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
   const renderList = (items: Highlight[], title: string, spaced: boolean) => (
     <>
       <h3
-        className={`text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted ${
+        className={`text-lg font-semibold tracking-[-0.01em] text-qps-ink ${
           spaced ? "mt-12" : ""
         }`}
       >
@@ -78,9 +78,7 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
                 height={64}
                 className="h-16 w-16 shrink-0 rounded-rounded border border-qps-line bg-white object-cover"
               />
-            ) : (
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-qps-signal" />
-            )}
+            ) : null}
             <span
               className={`text-sm font-medium tracking-[-0.01em] text-qps-ink ${
                 item.image ? "self-center" : ""
@@ -99,10 +97,7 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
       <div className="content-container py-12 small:py-16">
         {specs.length > 0 && (
           <>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-qps-muted">
-              {t("product_specs_eyebrow", locale)}
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-[-0.01em] text-qps-ink small:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-[-0.01em] text-qps-ink small:text-3xl">
               {t("product_specs_title", locale)}
             </h2>
             <dl className="mt-8 grid grid-cols-2 gap-3 xsmall:grid-cols-3 small:grid-cols-4">
@@ -111,7 +106,7 @@ const ProductSpecs = ({ product, locale = "en" }: ProductSpecsProps) => {
                   key={spec.label}
                   className="rounded-large border border-qps-line bg-qps-surface/65 px-5 py-4 shadow-sm"
                 >
-                  <dt className="text-[11px] font-semibold uppercase leading-tight tracking-[0.14em] text-qps-muted">
+                  <dt className="text-xs font-medium leading-tight text-qps-muted">
                     {pick(locale, spec.label, spec.label_de)}
                   </dt>
                   <dd className="mt-2 text-xl font-semibold tabular-nums tracking-[-0.01em] text-qps-ink">

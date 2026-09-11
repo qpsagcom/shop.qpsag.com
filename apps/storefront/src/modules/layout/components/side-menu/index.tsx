@@ -43,7 +43,6 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                   data-testid="nav-menu-button"
                   className="relative flex h-full items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-200 ease-out focus:outline-none hover:text-qps-ink"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-qps-signal" />
                   Menu
                 </Popover.Button>
               </div>

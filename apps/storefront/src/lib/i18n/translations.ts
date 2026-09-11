@@ -201,16 +201,16 @@ const translations = {
     home_range_error_body: "Die Startseite bleibt verfügbar, damit RAVI-720, Roboter, Testsets, Inspektionsboxen und QPS-Know-how auch bei einer vorübergehenden API-Störung sichtbar bleiben.",
 
     // Home – lab section
-    home_lab_eyebrow: "QPS Robotics Lab — Stein, Schweiz",
+    home_lab_eyebrow: "QPS Robotics Lab, Stein, Schweiz",
     home_lab_heading: "Robotik, Inspektion und Prozessumgebung als ein System.",
     home_lab_body: "Vom Isolator über die Inspektionslinie bis zum humanoiden Roboter: QPS entwickelt und integriert die Bausteine, die im Shop einzeln verfügbar sind – massgeschneidert für die regulierte Produktion.",
 
     // Home – CTA section
     home_cta_eyebrow: "Bereit für regulierte Workflows",
-    home_cta_heading: "Von RAVI-720 bis Fehler-Testsets: Der Shop wird zur ersten Adresse für Robotik und visuelle Inspektion mit QPS Engineering Know-how.",
-    home_cta_body: "Das Ziel ist ein Sortiment, das sofort verständlich ist: was es löst, wo es eingesetzt wird und wie es Ihre Prüfprozesse reproduzierbarer macht.",
-    home_cta_primary: "Robotik-Sortiment ansehen",
-    home_cta_secondary_btn: "QPS kontaktieren",
+    home_cta_heading: "Eine Adresse für Robotik und visuelle Inspektion.",
+    home_cta_body: "Von RAVI-720 bis Fehler-Testsets, mit dem Engineering-Know-how von QPS für die regulierte Produktion.",
+    home_cta_primary: "Katalog ansehen",
+    home_cta_secondary_btn: "Kontakt",
 
     // Order
     order_confirmed: "Bestellung bestätigt",
@@ -364,7 +364,7 @@ const translations = {
 
     // Hero
     hero_title: "Products for the Lifesciences",
-    hero_subtitle: "QPS Engineering delivers engineering and validation services, robotic-based solutions, visual inspection technologies, AI-driven tools, and defect test sets—helping customers achieve safe, efficient, and reliable production processes.",
+    hero_subtitle: "Engineering, robotics, visual inspection, AI tools and defect test sets for safe, efficient and reliable production.",
     hero_cta: "View Catalog",
     hero_cta_secondary: "Contact",
     hero_pill_1: "Defect Test Sets",
@@ -396,11 +396,11 @@ const translations = {
     // Home – workflow steps
     home_step1_title: "Robotic automation for life sciences",
     home_step1_eyebrow: "Robotic Solutions",
-    home_step1_body: "QPS delivers turnkey robotic automation for life science applications—from concept to validated system. We cover design, integration, and regulatory compliance with a vendor-neutral, full-service approach built around your process requirements.",
+    home_step1_body: "QPS delivers turnkey robotic automation for life science applications, from concept to validated system. We cover design, integration, and regulatory compliance with a vendor-neutral, full-service approach built around your process requirements.",
 
     home_step2_title: "AI business systems",
     home_step2_eyebrow: "AI automation for life sciences",
-    home_step2_body: "The pharmaceutical industry needs innovation that meets strict regulatory standards. QPS provides scalable AI automation for life science environments—from consulting and agent setup to Dr. Project, our enterprise-grade AI project management platform built for qualified, validated workflows.",
+    home_step2_body: "The pharmaceutical industry needs innovation that meets strict regulatory standards. QPS provides scalable AI automation for life science environments, from consulting and agent setup to Dr. Project, our enterprise-grade AI project management platform built for qualified, validated workflows.",
 
     home_step3_title: "Visual Inspection solutions",
     home_step3_eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
@@ -412,23 +412,23 @@ const translations = {
 
     // Home – product range section
     home_range_eyebrow: "Robotics Range",
-    home_range_heading: "RAVI-720, robots, test sets, inspection boxes, and software — all in one catalog.",
+    home_range_heading: "RAVI-720, robots, test sets, inspection boxes and software in one catalog.",
     home_range_body: "QxTec is the procurement point for QPS robotics: browse the full range, identify what fits your inspection process, and request a quote directly.",
     home_range_error_eyebrow: "Range temporarily unavailable",
     home_range_error_heading: "The robotics products will load as soon as the store API responds again.",
     home_range_error_body: "The home page stays available so that RAVI-720, robots, test sets, inspection boxes, and QPS expertise remain visible even during a temporary API disruption.",
 
     // Home – lab section
-    home_lab_eyebrow: "QPS Robotics Lab — Stein, Switzerland",
+    home_lab_eyebrow: "QPS Robotics Lab, Stein, Switzerland",
     home_lab_heading: "Robotics, inspection, and process environment as one system.",
-    home_lab_body: "From the isolator through the inspection line to the humanoid robot: QPS develops and integrates the building blocks that are available individually in the shop — tailored to regulated production.",
+    home_lab_body: "From the isolator through the inspection line to the humanoid robot: QPS develops and integrates the building blocks that are available individually in the shop, tailored to regulated production.",
 
     // Home – CTA section
     home_cta_eyebrow: "Ready for regulated workflows",
-    home_cta_heading: "From RAVI-720 to defect test sets: the shop becomes the first address for robotics and visual inspection with QPS Engineering know-how.",
-    home_cta_body: "The goal is a range that is immediately understandable: what it solves, where it is used, and how it makes your inspection processes more reproducible.",
-    home_cta_primary: "View robotics range",
-    home_cta_secondary_btn: "Contact QPS",
+    home_cta_heading: "One address for robotics and visual inspection.",
+    home_cta_body: "From RAVI-720 to defect test sets, backed by QPS Engineering know-how for regulated production.",
+    home_cta_primary: "View catalog",
+    home_cta_secondary_btn: "Contact",
 
     // Order
     order_confirmed: "Order Confirmed",

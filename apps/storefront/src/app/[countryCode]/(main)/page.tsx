@@ -19,22 +19,22 @@ const STEP_IMAGES = [
   {
     image: "/blueprint/blueprint-vials-trio.webp",
     imageAlt: "Technical drawing of vials for defect test sets",
-    figure: "Fig. 01 — Defect Samples",
+    figure: "Defect Samples",
   },
   {
     image: "/blueprint/blueprint-inspection.webp",
     imageAlt: "Technical drawing of a vial inspection station",
-    figure: "Fig. 02 — Inspection Detail",
+    figure: "Inspection Detail",
   },
   {
     image: "/blueprint/blueprint-rovis-cell.webp",
     imageAlt: "Technical drawing of the RAVI-720 robotics cell",
-    figure: "Fig. 03 — RAVI-720 Cell",
+    figure: "RAVI-720 Cell",
   },
   {
     image: "/blueprint/blueprint-vials.webp",
     imageAlt: "Technical drawing of vials and closure caps",
-    figure: "Fig. 04 — Sample Handling",
+    figure: "Sample Handling",
   },
 ] as const
 
@@ -102,7 +102,7 @@ export default async function Home(props: {
           {features.map(([title, body], index) => (
             <ScrollReveal key={title} delay={index * 0.05}>
               <article className="border-l border-qps-paper/20 pl-5">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-qps-paper">
+                <h2 className="text-base font-semibold tracking-[-0.01em] text-qps-paper">
                   {title}
                 </h2>
                 <p className="mt-2 max-w-sm text-sm leading-6 text-qps-paper/65">
@@ -117,20 +117,13 @@ export default async function Home(props: {
       <section className="bg-qps-paper py-16 small:py-28">
         <div className="content-container grid gap-10 small:grid-cols-[0.75fr_1.25fr] small:items-start">
           <ScrollReveal className="small:sticky small:top-24">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-muted">
-              {translate("home_discover_eyebrow")}
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
+            <h2 className="text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-qps-ink small:text-6xl">
               {translate("home_discover_heading")}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
               {translate("home_discover_body")}
             </p>
             <figure className="mt-8 overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface">
-              <div className="flex items-center justify-between border-b border-dashed border-qps-line px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
-                <span>Fig. 00 — Production Line</span>
-                <span className="text-qps-signal">QPS Engineering</span>
-              </div>
               <img
                 src="/blueprint/blueprint-facility.webp"
                 alt="Technische Zeichnung einer pharmazeutischen Produktionslinie"
@@ -141,35 +134,28 @@ export default async function Home(props: {
           </ScrollReveal>
 
           <div className="relative grid gap-3">
-            <div className="pointer-events-none absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-px bg-gradient-to-b from-qps-signal via-qps-line to-transparent small:block" />
             {workflowSteps.map((item, index) => (
               <ScrollReveal key={item.step} delay={index * 0.06} variant="slide-left">
-                <article className="group relative overflow-hidden rounded-[1.5rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition duration-300 hover:-translate-y-1 hover:border-qps-signal/60">
+                <article className="group relative overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface p-5 shadow-[0_18px_60px_rgba(17,19,21,0.06)] transition duration-300 hover:border-qps-signal/60">
                   <div className="flex gap-5 small:items-center">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-qps-line bg-qps-paper text-[11px] font-semibold tracking-[0.18em] text-qps-signal transition-colors group-hover:border-qps-signal">
                       {item.step}
                     </div>
                     <div className="flex-1">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-                        {item.eyebrow}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-qps-ink">
+                      <h3 className="text-2xl font-semibold tracking-[-0.05em] text-qps-ink">
                         {item.title}
                       </h3>
                       <p className="mt-2 max-w-2xl text-sm leading-6 text-qps-graphite">
                         {item.body}
                       </p>
                     </div>
-                    <figure className="hidden w-44 shrink-0 overflow-hidden rounded-[1rem] border border-qps-line bg-qps-paper small:block">
+                    <figure className="hidden w-44 shrink-0 overflow-hidden rounded-[0.75rem] border border-qps-line bg-qps-paper small:block">
                       <img
                         src={item.image}
                         alt={item.imageAlt}
                         loading="lazy"
                         className="blueprint-img h-28 w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.03]"
                       />
-                      <figcaption className="border-t border-dashed border-qps-line px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-[0.16em] text-qps-muted">
-                        {item.figure}
-                      </figcaption>
                     </figure>
                   </div>
                 </article>
@@ -181,10 +167,7 @@ export default async function Home(props: {
 
       <div className="bg-qps-paper py-12 small:py-24">
         <div className="content-container mb-4 small:mb-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-muted">
-            {translate("home_range_eyebrow")}
-          </p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.045em] text-qps-ink small:text-5xl">
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.045em] text-qps-ink small:text-5xl">
             {translate("home_range_heading")}
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-qps-graphite">
@@ -201,7 +184,7 @@ export default async function Home(props: {
           </ul>
         ) : (
           <div className="content-container">
-            <div className="rounded-[1.5rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
+            <div className="rounded-[1.25rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-qps-signal">
                 {translate("home_range_error_eyebrow")}
               </p>
@@ -219,7 +202,7 @@ export default async function Home(props: {
       <section className="border-b border-qps-line bg-qps-paper py-14 small:py-20">
         <div className="content-container">
           <ScrollReveal variant="scale">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
+            <div className="relative overflow-hidden rounded-[1.25rem] border border-qps-line bg-qps-surface shadow-[0_24px_80px_rgba(17,19,21,0.07)]">
               <img
                 src="/blueprint/blueprint-lab.webp"
                 alt=""
@@ -229,18 +212,12 @@ export default async function Home(props: {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-qps-surface via-qps-surface/85 to-qps-surface/15" />
               <div className="relative max-w-2xl px-6 py-12 small:px-12 small:py-20">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-signal">
-                  {translate("home_lab_eyebrow")}
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
+                <h2 className="text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-qps-ink small:text-5xl">
                   {translate("home_lab_heading")}
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-7 text-qps-graphite">
                   {translate("home_lab_body")}
                 </p>
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-qps-muted">
-                  <span>Blueprint Series / 2026</span>
-                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -256,33 +233,26 @@ export default async function Home(props: {
           className="blueprint-img-on-ink pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16]"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#05070a] via-[#05070a]/72 to-[#05070a]/40" />
-        <div className="content-container relative grid gap-8 small:grid-cols-[1.2fr_0.8fr] small:items-center">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-qps-paper/55">
-              {translate("home_cta_eyebrow")}
-            </p>
-            <h2 className="mt-4 max-w-4xl text-4xl font-semibold leading-[0.96] tracking-[-0.06em] small:text-6xl">
-              {translate("home_cta_heading")}
-            </h2>
-          </div>
-          <div className="rounded-[1.5rem] border border-qps-paper/15 bg-qps-paper/8 p-6">
-            <p className="text-sm leading-6 text-qps-paper/70">
-              {translate("home_cta_body")}
-            </p>
-            <div className="mt-6 flex flex-col gap-3 xsmall:flex-row">
-              <LocalizedClientLink
-                href="/store"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold uppercase tracking-[0.14em] text-[#05070a] transition-colors hover:bg-qps-signal hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
-              >
-                {translate("home_cta_primary")}
-              </LocalizedClientLink>
-              <a
-                href="mailto:info@qpsag.com"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-qps-paper/20 px-6 text-sm font-semibold uppercase tracking-[0.14em] text-qps-paper transition-colors hover:border-qps-signal hover:text-qps-signal focus:outline-none focus:ring-2 focus:ring-qps-paper/50"
-              >
-                {translate("home_cta_secondary_btn")}
-              </a>
-            </div>
+        <div className="content-container relative max-w-3xl">
+          <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.05em] small:text-5xl">
+            {translate("home_cta_heading")}
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-qps-paper/70">
+            {translate("home_cta_body")}
+          </p>
+          <div className="mt-8 flex flex-col gap-3 xsmall:flex-row">
+            <LocalizedClientLink
+              href="/store"
+              className="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full bg-white px-7 text-sm font-semibold uppercase tracking-[0.14em] text-[#05070a] transition-colors hover:bg-qps-signal hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
+            >
+              {translate("home_cta_primary")}
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-qps-paper/25 px-7 text-sm font-semibold uppercase tracking-[0.14em] text-qps-paper transition-colors hover:border-qps-signal hover:text-qps-signal focus:outline-none focus:ring-2 focus:ring-qps-paper/50"
+            >
+              {translate("home_cta_secondary_btn")}
+            </LocalizedClientLink>
           </div>
         </div>
       </section>
