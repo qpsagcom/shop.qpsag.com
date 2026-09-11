@@ -3,6 +3,7 @@ import React, { Suspense } from "react"
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
+import ProductSpecs from "@modules/products/components/product-specs"
 import ProductTabs from "@modules/products/components/product-tabs"
 import RelatedProducts from "@modules/products/components/related-products"
 import ProductInfo from "@modules/products/templates/product-info"
@@ -78,6 +79,8 @@ const ProductTemplate = async ({
           </Suspense>
         </div>
       </div>
+      <ProductSpecs product={product} locale={locale ?? "en"} />
+
       <div
         className="content-container my-16 small:my-32"
         data-testid="related-products-container"

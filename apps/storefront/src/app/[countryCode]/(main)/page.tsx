@@ -17,24 +17,24 @@ export const metadata: Metadata = {
 
 const STEP_IMAGES = [
   {
-    image: "/blueprint/blueprint-rovis-cell.webp",
-    imageAlt: "Technical drawing of the RAVI-720 robotics cell",
-    figure: "Fig. 01 — RAVI-720 Cell",
-  },
-  {
     image: "/blueprint/blueprint-vials-trio.webp",
     imageAlt: "Technical drawing of vials for defect test sets",
-    figure: "Fig. 03 — Defect Samples",
+    figure: "Fig. 01 — Defect Samples",
   },
   {
     image: "/blueprint/blueprint-inspection.webp",
     imageAlt: "Technical drawing of a vial inspection station",
-    figure: "Fig. 04 — Inspection Detail",
+    figure: "Fig. 02 — Inspection Detail",
+  },
+  {
+    image: "/blueprint/blueprint-rovis-cell.webp",
+    imageAlt: "Technical drawing of the RAVI-720 robotics cell",
+    figure: "Fig. 03 — RAVI-720 Cell",
   },
   {
     image: "/blueprint/blueprint-vials.webp",
     imageAlt: "Technical drawing of vials and closure caps",
-    figure: "Fig. 05 — Sample Handling",
+    figure: "Fig. 04 — Sample Handling",
   },
 ] as const
 
@@ -56,33 +56,34 @@ export default async function Home(props: {
 
   const topLevelCategories = categories.filter((c) => !c.parent_category)
 
+  // Display order: defect test sets, visual inspection, robotic automation, AI systems
   const workflowSteps = [
     {
       step: "01",
-      title: translate("home_step1_title"),
-      eyebrow: translate("home_step1_eyebrow"),
-      body: translate("home_step1_body"),
+      title: translate("home_step4_title"),
+      eyebrow: translate("home_step4_eyebrow"),
+      body: translate("home_step4_body"),
       ...STEP_IMAGES[0],
     },
     {
       step: "02",
-      title: translate("home_step2_title"),
-      eyebrow: translate("home_step2_eyebrow"),
-      body: translate("home_step2_body"),
+      title: translate("home_step3_title"),
+      eyebrow: translate("home_step3_eyebrow"),
+      body: translate("home_step3_body"),
       ...STEP_IMAGES[1],
     },
     {
       step: "03",
-      title: translate("home_step3_title"),
-      eyebrow: translate("home_step3_eyebrow"),
-      body: translate("home_step3_body"),
+      title: translate("home_step1_title"),
+      eyebrow: translate("home_step1_eyebrow"),
+      body: translate("home_step1_body"),
       ...STEP_IMAGES[2],
     },
     {
       step: "04",
-      title: translate("home_step4_title"),
-      eyebrow: translate("home_step4_eyebrow"),
-      body: translate("home_step4_body"),
+      title: translate("home_step2_title"),
+      eyebrow: translate("home_step2_eyebrow"),
+      body: translate("home_step2_body"),
       ...STEP_IMAGES[3],
     },
   ]
