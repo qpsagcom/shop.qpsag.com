@@ -171,6 +171,9 @@ const translations = {
     home_feature3_body: "Engineering, Qualifizierung und Compliance-Know-how von QPS Engineering AG.",
 
     // Home – discover section
+    home_products_one: "Produkt",
+    home_products_many: "Produkte",
+    home_view_category: "Kategorie ansehen",
     home_discover_eyebrow: "Discover QxTec",
     home_discover_heading: "Ein klares System für regulierte Industrien.",
     home_discover_body: "QPS kombiniert Robotik, visuelle Inspektion und KI, um kundenorientierte Lösungen zu liefern.",
@@ -389,6 +392,9 @@ const translations = {
     home_feature3_body: "Engineering, qualification, and compliance thinking from QPS Engineering AG.",
 
     // Home – discover section
+    home_products_one: "product",
+    home_products_many: "products",
+    home_view_category: "View category",
     home_discover_eyebrow: "Discover QxTec",
     home_discover_heading: "A clear stack for regulated industries.",
     home_discover_body: "QPS combines robotics, visual inspection and AI to provide customer-driven solutions.",
