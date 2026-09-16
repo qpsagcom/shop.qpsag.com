@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import CategoryGrid from "@modules/home/components/category-grid"
+import CategoryRail from "@modules/home/components/featured-products/category-rail"
 import Hero from "@modules/home/components/hero"
 import { listCategories } from "@lib/data/categories"
 import { getRegion } from "@lib/data/regions"
@@ -175,11 +175,13 @@ export default async function Home(props: {
           </p>
         </div>
         {topLevelCategories.length > 0 && region ? (
-          <CategoryGrid
-            categories={topLevelCategories}
-            region={region}
-            locale={locale}
-          />
+          <ul className="flex flex-col">
+            {topLevelCategories.map((category) => (
+              <li key={category.id}>
+                <CategoryRail category={category} region={region} locale={locale} />
+              </li>
+            ))}
+          </ul>
         ) : (
           <div className="content-container">
             <div className="rounded-[1.25rem] border border-qps-line bg-qps-surface/75 p-8 shadow-[0_18px_60px_rgba(17,19,21,0.06)]">
