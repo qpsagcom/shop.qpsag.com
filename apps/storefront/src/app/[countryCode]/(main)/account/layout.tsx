@@ -1,6 +1,7 @@
 import { retrieveCustomer } from "@lib/data/customer"
 // TODO: Re-add Toaster component when needed
 import AccountLayout from "@modules/account/templates/account-layout"
+import { getLocale } from "@lib/data/locale-actions"
 
 export default async function AccountPageLayout({
   dashboard,
@@ -9,10 +10,13 @@ export default async function AccountPageLayout({
   dashboard?: React.ReactNode
   login?: React.ReactNode
 }) {
-  const customer = await retrieveCustomer().catch(() => null)
+  const [customer, locale] = await Promise.all([
+    retrieveCustomer().catch(() => null),
+    getLocale(),
+  ])
 
   return (
-    <AccountLayout customer={customer}>
+    <AccountLayout customer={customer} locale={locale}>
       {customer ? dashboard : login}
       {/* TODO: Re-add Toaster component when needed */}
     </AccountLayout>

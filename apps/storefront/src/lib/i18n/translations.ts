@@ -13,6 +13,9 @@ const translations = {
     nav_cart: "Warenkorb",
     nav_search: "Suchen",
     nav_menu: "Menü",
+    account_questions_title: "Fragen?",
+    account_questions_body: "Unser Team hilft Ihnen gerne weiter. Schreiben Sie uns über die Kontaktseite.",
+    account_contact_link: "Kontakt",
 
     // Side menu items
     menu_home: "Startseite",
@@ -234,6 +237,9 @@ const translations = {
     nav_cart: "Cart",
     nav_search: "Search",
     nav_menu: "Menu",
+    account_questions_title: "Got questions?",
+    account_questions_body: "Our team is happy to help. Reach us through the contact page.",
+    account_contact_link: "Contact",
 
     // Side menu items
     menu_home: "Home",
