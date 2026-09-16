@@ -1,5 +1,4 @@
 import { listCategories } from "@lib/data/categories"
-import { listCollections } from "@lib/data/collections"
 import { getLocale } from "@lib/data/locale-actions"
 import { getTranslator } from "@lib/i18n/translations"
 import { Text, clx } from "@modules/common/components/ui"
@@ -8,10 +7,7 @@ import ColorSwitch from "@modules/layout/components/color-switch"
 import QpsLogo from "@modules/layout/components/qps-logo"
 
 export default async function Footer() {
-  const [collections, productCategories, currentLocale] = await Promise.all([
-    listCollections({ fields: "*products" })
-      .then((r) => r.collections)
-      .catch(() => []),
+  const [productCategories, currentLocale] = await Promise.all([
     listCategories().catch(() => []),
     getLocale(),
   ])
@@ -122,34 +118,6 @@ export default async function Footer() {
                       </li>
                     )
                   })}
-                </ul>
-              </div>
-            )}
-
-            {/* Kollektionen */}
-            {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-qps-ink">
-                  {translate("footer_collections")}
-                </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-sm text-qps-muted",
-                    {
-                      "grid-cols-2": (collections.length || 0) > 3,
-                    }
-                  )}
-                >
-                  {collections.slice(0, 6).map((c) => (
-                    <li key={c.id}>
-                      <LocalizedClientLink
-                        className="transition-colors hover:text-qps-ink"
-                        href={`/collections/${c.handle}`}
-                      >
-                        {c.title}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
                 </ul>
               </div>
             )}
