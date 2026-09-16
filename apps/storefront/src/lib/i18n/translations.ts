@@ -209,8 +209,8 @@ const translations = {
 
     // Home – lab section
     home_lab_eyebrow: "QPS Robotics Lab, Stein, Schweiz",
-    home_lab_heading: "Robotik, Inspektion und Prozessumgebung als ein System.",
-    home_lab_body: "Vom Isolator über die Inspektionslinie bis zum humanoiden Roboter: QPS entwickelt und integriert die Bausteine, die im Shop einzeln verfügbar sind – massgeschneidert für die regulierte Produktion.",
+    home_lab_heading: "Robotik, Inspektion & Prozessumgebungen als ein System",
+    home_lab_body: "Von Isolatoren und hochpräzisen Inspektionslinien bis zu humanoiden Robotern: QPS entwickelt und integriert die wesentlichen Bausteine für die regulierte Produktion.",
 
     // Home – CTA section
     home_cta_eyebrow: "Bereit für regulierte Workflows",
@@ -434,8 +434,8 @@ const translations = {
 
     // Home – lab section
     home_lab_eyebrow: "QPS Robotics Lab, Stein, Switzerland",
-    home_lab_heading: "Robotics, inspection, and process environment as one system.",
-    home_lab_body: "From the isolator through the inspection line to the humanoid robot: QPS develops and integrates the building blocks that are available individually in the shop, tailored to regulated production.",
+    home_lab_heading: "Robotics, Inspection & Process Environments as One System",
+    home_lab_body: "From isolators and high-precision inspection lines to humanoid robots, QPS develops and integrates the essential building blocks for regulated manufacturing.",
 
     // Home – CTA section
     home_cta_eyebrow: "Ready for regulated workflows",
