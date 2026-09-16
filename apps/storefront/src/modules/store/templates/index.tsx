@@ -22,7 +22,7 @@ const StoreTemplate = async ({
   categoryId?: string
 }) => {
   const pageNumber = page ? parseInt(page) : 1
-  const sort = sortBy || "created_at"
+  const sort = sortBy || "category"
 
   const [allCategories, locale] = await Promise.all([
     listCategories({ fields: "id, handle, name, *parent_category" }).catch(() => []),

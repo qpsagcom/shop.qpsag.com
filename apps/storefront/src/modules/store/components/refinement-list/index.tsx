@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 import { EllipseMiniSolid } from "@medusajs/icons"
 
-import SortProducts, { SortOptions } from "./sort-products"
+import { SortOptions } from "./sort-products"
 import { t } from "@lib/i18n/translations"
 
 type Category = {
@@ -32,38 +32,28 @@ const RefinementList = ({
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-      params.delete("page")
-      return params.toString()
-    },
-    [searchParams]
-  )
+  // Category filters always land on the store page of the current country.
+  const storePath = useCallback(() => {
+    const countryCode = pathname.split("/")[1]
+    return countryCode ? `/${countryCode}/store` : "/store"
+  }, [pathname])
 
   const setQueryParams = (name: string, value: string) => {
-    const query = createQueryString(name, value)
-    router.push(`${pathname}?${query}`)
+    const params = new URLSearchParams(searchParams)
+    params.set(name, value)
+    params.delete("page")
+    router.push(`${storePath()}?${params.toString()}`)
   }
 
   const clearCategory = () => {
-    const params = new URLSearchParams(searchParams)
-    params.delete("categoryId")
-    params.delete("page")
-    const query = params.toString()
-    router.push(query ? `${pathname}?${query}` : pathname)
+    router.push(storePath())
   }
 
   return (
-    <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[220px] small:ml-[1.675rem]">
-      <SortProducts
-        sortBy={sortBy}
-        setQueryParams={setQueryParams}
-        locale={locale}
-        data-testid={dataTestId}
-      />
-
+    <div
+      className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[220px] small:ml-[1.675rem]"
+      data-testid={dataTestId}
+    >
       {!!categories?.length && (
         <div className="flex flex-col gap-y-3">
           <span className="txt-compact-small-plus text-ui-fg-muted">

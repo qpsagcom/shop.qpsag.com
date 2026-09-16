@@ -9,8 +9,10 @@ import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Breadcrumb from "@modules/common/components/breadcrumb"
 import { HttpTypes } from "@medusajs/types"
+import { listCategories } from "@lib/data/categories"
+import { getLocale } from "@lib/data/locale-actions"
 
-export default function CategoryTemplate({
+export default async function CategoryTemplate({
   category,
   sortBy,
   page,
@@ -22,9 +24,15 @@ export default function CategoryTemplate({
   countryCode: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
-  const sort = sortBy || "created_at"
+  const sort = sortBy || "category"
 
   if (!category || !countryCode) notFound()
+
+  const [allCategories, locale] = await Promise.all([
+    listCategories({ fields: "id, handle, name, *parent_category" }).catch(() => []),
+    getLocale(),
+  ])
+  const topLevelCategories = allCategories.filter((c) => !c.parent_category)
 
   const parents = [] as HttpTypes.StoreProductCategory[]
 
@@ -51,7 +59,13 @@ export default function CategoryTemplate({
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-      <RefinementList sortBy={sort} data-testid="sort-by-container" />
+      <RefinementList
+        sortBy={sort}
+        categories={topLevelCategories}
+        selectedCategoryId={category.id}
+        locale={locale ?? "en"}
+        data-testid="category-filter"
+      />
       <div className="w-full">
         <Breadcrumb items={breadcrumbItems} />
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">

@@ -21,8 +21,8 @@ const translations = {
     menu_home: "Startseite",
     menu_home_eyebrow: "Start",
     menu_home_desc: "Robotik und visuelle Inspektion",
-    menu_store: "Robotik-Katalog",
-    menu_store_eyebrow: "Sortiment",
+    menu_store: "Portfolio",
+    menu_store_eyebrow: "Portfolio",
     menu_store_desc: "RAVI-720, Roboter, Testsets und Software",
     menu_account_eyebrow: "Beschaffung",
     menu_account_desc: "Bestellungen und Adressen",
@@ -149,7 +149,7 @@ const translations = {
 
     // Hero
     hero_title: "Products for the Lifesciences",
-    hero_subtitle: "QPS Engineering AG bündelt RAVI-720, Testsets, Inspektionsboxen und Software für sichere Prüfprozesse in Pharma, Biotech und Food Tech.",
+    hero_subtitle: "Engineering, Robotik, visuelle Inspektion, KI-Tools und Fehler-Testsets für eine konforme und effektive Produktion.",
     hero_cta: "Katalog ansehen",
     hero_cta_secondary: "Kontakt",
     hero_pill_1: "Fehler-Testsets",
@@ -162,7 +162,7 @@ const translations = {
     hero_cycle_1: "Positionieren",
     hero_cycle_2: "Prüfen",
     hero_cycle_3: "Dokumentieren",
-    hero_focus_body: "Der QPS-Roboter für die visuelle Inspektion in regulierten Umgebungen.",
+    hero_focus_body: "Robotisches visuelles Inspektionssystem für pharmazeutische Injektionsprodukte.",
     hero_cycle_ready: "Zyklus bereit",
 
     // Home – feature bar
@@ -192,7 +192,7 @@ const translations = {
 
     home_step3_title: "Lösungen für visuelle Inspektion",
     home_step3_eyebrow: "Inspektionslösungen für injizierbare Pharmazeutika",
-    home_step3_body: "Unser RAVI-720 liefert hochgeschwindige, wiederholbare Fehlererkennung für pharmazeutische Injektionsprodukte. In Kombination mit Inspektionsschränken von Quantum Packaging Technologies für die manuelle Sichtprüfung bieten wir eine flexible Komplettlösung, die regulatorische und qualitative Anforderungen erfüllt.",
+    home_step3_body: "Unser RAVI-720 liefert wiederholbare Fehlererkennung für pharmazeutische Injektionsprodukte. In Kombination mit Inspektionsschränken von Quantum Packaging Technologies für die manuelle Sichtprüfung bieten wir eine flexible Komplettlösung, die regulatorische und qualitative Anforderungen erfüllt.",
 
     home_step4_title: "Fehler-Testsets",
     home_step4_eyebrow: "QLabs Fehler-Testsets",
@@ -200,8 +200,9 @@ const translations = {
 
     // Home – product range section
     home_range_eyebrow: "Robotik-Sortiment",
-    home_range_heading: "RAVI-720, Roboter, Testsets, Inspektionsboxen und Software – alles in einem Katalog.",
-    home_range_body: "QxTec ist der Beschaffungspunkt für QPS-Robotik: Durchsuchen Sie das vollständige Sortiment, identifizieren Sie was zu Ihrem Prüfprozess passt, und fordern Sie direkt ein Angebot an.",
+    home_range_heading: "Unser komplettes Inspektions- und Automationsportfolio",
+    home_range_body: "Entdecken Sie das RAVI-720-System, fortschrittliche Roboter, zertifizierte Testsets, Inspektionsboxen und dedizierte Software in einem einzigen Katalog.",
+    home_range_body2: "QxTec ist Ihr Engineering-Partner für fortschrittliche Automation: Durchstöbern Sie unser gesamtes Angebot an Robotik-, KI- und Inspektionslösungen, finden Sie die passende Lösung für Ihren Prozess und fordern Sie direkt ein Angebot an.",
     home_range_error_eyebrow: "Sortiment vorübergehend nicht verfügbar",
     home_range_error_heading: "Die Robotikprodukte laden, sobald die Shop-API wieder antwortet.",
     home_range_error_body: "Die Startseite bleibt verfügbar, damit RAVI-720, Roboter, Testsets, Inspektionsboxen und QPS-Know-how auch bei einer vorübergehenden API-Störung sichtbar bleiben.",
@@ -245,8 +246,8 @@ const translations = {
     menu_home: "Home",
     menu_home_eyebrow: "Start",
     menu_home_desc: "Robotics and visual inspection",
-    menu_store: "Robotics Catalog",
-    menu_store_eyebrow: "Range",
+    menu_store: "Portfolio",
+    menu_store_eyebrow: "Portfolio",
     menu_store_desc: "RAVI-720, robots, test sets, and software",
     menu_account_eyebrow: "Procurement",
     menu_account_desc: "Orders and addresses",
@@ -373,7 +374,7 @@ const translations = {
 
     // Hero
     hero_title: "Products for the Lifesciences",
-    hero_subtitle: "Engineering, robotics, visual inspection, AI tools and defect test sets for safe, efficient and reliable production.",
+    hero_subtitle: "Engineering, robotics, visual inspection, AI tools and defect test sets for compliant and effective production.",
     hero_cta: "View Catalog",
     hero_cta_secondary: "Contact",
     hero_pill_1: "Defect Test Sets",
@@ -386,7 +387,7 @@ const translations = {
     hero_cycle_1: "Position",
     hero_cycle_2: "Inspect",
     hero_cycle_3: "Document",
-    hero_focus_body: "The QPS robot for visual inspection in regulated environments.",
+    hero_focus_body: "Robotic visual inspection system for pharmaceutical injectables.",
     hero_cycle_ready: "Cycle ready",
 
     // Home – feature bar
@@ -416,7 +417,7 @@ const translations = {
 
     home_step3_title: "Visual Inspection solutions",
     home_step3_eyebrow: "Visual Inspection Solutions for Injectable Pharmaceuticals",
-    home_step3_body: "Our RAVI-720 delivers high-speed, repeatable defect detection for pharmaceutical injectables. Combined with Quantum Packaging Technologies inspection cabinets for Manual Visual Inspection, we provide a flexible end-to-end solution that meets regulatory and quality requirements.",
+    home_step3_body: "Our RAVI-720 delivers repeatable defect detection for pharmaceutical injectables. Combined with Quantum Packaging Technologies inspection cabinets for Manual Visual Inspection, we provide a flexible end-to-end solution that meets regulatory and quality requirements.",
 
     home_step4_title: "Defect test sets",
     home_step4_eyebrow: "QLabs Defect Test Sets",
@@ -424,8 +425,9 @@ const translations = {
 
     // Home – product range section
     home_range_eyebrow: "Robotics Range",
-    home_range_heading: "RAVI-720, robots, test sets, inspection boxes and software in one catalog.",
-    home_range_body: "QxTec is the procurement point for QPS robotics: browse the full range, identify what fits your inspection process, and request a quote directly.",
+    home_range_heading: "Our Complete Inspection & Automation Portfolio",
+    home_range_body: "Explore the RAVI-720 system, advanced robots, certified test sets, inspection boxes, and dedicated software in one single catalog.",
+    home_range_body2: "QxTec is your engineering partner for advanced automation: browse our full range of robotic, AI, and inspection solutions to find the perfect fit for your process, and request a quote directly.",
     home_range_error_eyebrow: "Range temporarily unavailable",
     home_range_error_heading: "The robotics products will load as soon as the store API responds again.",
     home_range_error_body: "The home page stays available so that RAVI-720, robots, test sets, inspection boxes, and QPS expertise remain visible even during a temporary API disruption.",

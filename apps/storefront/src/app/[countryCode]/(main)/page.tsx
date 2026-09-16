@@ -173,6 +173,9 @@ export default async function Home(props: {
           <p className="mt-4 max-w-2xl text-base leading-7 text-qps-graphite">
             {translate("home_range_body")}
           </p>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-qps-graphite">
+            {translate("home_range_body2")}
+          </p>
         </div>
         {topLevelCategories.length > 0 && region ? (
           <ul className="flex flex-col">

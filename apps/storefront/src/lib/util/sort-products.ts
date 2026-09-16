@@ -26,10 +26,14 @@ export function sortProducts(
   }
 
   if (sortBy === "category") {
+    const rankOf = (p: HttpTypes.StoreProduct) => {
+      const rank = (p.categories?.[0] as { rank?: number } | undefined)?.rank
+      return typeof rank === "number" ? rank : Number.MAX_SAFE_INTEGER
+    }
     sortedProducts.sort((a, b) => {
-      const aCategory = a.categories?.[0]?.name ?? ""
-      const bCategory = b.categories?.[0]?.name ?? ""
-      return aCategory.localeCompare(bCategory)
+      const byRank = rankOf(a) - rankOf(b)
+      if (byRank !== 0) return byRank
+      return (a.title ?? "").localeCompare(b.title ?? "")
     })
   }
 
