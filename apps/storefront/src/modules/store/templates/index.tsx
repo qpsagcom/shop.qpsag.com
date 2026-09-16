@@ -7,6 +7,7 @@ import Breadcrumb from "@modules/common/components/breadcrumb"
 import { listCategories } from "@lib/data/categories"
 import { getLocale } from "@lib/data/locale-actions"
 import { getTranslator } from "@lib/i18n/translations"
+import { localizedField } from "@lib/util/localize"
 
 import PaginatedProducts from "./paginated-products"
 
@@ -25,12 +26,14 @@ const StoreTemplate = async ({
   const sort = sortBy || "category"
 
   const [allCategories, locale] = await Promise.all([
-    listCategories({ fields: "id, handle, name, *parent_category" }).catch(() => []),
+    listCategories({ fields: "id, handle, name, metadata, *parent_category" }).catch(() => []),
     getLocale(),
   ])
 
   const translate = getTranslator(locale)
-  const topLevelCategories = allCategories.filter((c) => !c.parent_category)
+  const topLevelCategories = allCategories
+    .filter((c) => !c.parent_category)
+    .map((c) => ({ ...c, name: localizedField(c, "name", locale) ?? c.name }))
 
   return (
     <div

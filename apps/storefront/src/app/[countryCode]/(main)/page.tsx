@@ -47,7 +47,7 @@ export default async function Home(props: {
   const [region, categories, locale] = await Promise.all([
     getRegion(countryCode).catch(() => null),
     listCategories({
-      fields: "id, handle, name, *parent_category",
+      fields: "id, handle, name, metadata, *parent_category",
     }).catch(() => []),
     getLocaleCookie(),
   ])

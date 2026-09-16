@@ -2,6 +2,7 @@ import { listProducts } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@modules/common/components/ui"
 import { getTranslator } from "@lib/i18n/translations"
+import { localizedField } from "@lib/util/localize"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
@@ -35,7 +36,7 @@ export default async function CategoryRail({
       <div className="mb-8 flex flex-col gap-4 border-t border-qps-line pt-8 small:flex-row small:items-end small:justify-between">
         <div>
           <Text className="text-2xl font-semibold tracking-[-0.04em] text-qps-ink small:text-4xl">
-            {category.name}
+            {localizedField(category, "name", locale) ?? category.name}
           </Text>
         </div>
         <InteractiveLink href={`/categories/${category.handle}`}>

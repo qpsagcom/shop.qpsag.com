@@ -11,6 +11,7 @@ import Breadcrumb from "@modules/common/components/breadcrumb"
 import { HttpTypes } from "@medusajs/types"
 import { listCategories } from "@lib/data/categories"
 import { getLocale } from "@lib/data/locale-actions"
+import { localizedField } from "@lib/util/localize"
 
 export default async function CategoryTemplate({
   category,
@@ -29,10 +30,14 @@ export default async function CategoryTemplate({
   if (!category || !countryCode) notFound()
 
   const [allCategories, locale] = await Promise.all([
-    listCategories({ fields: "id, handle, name, *parent_category" }).catch(() => []),
+    listCategories({ fields: "id, handle, name, metadata, *parent_category" }).catch(() => []),
     getLocale(),
   ])
-  const topLevelCategories = allCategories.filter((c) => !c.parent_category)
+  const topLevelCategories = allCategories
+    .filter((c) => !c.parent_category)
+    .map((c) => ({ ...c, name: localizedField(c, "name", locale) ?? c.name }))
+  const categoryName = localizedField(category, "name", locale) ?? category.name
+  const categoryDescription = localizedField(category, "description", locale)
 
   const parents = [] as HttpTypes.StoreProductCategory[]
 
@@ -50,9 +55,13 @@ export default async function CategoryTemplate({
     ...parents
       .slice()
       .reverse()
-      .map((p) => ({ label: p.name, href: `/categories/${p.handle}` })),
-    { label: category.name },
+      .map((p) => ({
+        label: localizedField(p, "name", locale) ?? p.name,
+        href: `/categories/${p.handle}`,
+      })),
+    { label: categoryName },
   ]
+
 
   return (
     <div
@@ -69,11 +78,11 @@ export default async function CategoryTemplate({
       <div className="w-full">
         <Breadcrumb items={breadcrumbItems} />
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
-          <h1 data-testid="category-page-title">{category.name}</h1>
+          <h1 data-testid="category-page-title">{categoryName}</h1>
         </div>
-        {category.description && (
+        {categoryDescription && (
           <div className="mb-8 text-base-regular">
-            <p>{category.description}</p>
+            <p>{categoryDescription}</p>
           </div>
         )}
         {category.category_children && (

@@ -4,7 +4,6 @@ import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import ProductSpecs from "@modules/products/components/product-specs"
-import ProductTabs from "@modules/products/components/product-tabs"
 import RelatedProducts from "@modules/products/components/related-products"
 import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
@@ -13,6 +12,7 @@ import { notFound } from "next/navigation"
 import { HttpTypes } from "@medusajs/types"
 import { getLocale as getLocaleCookie } from "@lib/data/locale-actions"
 import { getTranslator } from "@lib/i18n/translations"
+import { localizedField } from "@lib/util/localize"
 
 import ProductActionsWrapper from "./product-actions-wrapper"
 
@@ -40,7 +40,8 @@ const ProductTemplate = async ({
     ? `/categories/${product.categories[0].handle}`
     : "/store"
   const categoryLabel =
-    product.categories?.[0]?.name ?? translate("breadcrumb_all_products")
+    localizedField(product.categories?.[0], "name", locale) ??
+    translate("breadcrumb_all_products")
 
   return (
     <>
@@ -58,8 +59,7 @@ const ProductTemplate = async ({
         data-testid="product-container"
       >
         <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
-          <ProductInfo product={product} />
-          <ProductTabs product={product} locale={locale ?? "en"} />
+          <ProductInfo product={product} locale={locale} />
         </div>
         <div className="block w-full relative">
           <ImageGallery images={images} />

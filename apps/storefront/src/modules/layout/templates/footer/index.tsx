@@ -5,6 +5,7 @@ import { Text, clx } from "@modules/common/components/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ColorSwitch from "@modules/layout/components/color-switch"
 import QpsLogo from "@modules/layout/components/qps-logo"
+import { localizedField } from "@lib/util/localize"
 
 export default async function Footer() {
   const [productCategories, currentLocale] = await Promise.all([
@@ -80,7 +81,7 @@ export default async function Footer() {
                   {productCategories.slice(0, 6).map((c) => {
                     if (c.parent_category) return null
                     const children = c.category_children?.map((child) => ({
-                      name: child.name,
+                      name: localizedField(child, "name", currentLocale) ?? child.name,
                       handle: child.handle,
                       id: child.id,
                     })) || null
@@ -98,7 +99,7 @@ export default async function Footer() {
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
-                          {c.name}
+                          {localizedField(c, "name", currentLocale) ?? c.name}
                         </LocalizedClientLink>
                         {children && (
                           <ul className="grid grid-cols-1 ml-3 gap-2">
