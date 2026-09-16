@@ -1,15 +1,13 @@
 "use client"
 
 import { Popover, PopoverPanel } from "@headlessui/react"
-import useToggleState from "@lib/hooks/use-toggle-state"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { qpsMotion } from "@modules/common/components/motion"
-import { Text, clx } from "@modules/common/components/ui"
+import { Text } from "@modules/common/components/ui"
 import QpsLogo from "@modules/layout/components/qps-logo"
-import CountrySelect from "../country-select"
-import LanguageSelect from "../language-select"
+import NavLanguageSwitcher from "@modules/layout/components/nav-language-switcher"
 import { Locale } from "@lib/data/locales"
 import { AnimatePresence, useReducedMotion } from "motion/react"
 import * as m from "motion/react-m"
@@ -21,15 +19,15 @@ const MENU_ITEMS = [
   { nameKey: "nav_account" as TranslationKey, href: "/account", eyebrowKey: "menu_account_eyebrow" as TranslationKey, descKey: "menu_account_desc" as TranslationKey },
 ] as const
 
+const SECTORS = ["Pharma", "Biotech", "Food Tech", "GxP"]
+
 type SideMenuProps = {
   regions: HttpTypes.StoreRegion[] | null
   locales: Locale[] | null
   currentLocale: string | null
 }
 
-const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
-  const countryToggleState = useToggleState()
-  const languageToggleState = useToggleState()
+const SideMenu = ({ locales, currentLocale }: SideMenuProps) => {
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -43,7 +41,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                   data-testid="nav-menu-button"
                   className="relative flex h-full items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-200 ease-out focus:outline-none hover:text-qps-ink"
                 >
-                  Menu
+                  {t("nav_menu", currentLocale)}
                 </Popover.Button>
               </div>
 
@@ -77,10 +75,9 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       <PopoverPanel static className="flex h-full flex-col">
                         <div
                           data-testid="nav-menu-popup"
-                          className="relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-qps-line bg-qps-surface p-6 shadow-[0_32px_90px_rgba(0,0,0,0.22)]"
+                          className="flex h-full flex-col overflow-y-auto overscroll-contain rounded-[1.25rem] border border-qps-line bg-qps-surface p-6 shadow-[0_32px_90px_rgba(0,0,0,0.22)]"
                         >
-                          <div className="pointer-events-none absolute -right-20 top-12 h-56 w-56 rounded-full bg-qps-signal/20 blur-3xl" />
-                          <div className="relative flex items-start justify-between gap-6" id="xmark">
+                          <div className="flex items-start justify-between gap-6">
                             <QpsLogo />
                             <button
                               data-testid="close-menu-button"
@@ -91,7 +88,8 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                               <XMark />
                             </button>
                           </div>
-                          <ul className="relative mt-12 flex flex-col gap-3">
+
+                          <ul className="mt-10 flex flex-col gap-3">
                             {MENU_ITEMS.map((item, index) => (
                               <m.li
                                 key={item.href}
@@ -108,7 +106,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                               >
                                 <LocalizedClientLink
                                   href={item.href}
-                                  className="group block rounded-[1.1rem] border border-qps-line bg-qps-paper/60 p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
+                                  className="group block rounded-[0.75rem] border border-qps-line bg-qps-paper/60 p-4 transition-colors hover:border-qps-signal/70 hover:bg-qps-signal/10"
                                   onClick={close}
                                   data-testid={`${item.href.replace("/", "") || "home"}-link`}
                                 >
@@ -128,63 +126,33 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                               </m.li>
                             ))}
                           </ul>
-                          <div className="relative flex flex-col gap-y-6 border-t border-qps-line pt-6">
+
+                          <div className="mt-auto flex flex-col gap-y-6 border-t border-qps-line pt-6">
                             <div className="grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.16em] text-qps-muted">
-                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
-                                Pharma
-                              </div>
-                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
-                                Biotech
-                              </div>
-                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
-                                Food Tech
-                              </div>
-                              <div className="rounded-large border border-qps-line bg-qps-paper/60 p-3">
-                                GxP
-                              </div>
+                              {SECTORS.map((sector) => (
+                                <div
+                                  key={sector}
+                                  className="rounded-large border border-qps-line bg-qps-paper/60 p-3"
+                                >
+                                  {sector}
+                                </div>
+                              ))}
                             </div>
+
                             {!!locales?.length && (
-                              <div
-                                className="flex justify-between"
-                                onMouseEnter={languageToggleState.open}
-                                onMouseLeave={languageToggleState.close}
-                              >
-                                <LanguageSelect
-                                  toggleState={languageToggleState}
+                              <div className="flex items-center justify-between gap-4">
+                                <span className="text-sm text-qps-graphite">
+                                  {t("menu_language", currentLocale)}
+                                </span>
+                                <NavLanguageSwitcher
                                   locales={locales}
                                   currentLocale={currentLocale}
                                 />
-                                <ArrowRightMini
-                                  className={clx(
-                                    "transition-transform duration-150",
-                                    languageToggleState.state
-                                      ? "-rotate-90"
-                                      : ""
-                                  )}
-                                />
                               </div>
                             )}
-                            <div
-                              className="flex justify-between"
-                              onMouseEnter={countryToggleState.open}
-                              onMouseLeave={countryToggleState.close}
-                            >
-                              {regions && (
-                                <CountrySelect
-                                  toggleState={countryToggleState}
-                                  regions={regions}
-                                />
-                              )}
-                              <ArrowRightMini
-                                className={clx(
-                                  "transition-transform duration-150",
-                                  countryToggleState.state ? "-rotate-90" : ""
-                                )}
-                              />
-                            </div>
-                            <Text className="flex justify-between txt-compact-small">
-                              © {new Date().getFullYear()} QPS AG. All rights
-                              reserved.
+
+                            <Text className="txt-compact-small text-qps-muted">
+                              © {new Date().getFullYear()} QPS AG. All rights reserved.
                             </Text>
                           </div>
                         </div>
